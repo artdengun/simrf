@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="id" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="'pages/template/head' :: head"></div>
+<body>
+  <div class="container-scroller">
+    <div th:replace="'pages/template/navbar' :: navbar"></div>
+    <div class="container-fluid page-body-wrapper">
+      <div th:replace="'pages/template/sidebar' :: sidebar"></div>
+      <div th:replace="'pages/template/dashboard' :: dashboard"></div>
+    </div>
+  </div>
+  <div th:replace="'pages/template/script' :: script"></div>
+</body>
+
+</html>
+

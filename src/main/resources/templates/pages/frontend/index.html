@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="id" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>SIMRF</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <link th:href="@{logo_richeese.png}" rel="icon">
+  <link th:href="@{logo_richeese.png}" rel="apple-touch-icon">
+  <link th:href="@{https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i}" rel="stylesheet">
+  <link th:href="@{frontend/assets/vendor/aos/aos.css}" rel="stylesheet">
+  <link th:href="@{frontend/assets/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{frontend/assets/vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+  <link th:href="@{frontend/assets/vendor/boxicons/css/boxicons.min.css}" rel="stylesheet">
+  <link th:href="@{frontend/assets/vendor/glightbox/css/glightbox.min.css}" rel="stylesheet">
+  <link th:href="@{frontend/assets/vendor/remixicon/remixicon.css}" rel="stylesheet">
+  <link th:href="@{frontend/assets/vendor/swiper/swiper-bundle.min.css}" rel="stylesheet">
+  <link th:href="@{frontend/assets/css/style.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="index.html">SIMRF</a></h1>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
+          <li><a class="nav-link scrollto" href="#services">Layanan</a></li>
+          <li><a class="nav-link scrollto" href="#portfolio">Product</a></li>
+          <li><a class="getstarted scrollto" th:href="@{/login}">Login as System</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h1>SIMRF</h1>
+          <h2>Menjadi solusi untuk pengelolaan manajemen data yang lebih terstruktur untuk pengelolaan 
+              Data Richeese Factory </h2>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="#about" class="btn-get-started scrollto">Tentang Kami</a>
+            <a href="https://www.youtube.com/watch?v=DAvxB4SCy_g" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Profil Kami</span></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="frontend/assets/img/hero-img.png" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <section id="cliens" class="cliens section-bg">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in">
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="frontend/assets/img/clients/client-1.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="frontend/assets/img/clients/client-2.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="frontend/assets/img/clients/client-3.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="frontend/assets/img/clients/client-4.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="frontend/assets/img/clients/client-5.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="frontend/assets/img/clients/client-6.png" class="img-fluid" alt="">
+          </div>
+<!-- 
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="frontend/assets/img/clients/client-6.png" class="img-fluid" alt="">
+          </div> -->
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Tentang Kami</h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <p>
+              Richeese Factory merupakan <b>QSR (Quick Service Restaurant)</b> atau restoran cepat saji, di mana hampir semua menu kami disajikan dengan saus keju yang lezat (cheese sauce).
+              Restoran kami didesain unik agar menjadi tempat santai yang nyaman untuk semua usia dan kalangan.
+            </p>
+            <ul>
+              <p><b>VISI DAN MISI </b></p>
+              <li><i class="ri-check-double-line"></i> Menjadi pilihan pertama pelanggan menikmati menu makanan keju dengan harga terjangkau dan pelayanan terbaik</li>
+              <li><i class="ri-check-double-line"></i> Melakukan inovasi menu makanan keju dalam bentuk yang menyenangkan, bersemangat dan suasana bersahabat</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              Anda dapat merayakan kebersamaan dan keceriaan bersama sambil menikmati berbagai menu yang disajikan lengkap oleh kami.
+              Richeese Factory hadir pertama kali di Indonesia pada tanggal <b>8 Februari 2011</b>, bertempat di <b>Paris Van Java Mal</b>, Kota Bandung, Jawa Barat. Seiring dengan makin berkembangnya outlet kami, kini Richeese Factory telah hadir di kota – kota besar di Indonesia dengan <b>total 162 outlet di seluruh Indonesia pada tahun 2022,</b> dan akan bertambah terus di tahun mendatang.
+            </p>
+            <p>Sistem Jaminan Halal (SJH) merupakan sebuah sistem yang mengelaborasikan, menghubungkan, mengakomodasikan dan mengintegrasikan konsep-konsep syariat Islam</p>
+            <a href="https://www.richeesefactory.com/id/halal-policy" target="_blank" class="btn-learn-more">Kebijakan Halal Baca Lebih Detail</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Layanan</h2>
+          <p>Richeese Factory memiliki 2 layanan yang bisa menjadi pilihan terbaik anda untuk membahagiakan keluarga dengan kenikmatan ayam keju dan layanan excellent untuk anda yang diberikan oleh Richeese Factory.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4><a href="">Pesan Antar</a></h4>
+              <p>Pesan antar Richeese Factory tersedia mulai pukul 11.00 – 21.00 tanpa minimum order.
+                Jarak antar maksimal 5 km dari outlet Richeese Factory terdekat. Hubungi 1500220.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-layer"></i></div>
+              <h4><a href="">Pesta Ulang Tahun</a></h4>
+              <p>Richeese Factory memiliki layanan pesta ulang tahun yang terdiri dari 2 paket yang bisa dipilih oleh costumer
+                <b>birthdayp6</b> dan <b>birthdayp10</b>/
+                <p><a href="https://www.richeesefactory.com/id/facility/birthday-party">Baca Paket Detail</a></p>
+            </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Product</h2>
+          <p>Richeese Factory memiliki Beberapa product yang akan memberikan kenikmatan kelezatan ayam keju yang akan anda rasakan. </p>
+        </div>
+
+        <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+          <li data-filter=".filter-alacarte" class="filter-active">Alacarte</li>
+          <li data-filter=".filter-beverages">Beverages</li>
+          <li data-filter=".filter-snack">Snack And Desert</li>
+          <li data-filter=".filter-big-order">Big Order</li>
+          <li data-filter=".filter-combo-special">Combo Special</li>
+          <li data-filter=".filter-combo-favorite">Combo Favorite</li>
+          <li data-filter=".filter-kids-meal">Kids Meal</li>
+
+        </ul>
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+          <!-- ALACARTE -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-alacarte">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/4-pc-hs-chicken.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>ALACARTE</h4>
+              <p>4 pc hs chicken</p>
+              <a href="frontend/assets/img/portfolio/4-pc-hs-chicken.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-alacarte">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/4-pc-fire-chicken-85ea928b970f64.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>ALACARTE</h4>
+              <p>4 pc fire chicken</p>
+              <a href="frontend/assets/img/portfolio/4-pc-fire-chicken-85ea928b970f64.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-alacarte">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/alacarte-3-pc-fire-cchickenbites-65ea91ce018622.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>ALACARTE</h4>
+              <p>3 pc fire chicken bites</p>
+              <a href="frontend/assets/img/portfolio/alacarte-3-pc-fire-cchickenbites-65ea91ce018622.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-alacarte">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/alacarte-4-pc-richicken-55ea929cbe3b6e.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Alacarte</h4>
+              <p>4 pc richicken</p>
+              <a href="frontend/assets/img/portfolio/alacarte-4-pc-richicken-55ea929cbe3b6e.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-alacarte">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/alacarte-6-pc-fire-wings-35ea9296b81019.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Alacarte</h4>
+              <p>6 pc fire wings</p>
+              <a href="frontend/assets/img/portfolio/alacarte-6-pc-fire-wings-35ea9296b81019.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-alacarte">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/alacarte-nasi-55ea91b4989141.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Alacarte</h4>
+              <p>Nasi</p>
+              <a href="frontend/assets/img/portfolio/alacarte-nasi-55ea91b4989141.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-alacarte">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/bbq-sauce.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>ALACARTE</h4>
+              <p>Bbq Sauce</p>
+              <a href="frontend/assets/img/portfolio/bbq-sauce.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <!--ALACARTE CLOSE -->
+          <!--BEVERAGES-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-beverages">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/beverages/fruitarian-65ea92a0cd2cf0.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Beverage</h4>
+              <p>Frutarian Tea</p>
+              <a href="frontend/assets/img/portfolio/beverages/fruitarian-65ea92a0cd2cf0.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-beverages">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/beverages/pink-lava-95ea92a379f43e.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Beverage</h4>
+              <p>Pink Lava</p>
+              <a href="frontend/assets/img/portfolio/beverages/pink-lava-95ea92a379f43e.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <!--BEVERAGES CLOSE-->
+          <!--SNACK AND DESERT-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-snack">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/snack/baru-fire-wedges.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Snack And Desert</h4>
+              <p>Fire Wedges</p>
+              <a href="frontend/assets/img/portfolio/snack/baru-fire-wedges.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-snack">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/snack/baru-french-fries.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Snack And Desert</h4>
+              <p>French Fries</p>
+              <a href="frontend/assets/img/portfolio/snack/baru-french-fries.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-snack">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/snack/baru-potato-pompom.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Snack And Desert</h4>
+              <p>Potato Pom Pom</p>
+              <a href="frontend/assets/img/portfolio/snack/baru-potato-pompom.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-snack">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/snack/cheese-crackling.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Snack And Desert</h4>
+              <p>Cheese Crackling</p>
+              <a href="frontend/assets/img/portfolio/snack/cheese-crackling.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-snack">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/snack/ice-cream-richoco.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Snack And Desert</h4>
+              <p>Ice Cream Richoco</p>
+              <a href="frontend/assets/img/portfolio/snack/ice-cream-richoco.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <!--SNACK AND DESERT CLOSE-->
+          <!--BIG ORDER-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-big-order">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/big-order/combo-big1-1-richicken-35ea92aaf6819c.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Big Order</h4>
+              <p>Combo Big 1 Richicken</p>
+              <a href="frontend/assets/img/portfolio/big-order/combo-big1-1-richicken-35ea92aaf6819c.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-big-order">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/big-order/combo-big2-1-richicken.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Big Order</h4>
+              <p>Combo Big 1 Richicken+ mineral</p>
+              <a href="frontend/assets/img/portfolio/big-order/combo-big2-1-richicken.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-big-order">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/big-order/combobig1-1-hs-chicken-55ea92a8289aff.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Big Order</h4>
+              <p>Combo Big 1 Hs</p>
+              <a href="frontend/assets/img/portfolio/big-order/combobig1-1-hs-chicken-55ea92a8289aff.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-big-order">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/big-order/combobig2-1-hs-chicken.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Big Order</h4>
+              <p>Combo Big 1 Hs + Mineral</p>
+              <a href="frontend/assets/img/portfolio/big-order/combobig2-1-hs-chicken.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <!--BIG ORDER CLOSE-->
+          <!--COMBO SPECIAL-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-combo-special">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/combo-special/combo-special-big4-hs-chicken-pinklava.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Combo Special</h4>
+              <p>combo special big4 hs chicken pinklava</p>
+              <a href="frontend/assets/img/portfolio/combo-special/combo-special-big4-hs-chicken-pinklava.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-combo-special">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/combo-special/combo-special-big4-richicken.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Combo Special</h4>
+              <p>combo special big4 richicken</p>
+              <a href="frontend/assets/img/portfolio/combo-special/combo-special-big4-richicken.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-combo-special">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/combo-special/combo-special-big8-hs-chicken-pinklava.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Combo Special</h4>
+              <p>combo special big8 hs chicken pinklava</p>
+              <a href="frontend/assets/img/portfolio/combo-special/combo-special-big8-hs-chicken-pinklava.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-combo-special">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/combo-special/combo-special-big8-richickenn-pinklava.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Combo Special</h4>
+              <p>combo special big8 richicken pinklava</p>
+              <a href="frontend/assets/img/portfolio/combo-special/combo-special-big8-richickenn-pinklava.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-combo-special">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/combo-special/combo-special-combo-1-hs-chicken-inklava.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Combo Special</h4>
+              <p>combo special combo 1 hs chicken pinklava</p>
+              <a href="frontend/assets/img/portfolio/combo-special/combo-special-combo-1-hs-chicken-inklava.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-combo-special">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/combo-special/combo-special-combo-1-richicken-pinklava.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Combo Special</h4>
+              <p>combo special combo 1 richicken pinklava</p>
+              <a href="frontend/assets/img/portfolio/combo-special/combo-special-combo-1-richicken-pinklava.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-combo-special">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/combo-special/combo-special-combo-duo-hs-chicken-pinklava.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Combo Special</h4>
+              <p>combo special combo duo hs chicken pinklava</p>
+              <a href="frontend/assets/img/portfolio/combo-special/combo-special-combo-duo-hs-chicken-pinklava.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-combo-special">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/combo-special/combo-special-combo-duo-richicken-pinkklava.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Combo Special</h4>
+              <p>combo special combo duo richicken pinkklava</p>
+              <a href="frontend/assets/img/portfolio/combo-special/combo-special-combo-duo-richicken-pinkklava.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <!--COMBO SPECIAL CLOSE-->
+          <!--COMBO FAVORITE -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-combo-favorite">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/combo-favorite/combo-special-combo-1-pc-firechicken-pink-lava.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Combo Favorite</h4>
+              <p>combo special combo 1 pc firechicken pink lava</p>
+              <a href="frontend/assets/img/portfolio/combo-favorite/combo-special-combo-1-pc-firechicken-pink-lava.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-combo-favorite">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/combo-favorite/combo-special-combo-2-pc-drumstick-pink-lava.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Combo Favorite</h4>
+              <p>combo special combo 2 pc drumstick pink lava</p>
+              <a href="frontend/assets/img/portfolio/combo-favorite/combo-special-combo-2-pc-drumstick-pink-lava.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-combo-favorite">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/combo-favorite/combo-special-combo-3-pc-fire-chickenbites-pinklava.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Combo Favorite</h4>
+              <p>combo special combo 3 pc fire chickenbites pinklava</p>
+              <a href="frontend/assets/img/portfolio/combo-favorite/combo-special-combo-3-pc-fire-chickenbites-pinklava.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-combo-favorite">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/combo-favorite/combo-special-combo-4-pc-fire-wings-pinklava.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Combo Favorite</h4>
+              <p>combo special combo 4 pc fire wings pinklava</p>
+              <a href="frontend/assets/img/portfolio/combo-favorite/combo-special-combo-4-pc-fire-wings-pinklava.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-combo-favorite">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/combo-favorite/combo-special-combo-cheese-crackling-pinklava.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Combo Favorite</h4>
+              <p>combo special combo cheese crackling pinklava</p>
+              <a href="frontend/assets/img/portfolio/combo-favorite/combo-special-combo-cheese-crackling-pinklava.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-combo-favorite">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/combo-favorite/combo-special-combo-duo-firechicken-pinklava.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Combo Favorite</h4>
+              <p>combo special combo duo firechicken pinklava</p>
+              <a href="frontend/assets/img/portfolio/combo-favorite/combo-special-combo-duo-firechicken-pinklava.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <!--COMBO FAVORITE CLOSE-->
+          <!--KIDS MEAL-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-kids-meal">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/kids-meal/kids-meal-combo-1-crispy-chicken-wth-merc-pinklava.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Kids Meal</h4>
+              <p>kids meal combo 1 crispy chicken wth merc pinklava</p>
+              <a href="frontend/assets/img/portfolio/kids-meal/kids-meal-combo-1-crispy-chicken-wth-merc-pinklava.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>          
+          <div class="col-lg-4 col-md-6 portfolio-item filter-kids-meal">
+            <div class="portfolio-img"><img src="frontend/assets/img/portfolio/kids-meal/kids-meal-combo-1-richicken-wth-merc-pinklava.png" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Kids Meal</h4>
+              <p>kids meal combo 1 richicken wth merc pinklava</p>
+              <a href="frontend/assets/img/portfolio/kids-meal/kids-meal-combo-1-richicken-wth-merc-pinklava.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            </div>
+          </div>
+          <!--KIDS MEAL CLOSE-->
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Richeese Factory</h3>
+            <p>
+              Jl. Bojong Raya No. 18A (HOLIS) Cijerah, Bandung Kulon Bandung 40212 <br><br>
+              <strong>Phone:</strong> 1500220<br>
+              <strong>Email:</strong> rf-comments@richeesefactory.com<br>
+            </p>
+          </div>
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Menu</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#hero">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">Tentang Kami</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Layanan</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#portolio">Product</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a th:href="@{/login}">Login as System</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Layanan</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i><a href="#">Pesan Antar</a></li>
+              <li><i class="bx bx-chevron-right"></i><a href="#">Pesta Ulang Tahun</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Ikuti Social Media Kami</h4>
+            <div class="social-links mt-3">
+              <a href="https://www.facebook.com/RicheeseFactoryID/" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/richeese_factory/" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="https://www.linkedin.com/company/pt.-richeese-kuliner-indonesia/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        Copyright &copy; 2022, <strong><span>Richeese Factory</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">Dibuat Oleh <a href="https://www.linkedin.com/in/deni-gunawan-93b5b412a/">Deni Gunawan</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script th:src="@{frontend/assets/vendor/aos/aos.js}"></script>
+  <script th:src="@{frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+  <script th:src="@{frontend/assets/vendor/glightbox/js/glightbox.min.js}"></script>
+  <script th:src="@{frontend/assets/vendor/isotope-layout/isotope.pkgd.min.js}"></script>
+  <script th:src="@{frontend/assets/vendor/swiper/swiper-bundle.min.js}"></script>
+  <script th:src="@{frontend/assets/vendor/waypoints/noframework.waypoints.js}"></script>
+  <script th:src="@{frontend/assets/vendor/php-email-form/validate.js}"></script>
+  <script th:src="@{frontend/assets/js/main.js}"></script>
+</body>
+
+</html>
