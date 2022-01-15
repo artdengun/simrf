@@ -16,10 +16,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.deni.gunawan.sistemmanajemenricheesefactory.enums.TypeAssets;
-import com.deni.gunawan.sistemmanajemenricheesefactory.enums.TypeDokumen;
 
 @Data
 @AllArgsConstructor
@@ -39,8 +38,6 @@ public class DataAssetsDokumen {
     private String pengirim;
     @Column(name = "tanggal_diterima")
     private Date tanggalDiterima;
-    @Column(name = "type_assets", length = 50)
-    private TypeAssets typeAssets = TypeAssets.DOKUMEN;
     @Column(name = "nama", length = 50)
     private String nama;
     @Column(name = "jenis", length = 50)
@@ -49,14 +46,18 @@ public class DataAssetsDokumen {
     private String quantity;
     @Column(name = "harga_assets", length = 50)
     private BigDecimal hargaAssets;
-    @Column(name = "type_dokumen")
-    private TypeDokumen typeDokumen = TypeDokumen.AKTIF;
     @Column(name = "penerima", length = 50)
     private String penerima;
     @Column(name = "pic", length = 50)
     private String pic;
     @CreationTimestamp
+    @Column(name = "created_date")
     private Timestamp createdDate;
     @UpdateTimestamp
+    @Column(name = "update_date")
     private Timestamp updateDate;
+
+    @ManyToOne
+    @JoinColumn(name = "type_assets", nullable = false)
+    private DataTypeAssets typeAssets;
 }

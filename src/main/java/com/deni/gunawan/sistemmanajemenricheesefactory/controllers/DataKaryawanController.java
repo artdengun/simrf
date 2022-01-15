@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class DataKaryawanController {
 
-    @GetMapping(value = "data/karyawan")
+    @GetMapping(value = "/karyawan")
     public String getKaryawan() {
         return "pages/karyawan/index";
     }
+
 }

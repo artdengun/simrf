@@ -16,9 +16,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.deni.gunawan.sistemmanajemenricheesefactory.enums.TypeAssets;
 
 @Data
 @AllArgsConstructor
@@ -38,8 +39,6 @@ public class DataAssetsKitchen {
     private String pengirim;
     @Column(name = "tanggal_diterima")
     private Date tanggalDiterima;
-    @Column(name = "type_assets", length = 50)
-    private TypeAssets typeAssets = TypeAssets.KITCHEN;
     @Column(name = "nama", length = 50)
     private String nama;
     @Column(name = "jenis", length = 50)
@@ -52,9 +51,14 @@ public class DataAssetsKitchen {
     private String penerima;
     @Column(name = "pic", length = 50)
     private String pic;
-
     @CreationTimestamp
+    @Column(name = "created_date")
     private Timestamp createdDate;
     @UpdateTimestamp
+    @Column(name = "update_date")
     private Timestamp updateDate;
+
+    @ManyToOne
+    @JoinColumn(name = "type_assets", nullable = false)
+    private DataTypeAssets typeAssets;
 }
