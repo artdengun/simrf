@@ -4,7 +4,10 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataBarangGudangRepository;
+
 @Service
-@Transactional
-public class DataBarangDcService {
+public class DataBarangGudangService {
+
+        private DataBarangGudangRepository repo;
 }

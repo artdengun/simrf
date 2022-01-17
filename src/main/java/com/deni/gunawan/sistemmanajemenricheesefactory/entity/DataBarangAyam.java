@@ -4,11 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -60,10 +56,4 @@ public class DataBarangAyam {
     @ManyToOne
     @JoinColumn(name = "pic", nullable = false)
     private DataKaryawan pic;
-    @CreationTimestamp
-    @Column(name = "created_date")
-    private Timestamp createdDate;
-    @UpdateTimestamp
-    @Column(name = "update_date")
-    private Timestamp updateDate;
 }

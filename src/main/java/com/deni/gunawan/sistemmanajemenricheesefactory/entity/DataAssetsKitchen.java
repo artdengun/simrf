@@ -4,12 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -22,16 +19,17 @@ import javax.persistence.Table;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "assets_cashier")
-public class DataBarangCashier {
+@Table(name = "barang_kitchen")
+public class DataBarangKitchen {
 
     @Id
-    @GeneratedValue(generator = "assets-cashier")
-    @GenericGenerator(name = "assets-cashier", strategy = "uuid2")
+    @GeneratedValue(generator = "kitchen")
+    @GenericGenerator(name = "kitchen", strategy = "uuid2")
     @Column(name = "id", length = 36, unique = true)
     private String id;
     @Column(name = "no_assets", length = 50)

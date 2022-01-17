@@ -4,12 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,7 +43,6 @@ public class DataBarangRetur {
     private String negara;
     @Column(name = "jumlah_retur")
     private String jumlahRetur;
-    @ManyToOne
     @Column(name = "uom", nullable = false)
     private UOM uom;
     @Column(name = "code_barang", length = 20)
