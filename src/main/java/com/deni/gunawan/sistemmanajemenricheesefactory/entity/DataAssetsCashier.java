@@ -34,8 +34,9 @@ public class DataAssetsCashier {
     private String id;
     @Column(name = "no_assets", length = 50)
     private String noAssets;
-    @Column(name = "pengirim", length = 50)
-    private String pengirim;
+    @ManyToOne
+    @JoinColumn(name = "vendor", nullable = false)
+    private DataTypeVendor vendor;
     @Column(name = "tanggal_diterima")
     private Date tanggalDiterima;
     @Column(name = "nama", length = 50)
@@ -46,10 +47,9 @@ public class DataAssetsCashier {
     private String quantity;
     @Column(name = "harga_assets", length = 50)
     private BigDecimal hargaAssets;
-    @Column(name = "penerima", length = 50)
-    private String penerima;
-    @Column(name = "pic", length = 50)
-    private String pic;
+    @ManyToOne
+    @JoinColumn(name = "pic", nullable = false)
+    private DataKaryawan pic;
     @CreationTimestamp
     @Column(name = "created_date")
     private Timestamp createdDate;

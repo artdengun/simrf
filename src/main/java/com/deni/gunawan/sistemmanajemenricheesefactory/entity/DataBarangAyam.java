@@ -32,16 +32,18 @@ public class DataBarangAyam {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name = "id", length = 36, unique = true)
     private String id;
-    @Column(name = "supplier_vendor", length = 50)
-    private String supplierVendor;
-    @Column(name = "staff_pengirim", length = 50)
-    private String staffPengirim;
+    @ManyToOne
+    @JoinColumn(name = "vendor", nullable = false)
+    private DataTypeVendor vendor;
     @Column(name = "nama_product", length = 50)
     private String namaProduct;
     @Column(name = "production_date")
     private Date productionDate;
     @Column(name = "exp_date")
     private Date expDate;
+    @ManyToOne
+    @JoinColumn(name = "uom", nullable = false)
+    private DataTypeUom uom;
     @Column(name = "code_kemasan", length = 10)
     private String codeKemasan;
     @Column(name = "quantity_batch", length = 20)
@@ -54,17 +56,13 @@ public class DataBarangAyam {
     private Date tanggalPenerimaan;
     @Column(name = "deskripsi", length = 100)
     private String deskripsi;
-    @Column(name = "staff_penerima", length = 50)
-    private String staffPenerima;
-    @Column(name = "pic", length = 20)
-    private String pic;
+    @ManyToOne
+    @JoinColumn(name = "pic", nullable = false)
+    private DataKaryawan pic;
     @CreationTimestamp
     @Column(name = "created_date")
     private Timestamp createdDate;
     @UpdateTimestamp
     @Column(name = "update_date")
     private Timestamp updateDate;
-    @ManyToOne
-    @JoinColumn(name = "type_assets", nullable = false)
-    private DataTypeAssets typeAssets;
 }

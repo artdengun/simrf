@@ -19,12 +19,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "barang_retur")
-public class DataBarangRetur {
+@Table(name = "barang_gudang")
+public class DataBarangGudang {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -42,15 +43,13 @@ public class DataBarangRetur {
     private Date expDate;
     @Column(name = "negara")
     private String negara;
-    @Column(name = "jumlah_retur")
-    private String jumlahRetur;
     @ManyToOne
     @JoinColumn(name = "uom", nullable = false)
     private DataTypeUom uom;
-    @Column(name = "code_barang", length = 20)
+    @Column(name = "codeBarang", length = 10)
     private String codeBarang;
-    @Column(name = "tanggal_retur")
-    private Date tanggalRetur;
+    @Column(name = "tanggal_penerimaan")
+    private Date tanggalPenerimaan;
     @Column(name = "deskripsi", length = 100)
     private String deskripsi;
     @ManyToOne

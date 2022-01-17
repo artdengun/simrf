@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -20,8 +22,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "type_dc")
-public class DataTypeDc {
+@Table(name = "type_uom")
+public class DataTypeUom {
     
     @Id
     @GeneratedValue(generator = "uuid")
@@ -30,6 +32,9 @@ public class DataTypeDc {
     private String id;
     @Column(name = "nama", length = 20)
     private String nama;
+    @ManyToOne
+    @JoinColumn(name = "pic", nullable = false)
+    private DataKaryawan pic;
     @CreationTimestamp
     @Column(name = "created_date")
     private Timestamp createdDate;

@@ -30,6 +30,9 @@ public class DataTypeAssets {
     private String id;
     @Column(name = "nama", length = 20)
     private String nama;
+    @ManyToOne
+    @JoinColumn(name = "pic", nullable = false)
+    private DataKaryawan pic;
     @CreationTimestamp
     @Column(name = "created_date")
     private Timestamp createdDate;
