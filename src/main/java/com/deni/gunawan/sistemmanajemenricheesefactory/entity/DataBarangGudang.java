@@ -19,6 +19,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.deni.gunawan.sistemmanajemenricheesefactory.enums.UOM;
+import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
+
 
 @Data
 @AllArgsConstructor
@@ -32,9 +35,8 @@ public class DataBarangGudang {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name = "id", length = 36, unique = true)
     private String id;
-    @ManyToOne
-    @JoinColumn(name = "vendor", nullable = false)
-    private DataTypeVendor vendor;
+    @Column(name = "vendor", nullable = false)
+    private Vendor vendor;
     @Column(name = "nama_product", length = 50)
     private String namaProduct;
     @Column(name = "production_date")
@@ -43,9 +45,8 @@ public class DataBarangGudang {
     private Date expDate;
     @Column(name = "negara")
     private String negara;
-    @ManyToOne
-    @JoinColumn(name = "uom", nullable = false)
-    private DataTypeUom uom;
+    @Column(name = "uom", nullable = false)
+    private UOM uom;
     @Column(name = "codeBarang", length = 10)
     private String codeBarang;
     @Column(name = "tanggal_penerimaan")
@@ -55,10 +56,4 @@ public class DataBarangGudang {
     @ManyToOne
     @JoinColumn(name = "pic", nullable = false)
     private DataKaryawan pic;
-    @CreationTimestamp
-    @Column(name = "created_date")
-    private Timestamp createdDate;
-    @UpdateTimestamp
-    @Column(name = "update_date")
-    private Timestamp updateDate;
 }

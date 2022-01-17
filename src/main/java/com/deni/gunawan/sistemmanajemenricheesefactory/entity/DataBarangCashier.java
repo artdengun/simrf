@@ -20,24 +20,24 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "assets_lobby")
-public class DataAssetsLobby {
+@Table(name = "assets_cashier")
+public class DataBarangCashier {
 
     @Id
-    @GeneratedValue(generator = "assets-lobby")
-    @GenericGenerator(name = "assets-lobby", strategy = "uuid2")
+    @GeneratedValue(generator = "assets-cashier")
+    @GenericGenerator(name = "assets-cashier", strategy = "uuid2")
     @Column(name = "id", length = 36, unique = true)
     private String id;
     @Column(name = "no_assets", length = 50)
     private String noAssets;
-    @ManyToOne
-    @JoinColumn(name = "vendor", nullable = false)
-    private DataTypeVendor vendor;
+    @Column(name = "vendor", nullable = false)
+    private Vendor vendor;
     @Column(name = "tanggal_diterima")
     private Date tanggalDiterima;
     @Column(name = "nama", length = 50)
@@ -51,14 +51,4 @@ public class DataAssetsLobby {
     @ManyToOne
     @JoinColumn(name = "pic", nullable = false)
     private DataKaryawan pic;
-    @CreationTimestamp
-    @Column(name = "created_date")
-    private Timestamp createdDate;
-    @UpdateTimestamp
-    @Column(name = "update_date")
-    private Timestamp updateDate;
-
-    @ManyToOne
-    @JoinColumn(name = "type_assets", nullable = false)
-    private DataTypeAssets typeAssets;
 }

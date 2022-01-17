@@ -18,6 +18,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Jabatan;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -42,14 +44,6 @@ public class DataKaryawan {
     private String pengalamanKerja;
     @Column(name = "description", length = 50)
     private String description;
-    @ManyToOne
-    @JoinColumn(name = "type_jabatan", nullable = false)
-    private DataTypeJabatan typeJabatan;
-    @CreationTimestamp
-    @Column(name = "created_date")
-    private Timestamp createdDate;
-    @UpdateTimestamp
-    @Column(name = "update_date")
-    private Timestamp updateDate;
-
+    @Column(name = "jabatan", nullable = false)
+    private Jabatan jabatan;
 }

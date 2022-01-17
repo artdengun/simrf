@@ -20,13 +20,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "assets_manager")
-public class DataAssetsManager {
+public class DataBarangManager {
 
     @Id
     @GeneratedValue(generator = "assets-manager")
@@ -35,9 +37,8 @@ public class DataAssetsManager {
     private String id;
     @Column(name = "no_assets", length = 50)
     private String noAssets;
-    @ManyToOne
-    @JoinColumn(name = "vendor", nullable = false)
-    private DataTypeVendor vendor;
+    @Column(name = "vendor", nullable = false)
+    private Vendor vendor;
     @Column(name = "tanggal_diterima")
     private Date tanggalDiterima;
     @Column(name = "nama", length = 50)
@@ -48,16 +49,6 @@ public class DataAssetsManager {
     private String quantity;
     @Column(name = "harga_assets", length = 50)
     private BigDecimal hargaAssets;
-    @ManyToOne
-    @JoinColumn(name = "pic", nullable = false)
+    @Column(name = "pic", nullable = false)
     private DataKaryawan pic;
-    @CreationTimestamp
-    @Column(name = "created_date")
-    private Timestamp createdDate;
-    @UpdateTimestamp
-    @Column(name = "update_date")
-    private Timestamp updateDate;
-    @ManyToOne
-    @JoinColumn(name = "type_assets", nullable = false)
-    private DataTypeAssets typeAssets;
 }
