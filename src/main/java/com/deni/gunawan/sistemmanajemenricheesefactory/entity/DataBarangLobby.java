@@ -19,7 +19,6 @@ import javax.persistence.Table;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

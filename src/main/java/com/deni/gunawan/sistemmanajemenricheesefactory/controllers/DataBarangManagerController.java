@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class DataAssetsLobbyController {
+public class DataBarangManagerController {
 
-    @GetMapping(value = "/assets/lobby")
-    public String getAssetsLobby() {
-        return "pages/alobby/index";
+    @GetMapping(value = "/assets/manager")
+    public String getAssetsManager() {
+        return "pages/amanager/index";
     }
 
 }

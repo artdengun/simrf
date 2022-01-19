@@ -9,13 +9,13 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataKaryawan;
-import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataKaryawanRepository;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataKaryawanRepo;
 
 @Service
 public class DataKaryawanService {
 
     @Autowired
-    private DataKaryawanRepository repo;
+    private DataKaryawanRepo repo;
 
     @Transactional
     public DataKaryawan save(DataKaryawan dataKaryawan){

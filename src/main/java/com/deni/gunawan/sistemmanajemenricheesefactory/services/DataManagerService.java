@@ -8,25 +8,25 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
-import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataAssetsManager;
-import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataAssetsManagerRepository;
+import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataBarangManager;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataBarangManagerRepo;
 
 @Service
-public class DataAssetsManagerService {
+public class DataManagerService {
 
     @Autowired
-    private DataAssetsManagerRepository repo;
+    private DataBarangManagerRepo repo;
 
-    private List<DataAssetsManager> getListAssetManager(){
+    private List<DataBarangManager> getListAssetManager(){
         return repo.findAll();
     }
 
-    private Optional<DataAssetsManager> findAssetById(String id){
+    private Optional<DataBarangManager> findAssetById(String id){
         return repo.findById(id);
     }
 
     @Transactional
-    private DataAssetsManager saved(DataAssetsManager dataAssetsManager){
+    private DataBarangManager saved(DataBarangManager dataAssetsManager){
         return repo.save(dataAssetsManager);
     }
 

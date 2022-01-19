@@ -8,25 +8,25 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
-import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataAssetsLobby;
-import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataAssetsLobbyRepository;
+import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataBarangLobby;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataBarangLobbyRepo;
 
 @Service
-public class DataAssetsLobbyService {
+public class DataLobbyService {
 
     @Autowired
-    private DataAssetsLobbyRepository repo;
+    private DataBarangLobbyRepo repo;
 
     @Transactional
-    public DataAssetsLobby savedData(DataAssetsLobby dataAssetsLobby){
+    public DataBarangLobby savedData(DataBarangLobby dataAssetsLobby){
         return repo.save(dataAssetsLobby);
     }
 
-    public List<DataAssetsLobby> findDataLobby(){
+    public List<DataBarangLobby> findDataLobby(){
         return repo.findAll();
     }
 
-    public Optional<DataAssetsLobby> findByIdLobby(String id){
+    public Optional<DataBarangLobby> findByIdLobby(String id){
         return repo.findById(id);
     }
 

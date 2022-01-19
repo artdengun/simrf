@@ -9,14 +9,14 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataBarangAyam;
-import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataBarangAyamRepository;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataBarangAyamRepo;
 
 @Service
 public class DataBarangAyamService {
 
 
     @Autowired
-    private DataBarangAyamRepository repo;
+    private DataBarangAyamRepo repo;
 
 
     @Transactional

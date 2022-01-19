@@ -42,7 +42,7 @@ public class DataKaryawanController {
     @GetMapping(value = "/form/{id}")
     public String formKaryawanById(@PathVariable(value = "id") String id, ModelMap map, RedirectAttributes redirectAttributes ){
         Optional<DataKaryawan> dataKaryawan = dataKaryawanService.findByIdKaryawan(id);
-        if(dataKaryawan != null){
+        if(dataKaryawan.isPresent()){
             map.addAttribute("karyawan", dataKaryawan);
             return "/pages/karyawan/form";
         }else{

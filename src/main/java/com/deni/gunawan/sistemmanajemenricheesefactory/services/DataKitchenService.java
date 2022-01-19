@@ -8,25 +8,25 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
-import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataAssetsKitchen;
-import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataAssetsKitchenRepository;
+import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataBarangKitchen;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataBarangKitchenRepo;
 
 @Service
-public class DataAssetsKitchenService {
+public class DataKitchenService {
     
     @Autowired
-    private DataAssetsKitchenRepository repo;
+    private DataBarangKitchenRepo repo;
 
-    public List<DataAssetsKitchen> getAllKitchen(){
+    public List<DataBarangKitchen> getAllKitchen(){
         return repo.findAll();
     }
 
     @Transactional
-    public DataAssetsKitchen savedKitchen(DataAssetsKitchen dataAssetsKitchen){
-        return repo.save(dataAssetsKitchen);
+    public DataBarangKitchen savedKitchen(DataBarangKitchen dataBarangKitchen){
+        return repo.save(dataBarangKitchen);
     }
 
-    public Optional<DataAssetsKitchen> findKitchenById(String id){
+    public Optional<DataBarangKitchen> findKitchenById(String id){
         return repo.findById(id);
     }
     

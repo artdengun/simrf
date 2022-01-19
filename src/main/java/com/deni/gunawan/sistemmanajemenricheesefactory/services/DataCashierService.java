@@ -5,8 +5,8 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
-import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataAssetsCashier;
-import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataAssetsCashierRepository;
+import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataBarangCashier;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataBarangCashierRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,21 +14,21 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class DataAssetsCashierService {
+public class DataCashierService {
 
     @Autowired
-    private DataAssetsCashierRepository repo;
+    private DataBarangCashierRepo repo;
 
-    public List<DataAssetsCashier> getDataCashier(){
+    public List<DataBarangCashier> getDataCashier(){
         return repo.findAll();
     }
 
     @Transactional
-    public DataAssetsCashier saved(DataAssetsCashier dataAssetsCashier){
-        return repo.save(dataAssetsCashier);
+    public DataBarangCashier saved(DataBarangCashier dataBarangCashier){
+        return repo.save(dataBarangCashier);
     }
 
-    public Optional<DataAssetsCashier> findDataCashier(String id){
+    public Optional<DataBarangCashier> findDataCashier(String id){
         return repo.findById(id);
     }
 
