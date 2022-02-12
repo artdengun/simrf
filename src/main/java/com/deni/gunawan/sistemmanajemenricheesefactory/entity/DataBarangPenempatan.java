@@ -23,8 +23,8 @@ import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "barang_ayam")
-public class DataBarangAyam {
+@Table(name = "barang_penempatan")
+public class DataBarangPenempatan {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -53,7 +53,4 @@ public class DataBarangAyam {
     private Date tanggalPenerimaan;
     @Column(name = "deskripsi", length = 100)
     private String deskripsi;
-    @ManyToOne
-    @JoinColumn(name = "pic", nullable = false)
-    private DataKaryawan pic;
 }

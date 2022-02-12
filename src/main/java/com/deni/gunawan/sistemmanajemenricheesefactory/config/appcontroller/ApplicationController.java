@@ -1,4 +1,4 @@
-package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
+package com.deni.gunawan.sistemmanajemenricheesefactory.config.appcontroller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,4 +45,5 @@ public class ApplicationController {
     public String errorServerNotResponse() {
         return "pages/error/500";
     }
+
 }

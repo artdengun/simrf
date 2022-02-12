@@ -1,5 +1,7 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.entity;
 
+import com.deni.gunawan.sistemmanajemenricheesefactory.enums.JenisKelamin;
+import com.deni.gunawan.sistemmanajemenricheesefactory.enums.StatusPerkawinan;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,9 +16,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Jabatan;
-import com.deni.gunawan.sistemmanajemenricheesefactory.enums.JenisKelamin;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,20 +28,20 @@ public class DataKaryawan {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name = "id", length = 36, unique = true)
     private String id;
-    @Column(name = "nama_lengkap", length = 50)
-    private String namaLengkap;
-    @Column(name = "jenis_kelamin", length = 50)
+    @Column(name = "nama", length = 50)
+    private String nama;
+    @Column(name = "jenis_kelamin", length = 20)
     private JenisKelamin jenisKelamin;
-    @Column(name = "address", length = 50)
-    private String address;
-    @Column(name = "no_handphone", length = 50)
-    private String noHandphone;
-    @Column(name = "pendidikan", length = 50)
-    private String pendidikan;
-    @Column(name = "hobby", length = 50)
-    private String hobby;
-    @Column(name = "tangga_join")
+    @Column(name = "status_perkawinan", length = 20)
+    private StatusPerkawinan statusPerkawinan;
+    @Column(name = "no_ktp", length = 20)
+    private String noKtp;
+    @Column(name = "alamat", length = 100)
+    private String alamat;
+    @Column(name = "tempat_tanggal_lahir")
+    private Date tempatTanggalLahir;
+    @Column(name = "no_telephone", length = 20)
+    private String noTelephone;
+    @Column(name = "tanggal_join")
     private Date tanggalJoin;
-    @Column(name = "jabatan", nullable = false)
-    private Jabatan jabatan;
 }

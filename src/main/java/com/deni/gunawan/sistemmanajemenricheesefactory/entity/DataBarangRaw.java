@@ -23,8 +23,8 @@ import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "barang_cashier")
-public class DataBarangCashier {
+@Table(name = "barang_raw")
+public class DataBarangRaw {
 
     @Id
     @GeneratedValue(generator = "cashier")
@@ -45,7 +45,4 @@ public class DataBarangCashier {
     private String quantity;
     @Column(name = "harga_assets", length = 50)
     private BigDecimal hargaAssets;
-    @ManyToOne
-    @JoinColumn(name = "pic", nullable = false)
-    private DataKaryawan pic;
 }

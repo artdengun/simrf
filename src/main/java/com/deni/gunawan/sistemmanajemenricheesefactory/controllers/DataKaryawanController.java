@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
-import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataKaryawan;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.DataKaryawanService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +32,7 @@ public class DataKaryawanController {
     }
 
     @GetMapping(value = "/form")
-    public String redirectToForm(DataKaryawan dataKaryawan, ModelMap params){
+    public String redirectToForm(DataBarangElektronik dataKaryawan, ModelMap params){
         params.addAttribute("karyawan", dataKaryawan);
         return "/pages/karyawan/form";
     }
@@ -41,7 +40,7 @@ public class DataKaryawanController {
 
     @GetMapping(value = "/form/{id}")
     public String formKaryawanById(@PathVariable(value = "id") String id, ModelMap map, RedirectAttributes redirectAttributes ){
-        Optional<DataKaryawan> dataKaryawan = dataKaryawanService.findByIdKaryawan(id);
+        Optional<DataBarangElektronik> dataKaryawan = dataKaryawanService.findByIdKaryawan(id);
         if(dataKaryawan.isPresent()){
             map.addAttribute("karyawan", dataKaryawan);
             return "/pages/karyawan/form";
@@ -53,7 +52,7 @@ public class DataKaryawanController {
     }
 
     @PostMapping(value = "/submit")
-    public String submitKaryawan(@Valid @ModelAttribute DataKaryawan dataKaryawan, 
+    public String submitKaryawan(@Valid @ModelAttribute DataBarangElektronik dataKaryawan,
                                 BindingResult result, RedirectAttributes redirectAttributes){
         if(result.hasErrors()){
             return "/pages/karyawan/form";

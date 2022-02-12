@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,12 +19,13 @@ import javax.persistence.Table;
 import com.deni.gunawan.sistemmanajemenricheesefactory.enums.UOM;
 import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "barang_minyak")
-public class DataBarangMinyak {
+@Table(name = "barang_frozen")
+public class DataBarangFrozen {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -39,19 +40,14 @@ public class DataBarangMinyak {
     private Date productionDate;
     @Column(name = "exp_date")
     private Date expDate;
-    @Column(name = "jumlah_barang")
-    private String jumlahBarang;
     @Column(name = "negara")
     private String negara;
     @Column(name = "uom", nullable = false)
     private UOM uom;
-    @Column(name = "code_barang", length = 10)
+    @Column(name = "codeBarang", length = 10)
     private String codeBarang;
     @Column(name = "tanggal_penerimaan")
     private Date tanggalPenerimaan;
     @Column(name = "deskripsi", length = 100)
     private String deskripsi;
-    @ManyToOne
-    @JoinColumn(name = "pic", nullable = false)
-    private DataKaryawan pic;
 }

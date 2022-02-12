@@ -33,8 +33,8 @@ public class DataBarangRetur {
     private String id;
     @Column(name = "vendor", nullable = false)
     private Vendor vendor;
-    @Column(name = "nama_product", length = 50)
-    private String namaProduct;
+    @Column(name = "nama_barang", length = 50)
+    private String namaBarang;
     @Column(name = "production_date")
     private Date productionDate;
     @Column(name = "exp_date")
@@ -51,7 +51,4 @@ public class DataBarangRetur {
     private Date tanggalRetur;
     @Column(name = "deskripsi", length = 100)
     private String deskripsi;
-    @ManyToOne
-    @JoinColumn(name = "pic", nullable = false)
-    private DataKaryawan pic;
 }

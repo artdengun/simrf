@@ -1,8 +1,7 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.services;
 
-
-import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataBarangRetur;
-import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataBarangReturRepo;
+import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataBarangTransferPlant;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataBarangTransferPlantRepo;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -14,11 +13,11 @@ import java.util.Optional;
 @Slf4j
 @Service
 @AllArgsConstructor
-public class DataBarangReturService {
+public class DataBarangTransferPlantService {
     
-    private DataBarangReturRepo repo;
+    private DataBarangTransferPlantRepo repo;
 
-    public List<DataBarangRetur> getData(){
+    public List<DataBarangTransferPlant> getData(){
         try {
             log.info("SUCCESS GET DATA");
             repo.findAll();
@@ -29,7 +28,7 @@ public class DataBarangReturService {
         return null;
     }
 
-    public Optional<DataBarangRetur> getDataById(String id){
+    public Optional<DataBarangTransferPlant> getDataById(String id){
         try {
             log.info("SUCCESS FIND DATA BY ID");
             repo.findById(id);
@@ -42,10 +41,10 @@ public class DataBarangReturService {
     }
 
     @Transactional
-    public DataBarangRetur saved(DataBarangRetur DataBarangRetur){
+    public DataBarangTransferPlant saved(DataBarangTransferPlant DataBarangTransferPlant){
         try {
             log.info("SUCCES SAVED");
-            repo.save(DataBarangRetur);
+            repo.save(DataBarangTransferPlant);
         }catch (Exception e){
             e.getCause();
             log.info("FAILED SAVE DATA: [{}]", e.getMessage());
@@ -65,5 +64,6 @@ public class DataBarangReturService {
             log.info("FAILED DELETE DATA: [{}]", e.getMessage());
         }
     }
+    
     
 }
