@@ -4,6 +4,7 @@ import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataBarangAsset;
 import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataBarangAssetRepo;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -14,6 +15,7 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class DataBarangAssetService {
+
 
     private DataBarangAssetRepo repo;
 

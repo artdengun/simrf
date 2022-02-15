@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataKaryawan;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.DataKaryawanService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +28,12 @@ public class DataKaryawanController {
 
     @GetMapping(value = "/karyawan")
     public String listDataKaryawan(ModelMap map){
-        map.addAttribute("listKaryawan", dataKaryawanService.getListKaryawan());
+        map.addAttribute("listKaryawan", dataKaryawanService.getData());
         return "/pages/karyawan/index";
     }
 
     @GetMapping(value = "/form")
-    public String redirectToForm(DataBarangElektronik dataKaryawan, ModelMap params){
+    public String redirectToForm(DataKaryawan dataKaryawan, ModelMap params){
         params.addAttribute("karyawan", dataKaryawan);
         return "/pages/karyawan/form";
     }
@@ -40,7 +41,7 @@ public class DataKaryawanController {
 
     @GetMapping(value = "/form/{id}")
     public String formKaryawanById(@PathVariable(value = "id") String id, ModelMap map, RedirectAttributes redirectAttributes ){
-        Optional<DataBarangElektronik> dataKaryawan = dataKaryawanService.findByIdKaryawan(id);
+        Optional<DataKaryawan> dataKaryawan = dataKaryawanService.getDataById(id);
         if(dataKaryawan.isPresent()){
             map.addAttribute("karyawan", dataKaryawan);
             return "/pages/karyawan/form";
@@ -52,12 +53,12 @@ public class DataKaryawanController {
     }
 
     @PostMapping(value = "/submit")
-    public String submitKaryawan(@Valid @ModelAttribute DataBarangElektronik dataKaryawan,
+    public String submitKaryawan(@Valid @ModelAttribute DataKaryawan dataKaryawan,
                                 BindingResult result, RedirectAttributes redirectAttributes){
         if(result.hasErrors()){
             return "/pages/karyawan/form";
         }
-        dataKaryawanService.save(dataKaryawan);
+        dataKaryawanService.saved(dataKaryawan);
         redirectAttributes.addFlashAttribute("alertSuccess", "Data Berhasil Disimpan");
         return "redirect:/karyawan";
      }
@@ -65,7 +66,7 @@ public class DataKaryawanController {
 
     @GetMapping(value = "/hapus/{id}")
     public String deleteKaryawanById(@PathVariable(value = "id") String id){
-        dataKaryawanService.deleteKaryawan(id);
+        dataKaryawanService.deleteByAssets(id);
         return "redirect:/agama/index";
     }
 }

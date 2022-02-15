@@ -4,6 +4,7 @@ import com.deni.gunawan.sistemmanajemenricheesefactory.entity.DataBarangFrozen;
 import com.deni.gunawan.sistemmanajemenricheesefactory.repository.DataBarangFrozenRepo;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -15,15 +16,16 @@ import java.util.Optional;
 @AllArgsConstructor
 public class DataBarangFrozenService {
 
+	
     private DataBarangFrozenRepo repo;
     
+   
     public List<DataBarangFrozen> getData(){
         try {
-            log.info("SUCCESS GET DATA");
             repo.findAll();
         }catch (Exception e){
             e.getCause();
-            log.info("FAILED GET ALL DATA : [{}]", e.getMessage());
+            e.getMessage();
         }
         return null;
     }

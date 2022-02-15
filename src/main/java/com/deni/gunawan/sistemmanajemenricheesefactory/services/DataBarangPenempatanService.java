@@ -19,23 +19,20 @@ public class DataBarangPenempatanService {
 
     public List<DataBarangPenempatan> getData(){
         try {
-            log.info("SUCCESS GET DATA");
             repo.findAll();
         }catch (Exception e){
             e.getCause();
-            log.info("FAILED GET ALL DATA : [{}]", e.getMessage());
+            e.getMessage();
         }
         return null;
     }
 
     public Optional<DataBarangPenempatan> getDataById(String id){
         try {
-            log.info("SUCCESS FIND DATA BY ID");
             repo.findById(id);
         }catch (Exception e){
             e.getCause();
-            log.info("FAILED GET DATA BY ID: [{}]", e.getMessage());
-
+            e.getMessage();
         }
         return Optional.empty();
     }
@@ -43,11 +40,10 @@ public class DataBarangPenempatanService {
     @Transactional
     public DataBarangPenempatan saved(DataBarangPenempatan DataBarangPenempatan){
         try {
-            log.info("SUCCES SAVED");
             repo.save(DataBarangPenempatan);
         }catch (Exception e){
             e.getCause();
-            log.info("FAILED SAVE DATA: [{}]", e.getMessage());
+            e.getMessage();
 
         }
         return  null;
@@ -57,11 +53,10 @@ public class DataBarangPenempatanService {
     @Transactional
     public void deleteByAssets(String id){
         try {
-            log.info("SUCCESS DELETE DATA");
             repo.deleteById(id);
         }catch (Exception e){
             e.getCause();
-            log.info("FAILED DELETE DATA: [{}]", e.getMessage());
+            e.getMessage();
         }
     }
     
