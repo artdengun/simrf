@@ -23,8 +23,8 @@ public class DataBarangReturService {
             log.info("SUCCESS GET DATA");
             repo.findAll();
         }catch (Exception e){
-            e.getCause();
-            log.info("FAILED GET ALL DATA : [{}]", e.getMessage());
+            log.error("CAUSE : [{}]",e.getCause());
+            log.error("FAILED GET ALL DATA : [{}]", e.getMessage());
         }
         return null;
     }
@@ -34,8 +34,8 @@ public class DataBarangReturService {
             log.info("SUCCESS FIND DATA BY ID");
             repo.findById(id);
         }catch (Exception e){
-            e.getCause();
-            log.info("FAILED GET DATA BY ID: [{}]", e.getMessage());
+            log.error("CAUSE : [{}]",e.getCause());
+            log.error("FAILED GET DATA BY ID: [{}]", e.getMessage());
 
         }
         return Optional.empty();
@@ -47,8 +47,8 @@ public class DataBarangReturService {
             log.info("SUCCES SAVED");
             repo.save(DataBarangRetur);
         }catch (Exception e){
-            e.getCause();
-            log.info("FAILED SAVE DATA: [{}]", e.getMessage());
+            log.error("CAUSE : [{}]",e.getCause());
+            log.error("FAILED SAVE DATA: [{}]", e.getMessage());
 
         }
         return  null;
@@ -57,12 +57,12 @@ public class DataBarangReturService {
 
     @Transactional
     public void deleteByAssets(String id){
-        try {
+        try { 
             log.info("SUCCESS DELETE DATA");
             repo.deleteById(id);
         }catch (Exception e){
-            e.getCause();
-            log.info("FAILED DELETE DATA: [{}]", e.getMessage());
+            log.error("CAUSE : [{}]",e.getCause());
+            log.error("FAILED DELETE DATA: [{}]", e.getMessage());
         }
     }
     

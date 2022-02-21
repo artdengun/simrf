@@ -16,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Data
 @AllArgsConstructor
@@ -45,4 +47,8 @@ public class DataBarangAsset {
     private BigDecimal hargaAssets;
     @Column(name = "tanggal_input")
     private Date tanggalInput;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_karyawan", referencedColumnName = "id")
+    private DataKaryawan dataKaryawan;
 }

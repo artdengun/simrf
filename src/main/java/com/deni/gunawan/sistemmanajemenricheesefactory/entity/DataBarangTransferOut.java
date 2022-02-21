@@ -13,6 +13,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import javax.persistence.Table;
 
@@ -39,12 +41,14 @@ public class DataBarangTransferOut {
     private String quantiyBarang;
     @Column(name = "uom", length = 20)
     private UOM satuanBarang;
-    @Column(name = "jumlah_barang", length = 20)
-    private String jumlahBarang;
     @Column(name = "outlet_penerima", length = 20)
     private String outletPenerima;
     @Column(name = "outlet_pengirim", length = 20)
     private String outletPengirim;
     @Column(name = "mod_incharge", length = 20)
     private String modIncharge;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_karyawan", referencedColumnName = "id")
+    private DataKaryawan dataKaryawan;
 }

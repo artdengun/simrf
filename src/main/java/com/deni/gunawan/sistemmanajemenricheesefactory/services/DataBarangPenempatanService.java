@@ -19,20 +19,22 @@ public class DataBarangPenempatanService {
 
     public List<DataBarangPenempatan> getData(){
         try {
+            log.info("SUCCESS FIND ALL DATA");
             repo.findAll();
         }catch (Exception e){
-            e.getCause();
-            e.getMessage();
+            log.error("CAUSE : [{}]",e.getCause());
+            log.error("FAILED FIND ALL DATA : [{}]",e.getMessage());
         }
         return null;
     }
 
     public Optional<DataBarangPenempatan> getDataById(String id){
         try {
+            log.info("SUCCESS FIND DATA BY ID ");
             repo.findById(id);
         }catch (Exception e){
-            e.getCause();
-            e.getMessage();
+            log.error("CAUSE : [{}]",e.getCause());
+            log.error("FAILED FIND BY ID : [{}]",e.getMessage());
         }
         return Optional.empty();
     }
@@ -40,23 +42,24 @@ public class DataBarangPenempatanService {
     @Transactional
     public DataBarangPenempatan saved(DataBarangPenempatan DataBarangPenempatan){
         try {
+            log.info("SUCCESS SAVED DATA");
             repo.save(DataBarangPenempatan);
         }catch (Exception e){
-            e.getCause();
-            e.getMessage();
+            log.error("CAUSE : [{}]",e.getCause());
+            log.error("FAILED SAVE DATA : [{}]",e.getMessage());
 
         }
         return  null;
     }
 
-
     @Transactional
     public void deleteByAssets(String id){
         try {
+            log.info("SUCCESS DELETE DATA");
             repo.deleteById(id);
         }catch (Exception e){
-            e.getCause();
-            e.getMessage();
+            log.error("CAUSE : [{}]",e.getCause());
+            log.error("FAILED DELETE DATA : [{}]",e.getMessage());
         }
     }
     

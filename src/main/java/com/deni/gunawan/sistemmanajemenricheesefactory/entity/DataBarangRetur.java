@@ -16,6 +16,8 @@ import javax.persistence.Table;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.enums.UOM;
 import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Data
 @AllArgsConstructor
@@ -49,4 +51,8 @@ public class DataBarangRetur {
     private Date tanggalRetur;
     @Column(name = "deskripsi", length = 100)
     private String deskripsi;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_karyawan", referencedColumnName = "id")
+    private DataKaryawan dataKaryawan;
 }

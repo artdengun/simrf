@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ApplicationController {
 
-    @GetMapping(value = "/index")
+    @GetMapping(value = "/")
     public String routeFrontend() {
         return "pages/frontend/index";
     }
