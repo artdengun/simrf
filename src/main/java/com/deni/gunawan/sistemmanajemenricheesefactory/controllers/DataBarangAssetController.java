@@ -12,10 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class DataBarangAssetController {
 
     private DataBarangAssetService dataBarangAssetService;
-    
 
-    @RequestMapping(value = "/assets")
-    public ModelAndView getDataBarangService(){
+
+    @RequestMapping(value = "/asset")
+    public ModelAndView getIndex(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/pages/assets/index");
         return mv;

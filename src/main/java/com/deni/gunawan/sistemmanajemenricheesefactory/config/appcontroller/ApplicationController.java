@@ -46,4 +46,9 @@ public class ApplicationController {
         return "pages/error/500";
     }
 
+    @GetMapping(value = "/asset-index")
+    public String assetsIndex(){
+        return "pages/assets/index";
+    }
+
 }

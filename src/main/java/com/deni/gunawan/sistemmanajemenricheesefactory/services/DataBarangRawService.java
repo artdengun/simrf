@@ -22,6 +22,7 @@ public class DataBarangRawService {
             log.info("SUCCESS GET DATA");
             repo.findAll();
         }catch (Exception e){
+            e.printStackTrace();
             log.error("CAUSE : [{}]",e.getCause());
             log.error("FAILED GET ALL DATA : [{}]", e.getMessage());
         }
