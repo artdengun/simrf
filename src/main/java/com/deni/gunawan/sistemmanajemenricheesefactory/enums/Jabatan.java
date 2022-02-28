@@ -1,5 +1,18 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.enums;
 
 public enum Jabatan {
-    STORE_MANAGER, ASSITEN_MANAGER, LEADER, CREW
+    STORE_MANAGER("Store Manager"),
+    ASSITEN_MANAGER("Assisten Manager"),
+    LEADER("Leader"),
+    CREW("Crew");
+
+    private final String displayJabatan;
+
+    private Jabatan(String displayJabatan){
+        this.displayJabatan = displayJabatan;
+    }
+
+    public String getDisplayJabatan(){
+        return displayJabatan;
+    }
 }

@@ -23,8 +23,8 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "barang_transfer_plant")
-public class DataBarangTransferPlant {
+@Table(name = "transfer_plant")
+public class TransferPlant {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -51,6 +51,6 @@ public class DataBarangTransferPlant {
     private String modIncharge;
     @ManyToOne
     @JoinColumn(name = "id_karyawan", referencedColumnName = "id")
-    private DataKaryawan dataKaryawan;
+    private Karyawan karyawan;
 
 }

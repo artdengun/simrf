@@ -1,13 +1,11 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.entity;
 
+import com.deni.gunawan.sistemmanajemenricheesefactory.enums.UOM;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import org.hibernate.annotations.GenericGenerator;
-
-import java.math.BigDecimal;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,32 +21,34 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "barang_asset")
-public class DataBarangAsset {
+@Table(name = "raw")
+public class Raw {
 
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name = "id", length = 36, unique = true)
     private String id;
-    @Column(name = "no_assets", length = 50)
-    private String noAssets;
     @Column(name = "vendor", nullable = false)
     private Vendor vendor;
-    @Column(name = "tanggal_diterima")
-    private Date tanggalDiterima;
-    @Column(name = "nama", length = 50)
-    private String nama;
-    @Column(name = "jenis", length = 50)
-    private String jenis;
-    @Column(name = "quantity", length = 50)
-    private String quantity;
-    @Column(name = "harga_assets", length = 50)
-    private BigDecimal hargaAssets;
-    @Column(name = "tanggal_input")
-    private Date tanggalInput;
-    
+    @Column(name = "nama_product", length = 50)
+    private String namaProduct;
+    @Column(name = "production_date")
+    private java.sql.Date productionDate;
+    @Column(name = "exp_date")
+    private java.sql.Date expDate;
+    @Column(name = "negara")
+    private String negara;
+    @Column(name = "uom", nullable = false)
+    private UOM uom;
+    @Column(name = "codeBarang", length = 10)
+    private String codeBarang;
+    @Column(name = "tanggal_penerimaan")
+    private java.sql.Date tanggalPenerimaan;
+    @Column(name = "deskripsi", length = 100)
+    private String deskripsi;
     @ManyToOne
     @JoinColumn(name = "id_karyawan", referencedColumnName = "id")
-    private DataKaryawan dataKaryawan;
+    private Karyawan karyawan;
+
 }

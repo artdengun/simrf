@@ -23,8 +23,8 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "barang_retur")
-public class DataBarangRetur {
+@Table(name = "retur")
+public class Retur {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -54,5 +54,5 @@ public class DataBarangRetur {
     
     @ManyToOne
     @JoinColumn(name = "id_karyawan", referencedColumnName = "id")
-    private DataKaryawan dataKaryawan;
+    private Karyawan karyawan;
 }
