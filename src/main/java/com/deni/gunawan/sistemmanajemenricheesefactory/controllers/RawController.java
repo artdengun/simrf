@@ -26,15 +26,15 @@ public class RawController {
     @GetMapping(value = "/index")
     private String getList(ModelMap map){
         map.addAttribute("karyawan", karyawanService.getList());
-        map.addAttribute("raw", rawService.getList());
-        return "/pages/raw/index";
+        map.addAttribute("listRaw", rawService.getList());
+        return "pages/raw/index";
     }
 
     @GetMapping(value = "/form")
     private String getForm(ModelMap map){
         map.addAttribute("karyawan", karyawanService);
         map.addAttribute("raw", rawService);
-        return "/pages/raw/form";
+        return "pages/raw/form";
     }
 
     @GetMapping(value = "/form/{id}")
@@ -54,7 +54,7 @@ public class RawController {
                         BindingResult result,
                         RedirectAttributes redirectAttributes){
         if(result.hasErrors()){
-            return "/pages/raw/form";
+            return "pages/raw/form";
         }
         rawService.saved(raw);
         redirectAttributes.addFlashAttribute("successAlert", "Data Ditemukan");

@@ -1,29 +1,19 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "asset")
+@Data
 public class Asset {
 
     @Id
@@ -33,17 +23,18 @@ public class Asset {
     private String id;
     @Column(name = "no_assets", length = 50)
     private String noAssets;
-    @Column(name = "vendor", nullable = false)
+    @Enumerated(value = EnumType.STRING)
+    @NotNull
     private Vendor vendor;
-    @Column(name = "tanggal_diterima")
+    @NotNull
     private Date tanggalDiterima;
-    @Column(name = "nama", length = 50)
+    @NotNull
     private String nama;
-    @Column(name = "jenis", length = 50)
+    @NotNull
     private String jenis;
-    @Column(name = "quantity", length = 50)
+    @NotNull
     private String quantity;
-    @Column(name = "harga_assets", length = 50)
+    @NotNull
     private BigDecimal hargaAssets;
     @Column(name = "tanggal_input")
     private Date tanggalInput;

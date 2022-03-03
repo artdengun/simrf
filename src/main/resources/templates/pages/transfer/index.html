@@ -17,14 +17,14 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h2 class="card-title text-center"><b>Data Karyawan</b></h2>
+                  <h2 class="card-title text-center"><b>Data Barang Transfer Plant</b></h2>
 
                   <p class="card-description text-center">
-                   Data Karyawan Richeese Factory
+                   Data Barang Transfer Plant Richeese Factory
                   </p>
                   <a th:href="@{/form}" class="btn btn-danger float-left ">PDF</a> &ensp;
                   <a th:href="@{/form}" class="btn btn-success float left ">EXCEL</a>
-                  <a th:href="@{/karyawan/form}" class="btn btn-primary float-right ">Tambah Data</a>
+                  <a th:href="@{/transfer/form}" class="btn btn-primary float-right ">Tambah Data</a>
                   <br/><br/>
                   <div class="input-group mb-3 mx-auto">
                     <div class="input-group-prepend">
@@ -37,32 +37,29 @@
                       <thead>
                         <tr>
                           <th>No</th>
-                          <th>Nama Lengkap</th>
-                          <th>Jenis Kelamin</th>
-                          <th>Alamat</th>
-                          <th>Tempat Tanggal Lahir</th>
-                          <th>Status Perkawinan</th>
-                          <th>No Ktp</th>
-                          <th>No Telephone</th>
-                          <th>Jabatan</th>
-                          <th>Pendidikan</th>
-                          <th>Jabatan</th>
-                          <th>Tanggal Join</th>
+                          <th>Tanggal Pengiriman</th>
+                          <th>No Dokumen</th>
+                          <th>Nama Barang</th>
+                          <th>Quantity Barang</th>
+                          <th>UOM</th>
+                          <th>Outlet Penerima</th>
+                          <th>Outlet Pengirim</th>
+                          <th>Mod Incharge</th>
+                          <th>PIC</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr th:each="karyawan, itrStat: ${listKaryawan}">
+                        <tr th:each="transfer, itrStat: ${listTransferplant}">
                           <td th:text="${itrStat.count}}"></td>
-                          <td th:text="karyawan.nama"></td>
-                          <td th:text="karyawan.jenis_kelamin"></td>
-                          <td th:text="karyawan.alamat"></td>
-                          <td th:text="karyawan.tempat_tanggal_lahir"></td>
-                          <td th:text="karyawan.status_perkawinan"></td>
-                          <td th:text="karyawan.no_ktp"></td>
-                          <td th:text="karyawan.no_telephone"></td>
-                          <td th:text="karyawan.jabatan"></td>
-                          <td th:text="karyawan.pendidikan"></td>
-                          <td th:text="karyawan.tanggal_join"></td>
+                          <td th:text="transfer.tanggal_dikirim"></td>
+                          <td th:text="transfer.no_dokumen"></td>
+                          <td th:text="transfer.nama_barang"></td>
+                          <td th:text="transfer.quantity_barang"></td>
+                          <td th:text="transfer.uom"></td>
+                          <td th:text="transfer.outlet_penerima"></td>
+                          <td th:text="transfer.outlet_pengirim"></td>
+                          <td th:text="transfer.mod_incharge"></td>
+                          <td th:text="transfer.karyawan.nama"></td>
                         </tr>
                       </tbody>
                     </table>

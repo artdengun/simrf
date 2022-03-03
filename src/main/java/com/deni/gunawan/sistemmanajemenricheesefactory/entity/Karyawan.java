@@ -12,18 +12,11 @@ import org.hibernate.annotations.GenericGenerator;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "karyawan")
+@Data
 public class Karyawan {
 
     @Id
@@ -31,34 +24,26 @@ public class Karyawan {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name = "id", length = 36, unique = true)
     private String id;
-
-    @Column(name = "nama", length = 50)
+    @NotNull
     private String nama;
-
-    @Column(name = "jenis_kelamin", length = 20)
-    private JenisKelamin jenisKelamin;
-
-    @Column(name = "status_perkawinan", length = 20)
-    private StatusPerkawinan statusPerkawinan;
-
-    @Column(name = "no_ktp", length = 20)
-    private String noKtp;
-
-    @Column(name = "jabatan")
-    private Jabatan jabatan;
-
-    @Column(name = "alamat", length = 100)
+    @NotNull
+    private String ktp;
+    @NotNull
     private String alamat;
-
-    @Column(name = "tempat_tanggal_lahir")
-    private String tempatTanggalLahir;
-
-    @Column(name = "no_telephone", length = 20)
-    private String noTelephone;
-
-    @Column(name = "pendidikan", length = 30)
+    @NotNull
+    private String telephone;
+    @Enumerated(value = EnumType.STRING)
+    @NotNull
+    private JenisKelamin jenisKelamin;
+    @Enumerated(value = EnumType.STRING)
+    @NotNull
+    private StatusPerkawinan statusPerkawinan;
+    @Enumerated(value = EnumType.STRING)
+    @NotNull
+    private Jabatan jabatan;
+    @Enumerated(value = EnumType.STRING)
+    @NotNull
     private Pendidikan pendidikan;
-
-    @Column(name = "tanggal_join")
     private Date tanggalJoin;
+
 }

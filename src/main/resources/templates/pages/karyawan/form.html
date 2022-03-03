@@ -23,63 +23,68 @@
               <div class="card-body">
                 <h4 class="card-title text-center">Sistem Informasi Manajemen Barang</h4>
                 <div class="text-center">
-                  <img th:src="@{logo_richeese.png}" class="rounded" alt="...">
+                  <img th:src="@{../logo_richeese.png}" class="rounded" alt="...">
                 </div> <br/>
                 <div class="card-description text-center" >
                   <h4>  Pastikan sebelum menginputakan data karyawan, data karyawan sudah memiliki hal hal terkait</h4>
                 </div>
-                <form action="#"  th:action="@{/karyawan/submit}" th:object="${karyawan}" method="post">
+                <form  th:action="@{/karyawan/submit}" th:object="${karyawan}" method="post">
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="nama">Nama Lengkap</label>
-                      <input type="text" th:value="${nama}" class="form-control"  id="nama" placeholder="nama lengkap">
+                      <input type="text" th:value="${nama}" class="form-control"  id="nama" placeholder="nama lengkap" required>
                     </div>
-                    <div class="form-group col-md-6">
-                      <label for="jenis_kelamin">Jenis Kelamin</label>
-                      <select class="form-control" th:value="${jenis_kelamin}" name="jenis_kelamin" id="jenis_kelamin">
-                        <option value="">--- Pilih Jenis Kelamin  ---</option>
-                        <option th:each="jk : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.JenisKelamin).values()}"
-                                value="${jk}" th:text="${jk.displayJK}"></option>
-                      </select>
-                    </div>
+<!--                    <div class="form-group col-md-6">-->
+<!--                      <label for="jenis_kelamin">Jenis Kelamin</label>-->
+<!--                      <select class="form-control" th:value="${jenis_kelamin}" name="jenis_kelamin" id="jenis_kelamin">-->
+<!--                        <option value="">-&#45;&#45; Pilih Jenis Kelamin  -&#45;&#45;</option>-->
+<!--                        <option th:each="jk : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.JenisKelamin).values()}"-->
+<!--                                value="${jk}" th:text="${jk.displayJK}" ></option>-->
+<!--                      </select>-->
+<!--                    </div>-->
                     <div class="form-group col-md-6">
                       <label for="tempat_tanggal_lahir">Tempat Tanggal Lahir</label>
-                      <input type="text" class="form-control"  th:value="${tempat_tanggal_lahir}" id="tempat_tanggal_lahir" placeholder="handphone">
+                      <input type="text" class="form-control"  th:value="${tempat_tanggal_lahir}" id="tempat_tanggal_lahir" placeholder="Tempat Tanggal Lahir" required>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="no_telephone">No Telephone</label>
-                      <input type="text" class="form-control"  th:value="${no_telephone}" id="no_telephone" placeholder="handphone">
+                      <input type="text" class="form-control"  th:value="${no_telephone}" id="no_telephone" placeholder="handphone" required>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="no_ktp">No KTP</label>
-                      <input type="text" class="form-control"  th:value="${no_ktp}" id="no_ktp" placeholder="handphone">
+                      <input type="text" class="form-control"  th:value="${no_ktp}" id="no_ktp" placeholder="No KTP" required>
                     </div>
-                    <div class="form-group col-md-6">
-                      <label for="pendidikan">Pendidikan</label>
-                      <select class="form-control" th:value="${pendidikan}" name="pendidikan" id="pendidikan">
-                        <option value="pendidikan">--- Pilih Pendidikan ---</option>
-                        <option th:each="pendidikan : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.Pendidikan).values()}"
-                                value="${pendidikan}" th:text="${pendidikan}"></option>
-                      </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="jabatan">Jabatan</label>
-                      <select class="form-control" th:value="${jabatan}" name="jabatan" id="jabatan">
-                        <option value="">--- Pilih Jabatan ---</option>
-                        <option th:each="jabatan : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.Jabatan).values()}"
-                                value="${jabatan}" th:text="${jabatan.getDisplayJabatan}"></option>
-                      </select>
-                    </div>
+<!--                    <div class="form-group col-md-6">-->
+<!--                      <label for="pendidikan">Pendidikan</label>-->
+<!--                      <select class="form-control" th:value="${pendidikan}" name="pendidikan" id="pendidikan">-->
+<!--                        <option value="pendidikan">-&#45;&#45; Pilih Pendidikan -&#45;&#45;</option>-->
+<!--                        <option th:each="pendidikan : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.Pendidikan).values()}"-->
+<!--                                value="${pendidikan}" th:text="${pendidikan}"></option>-->
+<!--                      </select>-->
+<!--                    </div>-->
+<!--                    <div class="form-group col-md-6">-->
+<!--                      <label for="jabatan">Jabatan</label>-->
+<!--                      <select class="form-control" th:value="${jabatan}" name="jabatan" id="jabatan">-->
+<!--                        <option value="">-&#45;&#45; Pilih Jabatan -&#45;&#45;</option>-->
+<!--                        <option th:each="jabatan : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.Jabatan).values()}"-->
+<!--                                value="${jabatan}" th:text="${jabatan.getDisplayJabatan}"></option>-->
+<!--                      </select>-->
+<!--                    </div>-->
                     <div class="form-group col-md-6">
                       <label for="tanggal_join">Tanggal join</label>
-                      <input type="date" th:value ="${tanggal_join}"class="form-control" id="tanggal_join" placeholder="tanggal join">
+                      <input type="date" th:value ="${tanggal_join}"class="form-control" id="tanggal_join" placeholder="tanggal join" required>
                     </div>
                     <div class="form-group col-md-12">
                       <label for="alamat">Alamat</label>
                       <textarea  class="form-control" th:value="${alamat}" id="alamat" rows="3" placeholder="masukan alamat lengkap"></textarea>
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-primary">Submit Data</button>
+                  <div class="from-group col-md-6">
+                    <button type="submit" class="btn btn-primary">Submit Data</button>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <a th:href="@{/karyawan/index}" class="btn btn-success">Kembali</a>
+                  </div>
                 </form>
               </div>
             </div>

@@ -17,11 +17,8 @@ import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "raw")
+@Data
 public class Raw {
 
     @Id

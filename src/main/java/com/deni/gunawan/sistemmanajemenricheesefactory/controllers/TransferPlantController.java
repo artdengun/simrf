@@ -27,15 +27,15 @@ public class TransferPlantController {
     @GetMapping(value = "/index")
     public String getList(ModelMap map){
         map.addAttribute("karyawan", karyawanService.getList());
-        map.addAttribute("transferplant", transferPlantService.getList());
-        return "pages/transferplant/index";
+        map.addAttribute("listTransferplant", transferPlantService.getList());
+        return "pages/transfer/index";
     }
     
     @GetMapping(value = "/form")
     public String getForm(ModelMap map){
         map.addAttribute("karyawan", karyawanService);
         map.addAttribute("transferplant", transferPlantService);
-        return "pages/transferplant/form";
+        return "pages/transfer/form";
     }
 
     @GetMapping(value = "/form/{id}")
@@ -45,7 +45,7 @@ public class TransferPlantController {
         Optional<TransferPlant> transferPlant = transferPlantService.findDataById(id);
         if(transferPlant.isPresent()){
             map.addAttribute("transferplant", transferPlantService);
-            return "/pages/transferplant/form";
+            return "pages/transfer/form";
         }else{
             redirectAttributes.addFlashAttribute("notAvailable", "Data Tidak Ada");
             return "redirect:/transferplant/index";

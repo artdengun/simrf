@@ -26,7 +26,7 @@ public class FrozenController {
         @GetMapping(value = "/index")
         public String getList(ModelMap map){
             map.addAttribute("karyawan", karyawanService.getList());
-            map.addAttribute("frozen", frozenService.getList());
+            map.addAttribute("listFrozen", frozenService.getList());
             return "pages/frozen/index";
         }
 
@@ -34,7 +34,7 @@ public class FrozenController {
         public String getForm(ModelMap map){
             map.addAttribute("karyawan", karyawanService);
             map.addAttribute("frozen", frozenService);
-            return "/pages/frozen/form";
+            return "pages/frozen/form";
         }
 
         @GetMapping(value = "/delete/{id}")
@@ -51,7 +51,7 @@ public class FrozenController {
             Optional<Frozen> findData = frozenService.findDataById(id);
             if(findData.isPresent()){
                 redirectAttributes.addFlashAttribute("successAlert", "Data Berhasil Ditampilkan");
-                return "/pages/frozen/form";
+                return "pages/frozen/form";
             }
                 redirectAttributes.addFlashAttribute("notAvailable", "Data Tidak ditemukan");
                 return "redirect:/frozen/index";
@@ -63,7 +63,7 @@ public class FrozenController {
                             RedirectAttributes redirectAttributes){
 
             if(result.hasErrors()){
-                return "/pages/frozen/form";
+                return "pages/frozen/form";
             }
             frozenService.saved(frozen);
             redirectAttributes.addFlashAttribute("successAlert", "Data Berhasil Disimpan");

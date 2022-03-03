@@ -26,15 +26,15 @@ public class AssetController {
     @GetMapping(value = "/index")
     public String getList(ModelMap map){
         map.addAttribute("karyawan", karyawanService.getList());
-        map.addAttribute("asset", assetService.getList());
-        return "/pages/asset/index";
+        map.addAttribute("listAsset", assetService.getList());
+        return "pages/asset/index";
     }
 
     @GetMapping(value = "/form")
     public String getForm(ModelMap map){
         map.addAttribute("karyawan", karyawanService);
         map.addAttribute("asset", assetService);
-        return "/pages/asset/form";
+        return "pages/asset/form";
     }
 
     @GetMapping(value = "/form/{id}")
@@ -44,7 +44,7 @@ public class AssetController {
         Optional<Asset> asset = assetService.findDataById(id);
         if(asset.isPresent()){
             map.addAttribute("asset", assetService);
-            return "/pages/asset/form";
+            return "pages/asset/form";
         }else{
             redirectAttributes.addFlashAttribute("notAvailable", "Data Tidak Ada");
             return "redirect:/karyawan/index";

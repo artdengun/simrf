@@ -19,11 +19,8 @@ import javax.persistence.Table;
 
 
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "transfer_plant")
+@Data
 public class TransferPlant {
 
     @Id
@@ -40,9 +37,7 @@ public class TransferPlant {
     @Column(name = "quantity_barang", length = 20)
     private String quantiyBarang;
     @Column(name = "uom", length = 20)
-    private UOM satuanBarang;
-    @Column(name = "jumlah_barang", length = 20)
-    private String jumlahBarang;
+    private UOM uom;
     @Column(name = "outlet_penerima", length = 20)
     private String outletPenerima;
     @Column(name = "outlet_pengirim", length = 20)

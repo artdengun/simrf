@@ -17,50 +17,52 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Basic Table</h4>
-                  <p class="card-description">
-                    Add class <code>.table</code>
+                  <h2 class="card-title text-center"><b>Data Karyawan</b></h2>
+
+                  <p class="card-description text-center">
+                   Data Karyawan Richeese Factory
                   </p>
+                  <a th:href="@{/form}" class="btn btn-danger float-left ">PDF</a> &ensp;
+                  <a th:href="@{/form}" class="btn btn-success float left ">EXCEL</a>
+                  <a th:href="@{/karyawan/form}" class="btn btn-primary float-right ">Tambah Data</a>
+                  <br/><br/>
+                  <div class="input-group mb-3 mx-auto">
+                    <div class="input-group-prepend">
+                      <i class="bi bi-search"></i>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Search Data...." aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
                   <div class="table-responsive">
                     <table class="table" id="">
                       <thead>
                         <tr>
-                          <th>Profile</th>
-                          <th>VatNo.</th>
-                          <th>Created</th>
-                          <th>Status</th>
+                          <th>No</th>
+                          <th>Nama Lengkap</th>
+                          <th>Jenis Kelamin</th>
+                          <th>Alamat</th>
+                          <th>Tempat Tanggal Lahir</th>
+                          <th>Status Perkawinan</th>
+                          <th>No Ktp</th>
+                          <th>No Telephone</th>
+                          <th>Jabatan</th>
+                          <th>Pendidikan</th>
+                          <th>Jabatan</th>
+                          <th>Tanggal Join</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>Jacob</td>
-                          <td>53275531</td>
-                          <td>12 May 2017</td>
-                          <td><label class="badge badge-danger">Pending</label></td>
-                        </tr>
-                        <tr>
-                          <td>Messsy</td>
-                          <td>53275532</td>
-                          <td>15 May 2017</td>
-                          <td><label class="badge badge-warning">In progress</label></td>
-                        </tr>
-                        <tr>
-                          <td>John</td>
-                          <td>53275533</td>
-                          <td>14 May 2017</td>
-                          <td><label class="badge badge-info">Fixed</label></td>
-                        </tr>
-                        <tr>
-                          <td>Peter</td>
-                          <td>53275534</td>
-                          <td>16 May 2017</td>
-                          <td><label class="badge badge-success">Completed</label></td>
-                        </tr>
-                        <tr>
-                          <td>Dave</td>
-                          <td>53275535</td>
-                          <td>20 May 2017</td>
-                          <td><label class="badge badge-warning">In progress</label></td>
+                        <tr th:each="karyawan, itrStat: ${listKaryawan}">
+                          <td th:text="${itrStat.count}}"></td>
+                          <td th:text="karyawan.nama"></td>
+                          <td th:text="karyawan.jenis_kelamin"></td>
+                          <td th:text="karyawan.alamat"></td>
+                          <td th:text="karyawan.tempat_tanggal_lahir"></td>
+                          <td th:text="karyawan.status_perkawinan"></td>
+                          <td th:text="karyawan.no_ktp"></td>
+                          <td th:text="karyawan.no_telephone"></td>
+                          <td th:text="karyawan.jabatan"></td>
+                          <td th:text="karyawan.pendidikan"></td>
+                          <td th:text="karyawan.tanggal_join"></td>
                         </tr>
                       </tbody>
                     </table>
@@ -79,22 +81,8 @@
     </div>
     <!-- page-body-wrapper ends -->
   </div>
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="../../vendors/js/vendor.bundle.base.js"></script>
 
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="../../js/off-canvas.js"></script>
-  <script src="../../js/hoverable-collapse.js"></script>
-  <script src="../../js/template.js"></script>
-  <script src="../../js/settings.js"></script>
-  <script src="../../js/todolist.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <!-- End custom js for this page-->
+<div th:replace="'pages/template/script' :: script"></div>
 </body>
 
 </html>

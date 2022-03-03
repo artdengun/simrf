@@ -28,7 +28,7 @@ public class ReturController {
     @GetMapping(value = "/index")
     public String getList(ModelMap map){
         map.addAttribute("karyawan", karyawanService.getList());
-        map.addAttribute("retur", returService.getList());
+        map.addAttribute("listRetur", returService.getList());
         return "pages/retur/index";
     }
 
@@ -46,7 +46,7 @@ public class ReturController {
         Optional<Retur> retur = returService.findDataById(id);
         if(retur.isPresent()){
             map.addAttribute("retur", returService);
-            return "/pages/retur/form";
+            return "pages/retur/form";
         }else{
             redirectAttributes.addFlashAttribute("notAvailable", "Data Tidak Ada");
             return "redirect:/retur/index";
@@ -58,6 +58,7 @@ public class ReturController {
                                    BindingResult result,
                                    RedirectAttributes redirectAttributes){
         if(result.hasErrors()){
+            log.info("DATA RETUR TIDAK BERHASIL DI PROSES");
             return "redirect:/retur/form";
         }
         returService.saved(retur);

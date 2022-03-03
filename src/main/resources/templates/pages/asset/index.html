@@ -17,14 +17,14 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h2 class="card-title text-center"><b>Data Karyawan</b></h2>
+                  <h2 class="card-title text-center"><b>Data Asset</b></h2>
 
                   <p class="card-description text-center">
-                   Data Karyawan Richeese Factory
+                   Data Asset Richeese Factory
                   </p>
                   <a th:href="@{/form}" class="btn btn-danger float-left ">PDF</a> &ensp;
                   <a th:href="@{/form}" class="btn btn-success float left ">EXCEL</a>
-                  <a th:href="@{/karyawan/form}" class="btn btn-primary float-right ">Tambah Data</a>
+                  <a th:href="@{/asset/form}" class="btn btn-primary float-right ">Tambah Data</a>
                   <br/><br/>
                   <div class="input-group mb-3 mx-auto">
                     <div class="input-group-prepend">
@@ -37,32 +37,28 @@
                       <thead>
                         <tr>
                           <th>No</th>
-                          <th>Nama Lengkap</th>
-                          <th>Jenis Kelamin</th>
-                          <th>Alamat</th>
-                          <th>Tempat Tanggal Lahir</th>
-                          <th>Status Perkawinan</th>
-                          <th>No Ktp</th>
-                          <th>No Telephone</th>
-                          <th>Jabatan</th>
-                          <th>Pendidikan</th>
-                          <th>Jabatan</th>
-                          <th>Tanggal Join</th>
+                          <th>No Assets</th>
+                          <th>Vendor</th>
+                          <th>Tanggal Penerima</th>
+                          <th>Nama Asset</th>
+                          <th>Jenis Asset</th>
+                          <th>Jumlah</th>
+                          <th>Tanggal Input</th>
+                          <th>PIC</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr th:each="karyawan, itrStat: ${listKaryawan}">
+                        <tr th:each="asset, itrStat: ${listAsset}">
                           <td th:text="${itrStat.count}}"></td>
-                          <td th:text="karyawan.nama"></td>
-                          <td th:text="karyawan.jenis_kelamin"></td>
-                          <td th:text="karyawan.alamat"></td>
-                          <td th:text="karyawan.tempat_tanggal_lahir"></td>
-                          <td th:text="karyawan.status_perkawinan"></td>
-                          <td th:text="karyawan.no_ktp"></td>
-                          <td th:text="karyawan.no_telephone"></td>
-                          <td th:text="karyawan.jabatan"></td>
-                          <td th:text="karyawan.pendidikan"></td>
-                          <td th:text="karyawan.tanggal_join"></td>
+                          <td th:text="asset.no_assets"></td>
+                          <td th:text="asset.vendor"></td>
+                          <td th:text="asset.tanggal_diterima"></td>
+                          <td th:text="asset.nama"></td>
+                          <td th:text="asset.jenis"></td>
+                          <td th:text="asset.quantity"></td>
+                          <td th:text="asset.harga_assets"></td>
+                          <td th:text="asset.tanggal_input"></td>
+                          <td th:text="asset.karyawan.nama"></td>
                         </tr>
                       </tbody>
                     </table>

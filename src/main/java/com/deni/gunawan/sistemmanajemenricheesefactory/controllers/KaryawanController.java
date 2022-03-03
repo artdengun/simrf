@@ -23,7 +23,7 @@ public class KaryawanController {
 
     @GetMapping(value = "/index")
     public String getList(ModelMap map){
-        map.addAttribute("karyawan", karyawanService.getList());
+        map.addAttribute("listKaryawan", karyawanService.getList());
         return "pages/karyawan/index";
     }
 
@@ -52,6 +52,7 @@ public class KaryawanController {
                                    BindingResult bindingResult,
                                    RedirectAttributes redirectAttributes){
         if(bindingResult.hasErrors()){
+            log.info("DATA TIDAK BERHASIL DI PROSES");
             return "redirect:/karyawan/form";
         }
         karyawanService.saved(karyawan);
