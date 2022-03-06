@@ -13,6 +13,11 @@ public class ApplicationController {
 
     @GetMapping(value = "/dashboard")
     public String routeIndex() {
+        return "blank";
+    }
+
+    @GetMapping(value = "/index")
+    public String routeDashboard(){
         return "index";
     }
 
@@ -29,26 +34,6 @@ public class ApplicationController {
     @GetMapping(value = "/table")
     public String routerBasiTable() {
         return "pages/tables/basic";
-    }
-
-    @GetMapping(value = "/element")
-    public String routerFormBasic() {
-        return "pages/forms/basic_elements";
-    }
-
-    @GetMapping(value = "/not-found")
-    public String errorNotFound() {
-        return "pages/error/404";
-    }
-
-    @GetMapping(value = "/err-server")
-    public String errorServerNotResponse() {
-        return "pages/error/500";
-    }
-
-    @GetMapping(value = "/asset-index")
-    public String assetsIndex(){
-        return "pages/assets/index";
     }
 
 }

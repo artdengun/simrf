@@ -1,87 +1,81 @@
 <!DOCTYPE html>
-<html lang="id" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
 <div th:replace="'pages/template/head' :: head"></div>
-<body>
-  <div class="container-scroller">
-    <!-- partial:../../partials/_navbar.html -->
-    <div th:replace="'pages/template/navbar' :: navbar"></div>
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-      <!-- partial:../../partials/_sidebar.html -->
-      <div th:replace="'pages/template/sidebar' :: sidebar"></div>
-      <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
-          <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h2 class="card-title text-center"><b>Data Karyawan</b></h2>
+<body id="page-top">
 
-                  <p class="card-description text-center">
-                   Data Karyawan Richeese Factory
-                  </p>
-                  <a th:href="@{/form}" class="btn btn-danger float-left ">PDF</a> &ensp;
-                  <a th:href="@{/form}" class="btn btn-success float left ">EXCEL</a>
-                  <a th:href="@{/karyawan/form}" class="btn btn-primary float-right ">Tambah Data</a>
-                  <br/><br/>
-                  <div class="input-group mb-3 mx-auto">
-                    <div class="input-group-prepend">
-                      <i class="bi bi-search"></i>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Search Data...." aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                  <div class="table-responsive">
-                    <table class="table" id="">
-                      <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Nama Lengkap</th>
-                          <th>Jenis Kelamin</th>
-                          <th>Alamat</th>
-                          <th>Tempat Tanggal Lahir</th>
-                          <th>Status Perkawinan</th>
-                          <th>No Ktp</th>
-                          <th>No Telephone</th>
-                          <th>Jabatan</th>
-                          <th>Pendidikan</th>
-                          <th>Jabatan</th>
-                          <th>Tanggal Join</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr th:each="karyawan, itrStat: ${listKaryawan}">
-                          <td th:text="${itrStat.count}}"></td>
-                          <td th:text="karyawan.nama"></td>
-                          <td th:text="karyawan.jenis_kelamin"></td>
-                          <td th:text="karyawan.alamat"></td>
-                          <td th:text="karyawan.tempat_tanggal_lahir"></td>
-                          <td th:text="karyawan.status_perkawinan"></td>
-                          <td th:text="karyawan.no_ktp"></td>
-                          <td th:text="karyawan.no_telephone"></td>
-                          <td th:text="karyawan.jabatan"></td>
-                          <td th:text="karyawan.pendidikan"></td>
-                          <td th:text="karyawan.tanggal_join"></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
+<!-- Page Wrapper -->
+<div id="wrapper">
+  <div th:replace="'pages/template/sidebar' :: sidebar"></div>
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+    <!-- Main Content -->
+    <div id="content">
+      <div th:replace="'pages/template/topbar' :: topbar"></div>
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+        <h1 class="h3 mb-2 text-gray-800 text-center">Form Data Document Masuk</h1>
+        <p class="mb-4 text-center">Pengecekan data secara rutin akan terciptanya konsistensi data yang baik</p>
+
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary text-left">Form Tambah Data Document Masuk </h6>
+
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Nama Lengkap</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Alamat</th>
+                  <th>Tempat Tanggal Lahir</th>
+                  <th>Status Perkawinan</th>
+                  <th>No Ktp</th>
+                  <th>No Telephone</th>
+                  <th>Jabatan</th>
+                  <th>Pendidikan</th>
+                  <th>Jabatan</th>
+                  <th>Tanggal Join</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="karyawan, itrStat: ${listKaryawan}">
+                  <td th:text="${itrStat.count}}"></td>
+                  <td th:text="karyawan.nama"></td>
+                  <td th:text="karyawan.jenis_kelamin"></td>
+                  <td th:text="karyawan.alamat"></td>
+                  <td th:text="karyawan.tempat_tanggal_lahir"></td>
+                  <td th:text="karyawan.status_perkawinan"></td>
+                  <td th:text="karyawan.no_ktp"></td>
+                  <td th:text="karyawan.no_telephone"></td>
+                  <td th:text="karyawan.jabatan"></td>
+                  <td th:text="karyawan.pendidikan"></td>
+                  <td th:text="karyawan.tanggal_join"></td>
+                </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:../../partials/_footer.html -->
-        <div th:replace="'pages/template/footer' :: footer"></div>
-        <!-- partial -->
       </div>
-      <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
-  </div>
+      <!-- /.container-fluid -->
 
+    </div>
+    <!-- End of Main Content -->
+    <div th:replace="'pages/template/footer' :: footer"></div>
+
+  </div>
+  <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+<div th:replace="'pages/template/logout' :: logout"></div>
 <div th:replace="'pages/template/script' :: script"></div>
 </body>
 

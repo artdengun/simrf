@@ -17,7 +17,6 @@ public class RawService {
 
     private RawRepo rawRepo;
 
-
     public List<Raw> getList(){
         try {
         rawRepo.findAll();
