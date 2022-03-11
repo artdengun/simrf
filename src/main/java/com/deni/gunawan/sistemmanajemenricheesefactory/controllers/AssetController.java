@@ -48,7 +48,10 @@ public class AssetController {
     }
 
     @PostMapping(value = "/submit")
-    public String addAsset( @ModelAttribute Asset asset){
+    public String addAsset( @Valid @ModelAttribute Asset asset, BindingResult result, ModelMap modelMap){
+        if(result.hasErrors()){
+            return "pages/asset/form";
+        }
         assetService.saved(asset);
         return "redirect:/asset/index";
     }
