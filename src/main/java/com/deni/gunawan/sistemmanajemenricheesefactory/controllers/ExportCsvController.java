@@ -24,7 +24,7 @@ public class ExportCsvController {
     private RawCsvReporting rawCsvReporting;
     private TransferplantCsvReporting transferplantCsvReporting;
 
-    @po(value = "/asset")
+    @GetMapping(value = "/asset")
     public void exportAssetCSV(HttpServletResponse httpServletResponse) throws IOException {
         httpServletResponse.setContentType("text/csv");
         httpServletResponse.setHeader("Content-Disposition","attachment: filename=\"Employee.csv\"");
@@ -65,6 +65,5 @@ public class ExportCsvController {
         httpServletResponse.setHeader("Content-Disposition","attachment: filename=\"Karyawan.csv\"");
         karyawanCsvReporting.exportKaryawanAsCSV(httpServletResponse.getWriter());
     }
-
 
 }

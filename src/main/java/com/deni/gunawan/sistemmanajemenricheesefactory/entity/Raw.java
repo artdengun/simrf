@@ -44,8 +44,4 @@ public class Raw {
     private java.sql.Date tanggalPenerimaan;
     @Column(name = "deskripsi", length = 100)
     private String deskripsi;
-    @ManyToOne
-    @JoinColumn(name = "id_karyawan", referencedColumnName = "id")
-    private Karyawan karyawan;
-
 }

@@ -45,8 +45,4 @@ public class Retur {
     private Date tanggalRetur;
     @Column(name = "deskripsi", length = 100)
     private String deskripsi;
-    
-    @ManyToOne
-    @JoinColumn(name = "id_karyawan", referencedColumnName = "id")
-    private Karyawan karyawan;
 }

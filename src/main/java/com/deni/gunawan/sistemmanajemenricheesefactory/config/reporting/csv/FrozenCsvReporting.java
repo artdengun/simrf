@@ -33,7 +33,6 @@ public class FrozenCsvReporting {
                         frozen.getId(),
                         frozen.getCodeBarang(),
                         frozen.getDeskripsi(),
-                        frozen.getKaryawan(),
                         frozen.getExpDate(),
                         frozen.getNamaProduct(),
                         frozen.getNegara(),

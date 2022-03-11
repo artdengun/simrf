@@ -44,8 +44,4 @@ public class TransferPlant {
     private String outletPengirim;
     @Column(name = "mod_incharge", length = 20)
     private String modIncharge;
-    @ManyToOne
-    @JoinColumn(name = "id_karyawan", referencedColumnName = "id")
-    private Karyawan karyawan;
-
 }

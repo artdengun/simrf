@@ -25,7 +25,6 @@ public class TransferplantCsvReporting {
             for(TransferPlant transferPlant : listTransferPlant){
                 printer.printRecord(
                         transferPlant.getId(),
-                        transferPlant.getKaryawan(),
                         transferPlant.getModIncharge(),
                         transferPlant.getNamaBarang(),
                         transferPlant.getNoDokumen(),

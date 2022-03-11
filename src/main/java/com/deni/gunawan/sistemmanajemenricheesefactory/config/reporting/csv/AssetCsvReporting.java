@@ -28,7 +28,6 @@ public class AssetCsvReporting {
                         assetLooping.getHargaAssets(),
                         assetLooping.getNoAssets(),
                         assetLooping.getJenis(),
-                        assetLooping.getKaryawan(),
                         assetLooping.getNama(),
                         assetLooping.getQuantity(),
                         assetLooping.getTanggalDiterima(),

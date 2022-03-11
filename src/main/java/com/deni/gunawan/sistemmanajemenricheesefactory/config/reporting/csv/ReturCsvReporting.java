@@ -31,7 +31,6 @@ public class ReturCsvReporting {
                         retur.getDeskripsi(),
                         retur.getCodeBarang(),
                         retur.getExpDate(),
-                        retur.getKaryawan(),
                         retur.getNegara(),
                         retur.getProductionDate(),
                         retur.getUom(),

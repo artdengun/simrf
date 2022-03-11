@@ -38,8 +38,4 @@ public class Asset {
     private BigDecimal hargaAssets;
     @Column(name = "tanggal_input")
     private Date tanggalInput;
-    
-    @ManyToOne
-    @JoinColumn(name = "id_karyawan", referencedColumnName = "id")
-    private Karyawan karyawan;
 }

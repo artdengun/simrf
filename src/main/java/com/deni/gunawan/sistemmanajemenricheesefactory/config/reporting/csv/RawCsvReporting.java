@@ -28,7 +28,6 @@ public class RawCsvReporting {
                         raw.getCodeBarang(),
                         raw.getDeskripsi(),
                         raw.getExpDate(),
-                        raw.getKaryawan(),
                         raw.getNamaProduct(),
                         raw.getNegara(),
                         raw.getProductionDate(),

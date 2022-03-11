@@ -33,7 +33,11 @@ public class ApplicationController {
 
     @GetMapping(value = "/table")
     public String routerBasiTable() {
-        return "pages/tables/basic";
+        return "tables";
     }
 
+    @GetMapping(value = "/form")
+    public String getTables() {
+        return "form";
+    }
 }
