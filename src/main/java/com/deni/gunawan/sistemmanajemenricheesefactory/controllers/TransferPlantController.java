@@ -1,6 +1,5 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
-
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.TransferPlant;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.KaryawanService;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.TransferPlantService;
@@ -21,19 +20,16 @@ import java.util.Optional;
 @Slf4j
 public class TransferPlantController {
 
-    private KaryawanService karyawanService;
     private TransferPlantService transferPlantService;
 
     @GetMapping(value = "/index")
     public String getList(ModelMap map){
-        map.addAttribute("karyawan", karyawanService.getList());
         map.addAttribute("listTransferplant", transferPlantService.getList());
         return "pages/transfer/index";
     }
     
     @GetMapping(value = "/form")
     public String getForm(ModelMap map){
-        map.addAttribute("karyawan", karyawanService);
         map.addAttribute("transferplant", transferPlantService);
         return "pages/transfer/form";
     }

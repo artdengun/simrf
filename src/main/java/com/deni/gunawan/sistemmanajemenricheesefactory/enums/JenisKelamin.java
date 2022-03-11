@@ -1,5 +1,10 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.enums;
 
+/**
+ *
+ * @author denigunawan
+ */
+
 public enum JenisKelamin {
     LAKI_LAKI("Laki Laki"),
     PEREMPUAN("Perempuan");

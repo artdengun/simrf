@@ -9,6 +9,7 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.reporting;
  *
  * @author denigunawan
  */
-public class DataBarangRawaReporting {
+
+public class DataBarangRawReporting {
     
 }

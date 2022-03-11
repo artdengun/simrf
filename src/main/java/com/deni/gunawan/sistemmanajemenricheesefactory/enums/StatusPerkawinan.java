@@ -1,5 +1,10 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.enums;
 
+/**
+ *
+ * @author denigunawan
+ */
+
 public enum StatusPerkawinan {
     DUDA("Duda"),
     BELUM_MENIKAH("Belum Menikah"),

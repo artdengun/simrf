@@ -11,11 +11,6 @@ public class ApplicationController {
         return "pages/frontend/index";
     }
 
-    @GetMapping(value = "/dashboard")
-    public String routeIndex() {
-        return "blank";
-    }
-
     @GetMapping(value = "/index")
     public String routeDashboard(){
         return "index";
@@ -26,18 +21,9 @@ public class ApplicationController {
         return "login";
     }
 
-    @GetMapping(value = "/register")
-    public String routeRegister() {
-        return "register";
-    }
-
-    @GetMapping(value = "/table")
+    @GetMapping(value = "/forgetpassword")
     public String routerBasiTable() {
-        return "tables";
+        return "forgetpassword";
     }
 
-    @GetMapping(value = "/form")
-    public String getTables() {
-        return "form";
-    }
 }

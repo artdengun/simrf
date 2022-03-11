@@ -11,6 +11,12 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
+import org.springframework.format.annotation.DateTimeFormat;
+
+/**
+ *
+ * @author denigunawan
+ */
 
 @Entity
 @Data
@@ -19,23 +25,17 @@ public class Asset {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    @Column(name = "id", length = 36, unique = true)
     private String id;
     @Column(name = "no_assets", length = 50)
     private String noAssets;
-    @Enumerated(value = EnumType.STRING)
-    @NotNull
-    private Vendor vendor;
-    @NotNull
+    private String vendor;
+    private String pic;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date tanggalDiterima;
-    @NotNull
     private String nama;
-    @NotNull
     private String jenis;
-    @NotNull
     private String quantity;
-    @NotNull
     private BigDecimal hargaAssets;
-    @Column(name = "tanggal_input")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date tanggalInput;
 }

@@ -14,52 +14,42 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 import java.util.Optional;
 
+/**
+ *
+ * @author denigunawan
+ */
+
 @Controller
 @RequestMapping(value = "/asset")
 @AllArgsConstructor
 @Slf4j
 public class AssetController {
 
-    private KaryawanService karyawanService;
     private AssetService assetService;
 
     @GetMapping(value = "/index")
     public String getList(ModelMap map){
-        map.addAttribute("karyawan", karyawanService.getList());
         map.addAttribute("listAsset", assetService.getList());
         return "pages/asset/index";
     }
 
     @GetMapping(value = "/form")
     public String getForm(ModelMap map){
-        map.addAttribute("karyawan", karyawanService);
-        map.addAttribute("asset", assetService);
+        Asset asset = new Asset();
+        map.addAttribute("asset", asset);
         return "pages/asset/form";
     }
 
     @GetMapping(value = "/form/{id}")
-    public String getAssetId(@PathVariable(value = "id") String id,
-                             ModelMap map,
-                             RedirectAttributes redirectAttributes){
+    public String getAssetId(@PathVariable(value = "id") String id, ModelMap map){
         Optional<Asset> asset = assetService.findDataById(id);
-        if(asset.isPresent()){
-            map.addAttribute("asset", assetService);
-            return "pages/asset/form";
-        }else{
-            redirectAttributes.addFlashAttribute("notAvailable", "Data Tidak Ada");
-            return "redirect:/karyawan/index";
-        }
+            map.addAttribute("asset", asset);
+            return "pages/asset/edit";
     }
 
     @PostMapping(value = "/submit")
-    public String addAsset(@Valid @ModelAttribute Asset asset,
-                           BindingResult result,
-                           RedirectAttributes redirectAttributes){
-        if(result.hasErrors()){
-            return "redirect:/asset/form";
-        }
+    public String addAsset( @ModelAttribute Asset asset){
         assetService.saved(asset);
-        redirectAttributes.addFlashAttribute("alertSuccess", "Data Berhasil Save");
         return "redirect:/asset/index";
     }
 

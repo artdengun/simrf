@@ -15,6 +15,12 @@ import com.deni.gunawan.sistemmanajemenricheesefactory.enums.UOM;
 import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+
+/**
+ *
+ * @author denigunawan
+ */
 
 @Entity
 @Data
@@ -33,6 +39,8 @@ public class Retur {
     private Date productionDate;
     @Column(name = "exp_date")
     private Date expDate;
+    @NotNull
+    private String pic;
     @Column(name = "negara")
     private String negara;
     @Column(name = "jumlah_retur")

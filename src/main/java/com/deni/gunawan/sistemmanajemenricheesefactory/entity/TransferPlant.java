@@ -16,8 +16,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-
+/**
+ *
+ * @author denigunawan
+ */
 
 @Entity
 @Data
@@ -38,6 +42,8 @@ public class TransferPlant {
     private String quantiyBarang;
     @Column(name = "uom", length = 20)
     private UOM uom;
+    @NotNull
+    private String pic;
     @Column(name = "outlet_penerima", length = 20)
     private String outletPenerima;
     @Column(name = "outlet_pengirim", length = 20)

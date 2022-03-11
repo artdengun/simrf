@@ -15,6 +15,11 @@ import java.util.Date;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+/**
+ *
+ * @author denigunawan
+ */
+
 @Entity
 @Data
 public class Karyawan {

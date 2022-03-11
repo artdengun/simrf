@@ -20,19 +20,16 @@ import java.util.Optional;
 @Slf4j
 public class FrozenController {
 
-        private KaryawanService karyawanService;
         private FrozenService frozenService;
 
         @GetMapping(value = "/index")
         public String getList(ModelMap map){
-            map.addAttribute("karyawan", karyawanService.getList());
             map.addAttribute("listFrozen", frozenService.getList());
             return "pages/frozen/index";
         }
 
         @GetMapping(value = "/form")
         public String getForm(ModelMap map){
-            map.addAttribute("karyawan", karyawanService);
             map.addAttribute("frozen", frozenService);
             return "pages/frozen/form";
         }

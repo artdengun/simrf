@@ -16,6 +16,12 @@ import javax.persistence.Table;
 import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+
+/**
+ *
+ * @author denigunawan
+ */
 
 @Entity
 @Data
@@ -38,6 +44,8 @@ public class Raw {
     private String negara;
     @Column(name = "uom", nullable = false)
     private UOM uom;
+    @NotNull
+    private String pic;
     @Column(name = "codeBarang", length = 10)
     private String codeBarang;
     @Column(name = "tanggal_penerimaan")

@@ -1,5 +1,10 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.enums;
 
+/**
+ *
+ * @author denigunawan
+ */
+
 public enum Jabatan {
     STORE_MANAGER("Store Manager"),
     ASSITEN_MANAGER("Assisten Manager"),

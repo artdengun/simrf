@@ -1,5 +1,10 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.enums;
 
+/**
+ *
+ * @author denigunawan
+ */
+
 public enum Vendor {
     CIOMAS("Ciomas"),
     DC_BEKASI("DC Bekasi"),

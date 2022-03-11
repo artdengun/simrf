@@ -20,19 +20,16 @@ import java.util.Optional;
 @Slf4j
 public class RawController {
 
-    private KaryawanService karyawanService;
     private RawService rawService;
 
     @GetMapping(value = "/index")
     private String getList(ModelMap map){
-        map.addAttribute("karyawan", karyawanService.getList());
         map.addAttribute("listRaw", rawService.getList());
         return "pages/raw/index";
     }
 
     @GetMapping(value = "/form")
     private String getForm(ModelMap map){
-        map.addAttribute("karyawan", karyawanService);
         map.addAttribute("raw", rawService);
         return "pages/raw/form";
     }

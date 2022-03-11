@@ -10,48 +10,31 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ *
+ * @author denigunawan
+ */
+
+@Transactional
 @Service
-@Slf4j
 @AllArgsConstructor
 public class AssetService {
 
     private AssetRepo assetRepo;
 
     public List<Asset> getList(){
-        try {
-            assetRepo.findAll();
-        }catch (Exception e){
-            log.error("ERROR GET LIST :  ", e);
-        }
-        return null;
+        return assetRepo.findAll();
     }
 
-    @Transactional
     public Asset saved(Asset asset){
-        try {
-            assetRepo.save(asset);
-        }catch (Exception e){
-            log.error("ERROR SAVE :  ", e);
-        }
-        return null;
+     return assetRepo.save(asset);
     }
-
 
     public Optional<Asset> findDataById(String id){
-        try {
-        assetRepo.findById(id);
-        }catch (Exception e){
-            log.error("ERROR FIND DATA :  ", e);
-        }
-        return Optional.empty();
+        return assetRepo.findById(id);
     }
 
-    @Transactional
     public void delete(String id){
-        try {
-            assetRepo.deleteById(id);
-        }catch (Exception e){
-            log.error("ERROR DELETE :  ", e);
-        }
+       assetRepo.deleteById(id);
     }
 }

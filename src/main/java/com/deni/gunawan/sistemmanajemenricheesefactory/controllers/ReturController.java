@@ -22,19 +22,16 @@ import java.util.Optional;
 @Slf4j
 public class ReturController {
 
-    private KaryawanService karyawanService;
     private ReturService returService;
 
     @GetMapping(value = "/index")
     public String getList(ModelMap map){
-        map.addAttribute("karyawan", karyawanService.getList());
         map.addAttribute("listRetur", returService.getList());
         return "pages/retur/index";
     }
 
     @GetMapping(value = "/form")
     public String getForm(ModelMap map){
-        map.addAttribute("karyawan", karyawanService);
         map.addAttribute("retur", returService);
         return "pages/retur/form";
     }
