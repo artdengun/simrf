@@ -30,31 +30,17 @@ public class RawController {
 
     @GetMapping(value = "/form")
     private String getForm(ModelMap map){
-        map.addAttribute("raw", rawService);
+        Raw raw = new Raw();
+        map.addAttribute("raw", raw);
         return "pages/raw/form";
     }
 
-    @GetMapping(value = "/form/{id}")
-    private String findDataById(@PathVariable(value = "id") String id,
-                              RedirectAttributes redirectAttributes){
-        Optional<Raw> findDataId = rawService.findDataById(id);
-        if(findDataId.isPresent()){
-            redirectAttributes.addFlashAttribute("successAlert", "Data Ditemukan");
-            return "redirect:/raw/form";
-        }
-        redirectAttributes.addFlashAttribute("noAvailable", "Data Tidak Ditemukan");
-        return "redirect:/raw/index";
-    }
-
     @PostMapping(value = "/submit")
-    public String saved(@Valid @ModelAttribute Raw raw,
-                        BindingResult result,
-                        RedirectAttributes redirectAttributes){
+    public String saved(@Valid @ModelAttribute Raw raw, BindingResult result){
         if(result.hasErrors()){
             return "pages/raw/form";
         }
-        rawService.saved(raw);
-        redirectAttributes.addFlashAttribute("successAlert", "Data Ditemukan");
+        rawService.save(raw);
         return "redirect:/raw/index";
     }
 
@@ -63,6 +49,19 @@ public class RawController {
                          RedirectAttributes redirectAttributes){
         rawService.delete(id);
         redirectAttributes.addFlashAttribute("successAlert", "Data Ditemukan");
+        return "redirect:/raw/index";
+    }
+
+
+    @GetMapping(value = "/form/{id}")
+    private String findDataById(@PathVariable(value = "id") String id,
+                                RedirectAttributes redirectAttributes){
+        Optional<Raw> findDataId = rawService.findById(id);
+        if(findDataId.isPresent()){
+            redirectAttributes.addFlashAttribute("successAlert", "Data Ditemukan");
+            return "redirect:/raw/form";
+        }
+        redirectAttributes.addFlashAttribute("noAvailable", "Data Tidak Ditemukan");
         return "redirect:/raw/index";
     }
 

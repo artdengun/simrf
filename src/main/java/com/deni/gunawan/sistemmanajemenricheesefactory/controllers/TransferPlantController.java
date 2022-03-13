@@ -30,7 +30,8 @@ public class TransferPlantController {
     
     @GetMapping(value = "/form")
     public String getForm(ModelMap map){
-        map.addAttribute("transferplant", transferPlantService);
+        TransferPlant transferPlant = new TransferPlant();
+        map.addAttribute("transfer", transferPlant);
         return "pages/transfer/form";
     }
 
@@ -38,10 +39,10 @@ public class TransferPlantController {
     public String getDataById(@PathVariable(value = "id") String id,
                              ModelMap map,
                              RedirectAttributes redirectAttributes){
-        Optional<TransferPlant> transferPlant = transferPlantService.findDataById(id);
+        Optional<TransferPlant> transferPlant = transferPlantService.findById(id);
         if(transferPlant.isPresent()){
             map.addAttribute("transferplant", transferPlantService);
-            return "pages/transfer/form";
+            return "pages/transferplant/form";
         }else{
             redirectAttributes.addFlashAttribute("notAvailable", "Data Tidak Ada");
             return "redirect:/transferplant/index";
@@ -49,22 +50,17 @@ public class TransferPlantController {
     }
 
     @PostMapping(value = "/submit")
-    public String addTransferPlant(@Valid @ModelAttribute TransferPlant transferPlant,
-                           BindingResult result,
-                           RedirectAttributes redirectAttributes){
+    public String addTransferPlant(@Valid @ModelAttribute TransferPlant transferPlant, BindingResult result){
         if(result.hasErrors()){
-            return "redirect:/transferplant/form";
+            return "pages/transferplant/form";
         }
-        transferPlantService.saved(transferPlant);
-        redirectAttributes.addFlashAttribute("alertSuccess", "Data Berhasil Save");
+        transferPlantService.save(transferPlant);
         return "redirect:/transferplant/index";
     }
 
     @GetMapping(value = "/delete/{id}")
-    public String removeTransferPlant(@PathVariable(value = "id") String id,
-                              RedirectAttributes redirectAttributes){
+    public String removeTransferPlant(@PathVariable(value = "id") String id){
         this.transferPlantService.delete(id);
-        redirectAttributes.addFlashAttribute("alertSuccess", "Data Berhasil Remove");
         return "redirect:/transferplant/index";
     }
 

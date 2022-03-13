@@ -45,8 +45,8 @@
                   <td th:text="${asset.tanggalInput}"></td>
                   <td th:text="${asset.pic}"></td>
                   <td>
-                    <a th:href="@{/asset/form/(id=${asset.id})}" class="btn btn-primary">Edit</a>
-                    <a th:href="@{/asset/delete/(id=${asset.id})}" class="btn btn-danger">Delete</a>
+                    <a th:href="@{/asset/form/{id}(id=${asset.id})}" class="btn btn-primary">Edit</a>
+                    <a th:href="@{/asset/delete/{id}(id=${asset.id})}" class="btn btn-danger">Delete</a>
                   </td>
                 </tr>
                 </tbody>

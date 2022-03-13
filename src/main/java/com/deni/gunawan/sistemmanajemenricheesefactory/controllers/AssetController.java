@@ -48,7 +48,7 @@ public class AssetController {
     }
 
     @PostMapping(value = "/submit")
-    public String addAsset( @Valid @ModelAttribute Asset asset, BindingResult result, ModelMap modelMap){
+    public String addAsset( @Valid @ModelAttribute Asset asset, BindingResult result){
         if(result.hasErrors()){
             return "pages/asset/form";
         }

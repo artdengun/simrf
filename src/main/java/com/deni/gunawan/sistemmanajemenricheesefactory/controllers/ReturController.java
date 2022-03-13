@@ -32,42 +32,35 @@ public class ReturController {
 
     @GetMapping(value = "/form")
     public String getForm(ModelMap map){
-        map.addAttribute("retur", returService);
+        Retur retur = new Retur();
+        map.addAttribute("retur", retur);
         return "pages/retur/form";
     }
 
     @GetMapping(value = "/form/{id}")
-    public String getDataById(@PathVariable(value = "id") String id,
-                              ModelMap map,
-                              RedirectAttributes redirectAttributes){
-        Optional<Retur> retur = returService.findDataById(id);
+    public String getDataById(@PathVariable(value = "id") String id, ModelMap map){
+        Optional<Retur> retur = returService.findById(id);
         if(retur.isPresent()){
             map.addAttribute("retur", returService);
             return "pages/retur/form";
         }else{
-            redirectAttributes.addFlashAttribute("notAvailable", "Data Tidak Ada");
             return "redirect:/retur/index";
         }
     }
 
     @PostMapping(value = "/submit")
-    public String addData(@Valid @ModelAttribute Retur retur,
-                                   BindingResult result,
-                                   RedirectAttributes redirectAttributes){
+    public String addData(@Valid @ModelAttribute Retur retur, BindingResult result){
         if(result.hasErrors()){
             log.info("DATA RETUR TIDAK BERHASIL DI PROSES");
-            return "redirect:/retur/form";
+            return "pages/retur/form";
         }
-        returService.saved(retur);
-        redirectAttributes.addFlashAttribute("alertSuccess", "Data Berhasil Save");
+        returService.save(retur);
         return "redirect:/retur/index";
     }
 
     @GetMapping(value = "/delete/{id}")
-    public String remove(@PathVariable(value = "id") String id,
-                                      RedirectAttributes redirectAttributes){
+    public String remove(@PathVariable(value = "id") String id){
         this.returService.delete(id);
-        redirectAttributes.addFlashAttribute("alertSuccess", "Data Berhasil Remove");
         return "redirect:/retur/index";
     }
 

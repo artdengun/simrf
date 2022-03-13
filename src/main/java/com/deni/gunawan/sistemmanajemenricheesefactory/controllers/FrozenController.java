@@ -2,7 +2,6 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Frozen;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.FrozenService;
-import com.deni.gunawan.sistemmanajemenricheesefactory.services.KaryawanService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -24,47 +23,42 @@ public class FrozenController {
 
         @GetMapping(value = "/index")
         public String getList(ModelMap map){
-            map.addAttribute("listFrozen", frozenService.getList());
+            map.addAttribute("list", frozenService.getList());
             return "pages/frozen/index";
         }
 
         @GetMapping(value = "/form")
         public String getForm(ModelMap map){
-            map.addAttribute("frozen", frozenService);
+            Frozen frozen = new Frozen();
+            map.addAttribute("frozen", frozen);
             return "pages/frozen/form";
         }
 
         @GetMapping(value = "/delete/{id}")
-        public String remove(@PathVariable(value = "id") String id,
-                             RedirectAttributes redirectAttributes){
+        public String remove(@PathVariable(value = "id") String id){
             this.frozenService.delete(id);
-            redirectAttributes.addFlashAttribute("successAlert", "Data Berhasil di delete");
             return "redirect:/frozen/index";
-        }
-
-        @GetMapping(value = "/form/{id}")
-        public String findById(@PathVariable(value = "id") String id,
-                             RedirectAttributes redirectAttributes){
-            Optional<Frozen> findData = frozenService.findDataById(id);
-            if(findData.isPresent()){
-                redirectAttributes.addFlashAttribute("successAlert", "Data Berhasil Ditampilkan");
-                return "pages/frozen/form";
-            }
-                redirectAttributes.addFlashAttribute("notAvailable", "Data Tidak ditemukan");
-                return "redirect:/frozen/index";
         }
 
         @PostMapping(value = "/submit")
         public String saved(@Valid @ModelAttribute Frozen frozen,
-                            BindingResult result,
-                            RedirectAttributes redirectAttributes){
-
+                            BindingResult result){
             if(result.hasErrors()){
                 return "pages/frozen/form";
             }
-            frozenService.saved(frozen);
-            redirectAttributes.addFlashAttribute("successAlert", "Data Berhasil Disimpan");
+            frozenService.save(frozen);
             return "redirect:/frozen/index";
         }
 
+    @GetMapping(value = "/form/{id}")
+    public String findById(@PathVariable(value = "id") String id,
+                           RedirectAttributes redirectAttributes){
+        Optional<Frozen> findData = frozenService.findById(id);
+        if(findData.isPresent()){
+            redirectAttributes.addFlashAttribute("successAlert", "Data Berhasil Ditampilkan");
+            return "pages/frozen/form";
+        }
+        redirectAttributes.addFlashAttribute("notAvailable", "Data Tidak ditemukan");
+        return "redirect:/frozen/index";
+    }
 }

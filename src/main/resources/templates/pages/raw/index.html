@@ -16,7 +16,8 @@
 
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Barang Raw</h6>
+            <a th:href="@{/raw/form}" class="btn btn-primay">Tambah Data</a>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -34,20 +35,26 @@
                   <th>Tanggal Penerimaan</th>
                   <th>Deskripsi</th>
                   <th>PIC</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="raw, itrStat: ${listRaw}">
-                  <td th:text="${itrStat.count}}"></td>
-                  <td th:text="raw.vendor"></td>
-                  <td th:text="raw.nama_product"></td>
-                  <td th:text="raw.production_date"></td>
-                  <td th:text="raw.exp_date"></td>
-                  <td th:text="raw.negara"></td>
-                  <td th:text="raw.uom"></td>
-                  <td th:text="raw.code_barang"></td>
-                  <td th:text="raw.tanggal_penerimaan"></td>
-                  <td th:text="raw.deskripsi"></td>
+                  <td th:text="${itrStat.count}"></td>
+                  <td th:text="${raw.vendor}"></td>
+                  <td th:text="${raw.namaProduct}"></td>
+                  <td th:text="${raw.productionDate}"></td>
+                  <td th:text="${raw.expDate}"></td>
+                  <td th:text="${raw.negara}"></td>
+                  <td th:text="${raw.uom}"></td>
+                  <td th:text="${raw.codeBarang}"></td>
+                  <td th:text="${raw.tanggalPenerimaan}"></td>
+                  <td th:text="${raw.deskripsi}"></td>
+                  <td th:text="${raw.pic}"></td>
+                  <td>
+                    <a th:href="@{/raw/form/{id}(id=${raw.id})}" class="btn btn-primary">Edit</a>
+                    <a th:href="@{/raw/delete/{id}(id=${raw.id})}" class="btn btn-danger">Delete</a>
+                  </td>
                 </tr>
                 </tbody>
               </table>

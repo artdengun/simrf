@@ -23,41 +23,21 @@ public class RawService {
     private RawRepo rawRepo;
 
     public List<Raw> getList(){
-        try {
-        rawRepo.findAll();
-        }catch (Exception e){
-            log.error("ERROR GET LIST :  ", e);
-        }
-        return null;
-    }
-
-
-    public Optional<Raw> findDataById(String id){
-        try {
-        rawRepo.findById(id);
-        }catch (Exception e){
-            log.error("ERROR FIND DATA :  ", e);
-        }
-        return Optional.empty();
+        return rawRepo.findAll();
     }
 
     @Transactional
-    public Raw saved(Raw raw){
-        try {
-        rawRepo.save(raw);
-        }catch (Exception e){
-            log.error("ERROR SAVED :  ", e);
-        }
-        return null;
+    public Raw save(Raw raw){
+        return rawRepo.save(raw);
+    }
+
+    public Optional<Raw> findById(String id){
+        return rawRepo.findById(id);
     }
 
     @Transactional
     public void delete(String id){
-        try {
         rawRepo.deleteById(id);
-        }catch (Exception e){
-            log.error("ERROR DELETE :  ", e);
-        }
     }
 
 }

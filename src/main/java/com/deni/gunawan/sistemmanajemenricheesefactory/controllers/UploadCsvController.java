@@ -17,11 +17,4 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @AllArgsConstructor
 public class UploadCsvController {
 
-    private AssetCsvReporting assetCsvReporting;
-    private KaryawanCsvReporting karyawanCsvReporting;
-    private FrozenCsvReporting frozenCsvReporting;
-    private ReturCsvReporting returCsvReporting;
-    private RawCsvReporting rawCsvReporting;
-    private TransferplantCsvReporting transferplantCsvReporting;
-
 }

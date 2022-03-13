@@ -11,10 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import com.deni.gunawan.sistemmanajemenricheesefactory.enums.UOM;
-import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -31,26 +28,37 @@ public class Retur {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name = "id", length = 36, unique = true)
     private String id;
-    @Column(name = "vendor", nullable = false)
-    private Vendor vendor;
+    @NotEmpty(message = "Data Vendor Required")
+    @Column(name = "vendor", nullable = false, length = 30)
+    private String vendor;
+    @NotEmpty(message = "Data Nama Barang Required")
     @Column(name = "nama_barang", length = 50)
     private String namaBarang;
-    @Column(name = "production_date")
-    private Date productionDate;
-    @Column(name = "exp_date")
-    private Date expDate;
-    @NotNull
+    @NotEmpty(message = "Data Production Date Required")
+    @Column(name = "production_date", length = 30)
+    private String productionDate;
+    @NotEmpty(message = "Data Expdate Required")
+    @Column(name = "exp_date", length = 30)
+    private String expDate;
+    @NotEmpty(message = "Data Pic Required")
+    @Column(name = "pic", length = 30)
     private String pic;
-    @Column(name = "negara")
+    @NotEmpty(message = "Data Negara Required")
+    @Column(name = "negara", length = 30)
     private String negara;
-    @Column(name = "jumlah_retur")
+    @NotEmpty(message = "Data Jumlah Retur Required")
+    @Column(name = "jumlah_retur", length = 30)
     private String jumlahRetur;
-    @Column(name = "uom", nullable = false)
-    private UOM uom;
-    @Column(name = "code_barang", length = 20)
+    @NotEmpty(message = "Data Uom Required")
+    @Column(name = "uom", nullable = false, length = 30)
+    private String uom;
+    @NotEmpty(message = "Data Code Barang Required")
+    @Column(name = "code_barang", length = 30)
     private String codeBarang;
+    @NotEmpty(message = "Data Tanggal Retur Required")
     @Column(name = "tanggal_retur")
-    private Date tanggalRetur;
+    private String tanggalRetur;
+    @NotEmpty(message = "Data Deskripsi Required")
     @Column(name = "deskripsi", length = 100)
     private String deskripsi;
 }

@@ -17,36 +17,44 @@
         <div class="card shadow mb-4">
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Data</h6>
-            <div class="btn btn-primary text-center">Tambah Data</div>
+            <a th:href="@{/transferplant/form}" class="btn btn-primary">Tambah</a>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
-                  <th>No</th>
-                  <th>Tanggal Pengiriman</th>
-                  <th>No Dokumen</th>
-                  <th>Nama Barang</th>
-                  <th>Quantity Barang</th>
-                  <th>UOM</th>
-                  <th>Outlet Penerima</th>
-                  <th>Outlet Pengirim</th>
-                  <th>Mod Incharge</th>
-                  <th>PIC</th>
+                  <th class="text-center">No</th>
+                  <th class="text-center">Tanggal Pengiriman</th>
+                  <th class="text-center">No Dokumen</th>
+                  <th class="text-center">Nama Barang</th>
+                  <th class="text-center">Quantity Barang</th>
+                  <th class="text-center">Quantity Barang</th>
+                  <th class="text-center">UOM</th>
+                  <th class="text-center">Outlet Penerima</th>
+                  <th class="text-center">Outlet Pengirim</th>
+                  <th class="text-center">Mod Incharge</th>
+                  <th class="text-center">PIC</th>
+                  <th class="text-center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="transfer, itrStat: ${listTransferplant}">
-                  <td th:text="${itrStat.count}}"></td>
-                  <td th:text="transfer.tanggal_dikirim"></td>
-                  <td th:text="transfer.no_dokumen"></td>
-                  <td th:text="transfer.nama_barang"></td>
-                  <td th:text="transfer.quantity_barang"></td>
-                  <td th:text="transfer.uom"></td>
-                  <td th:text="transfer.outlet_penerima"></td>
-                  <td th:text="transfer.outlet_pengirim"></td>
-                  <td th:text="transfer.mod_incharge"></td>
+                  <td th:text="${itrStat.count}"></td>
+                  <td th:text="${transfer.tanggalDikirim}"></td>
+                  <td th:text="${transfer.noDokumen}"></td>
+                  <td th:text="${transfer.namaBarang}"></td>
+                  <td th:text="${transfer.quantityBarang}"></td>
+                  <td th:text="${transfer.uom}"></td>
+                  <td th:text="${transfer.outletPenerima}"></td>
+                  <td th:text="${transfer.outletPengirim}"></td>
+                  <td th:text="${transfer.modIncharge}"></td>
+                  <td th:text="${transfer.pic}"></td>
+                  <td>
+                    <a th:href="@{/transferplant/form/{id}(id=${transferplant.id})}" class="btn btn-primary">Edit</a>
+                    <a th:href="@{/transferplant/delete/{id}(id=${transferplant.id})}" class="btn btn-danger">Delete</a>
+                  </td>
+
                 </tr>
                 </tbody>
               </table>

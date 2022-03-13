@@ -4,59 +4,102 @@
 
 <body id="page-top">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-       <div th:replace="'pages/template/sidebar' :: sidebar"></div>
-        <!-- End of Sidebar -->
+<!-- Page Wrapper -->
+<div id="wrapper">
+    <div th:replace="'pages/template/sidebar' :: sidebar"></div>
+    <!-- End of Sidebar -->
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
 
-            <!-- Main Content -->
-            <div id="content">
-                <div th:replace="'pages/template/topbar' :: topbar"></div>
+        <!-- Main Content -->
+        <div id="content">
+            <div th:replace="'pages/template/topbar' :: topbar"></div>
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                </div>
+
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Data Barang Transferplant</h6>
                     </div>
-
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data</h6>
-                        </div>
-                        <div class="card-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="formGroupExampleInput">Example label</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                    <div class="card-body">
+                        <form action="#" th:action="@{/transferplant/submit}" th:object="${transfer}" method="post">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="tanggalDikirim">Tanggal Pengiriman</label>
+                                    <input type="text" class="form-control" th:field="*{tanggalDikirim}" id="tanggalDikirim" placeholder="Tanggal pengiriman ...">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('tanggalDikirim')}" th:errors="*{tanggalDikirim}"></div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="formGroupExampleInput2">Another label</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                                <div class="form-group col-md-6">
+                                    <label for="noDokumen">No Dokumen</label>
+                                    <input type="text" class="form-control" id="noDokumen"  th:field="*{noDokumen}" placeholder="No Dokumen..">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('noDokumen')}" th:errors="*{noDokumen}"></div>
                                 </div>
-                            </form>
-                        </div>
+                                <div class="form-group col-md-6">
+                                    <label for="namaBarang">Nama Barang</label>
+                                    <input type="text" class="form-control" th:field="*{namaBarang}" id="namaBarang" placeholder="Nama Barang ...">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('namaBarang')}" th:errors="*{namaBarang}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="quantiyBarang">Quantity</label>
+                                    <input type="text" class="form-control" th:field="*{quantiyBarang}" id="quantiyBarang" placeholder="Quantity ...">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('quantiyBarang')}" th:errors="*{quantiyBarang}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="uom">UOM</label>
+                                    <input type="text" class="form-control" id="uom" th:field="*{uom}" placeholder="Uom ...">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('uom')}" th:errors="*{uom}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="outletPenerima">Outlet Penerima</label>
+                                    <input type="text" class="form-control" id="outletPenerima" th:field="*{outletPenerima}" placeholder="Outlet Penerima ...">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('outletPenerima')}" th:errors="*{outletPenerima}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="outletPengirim">Outlet Pengirim</label>
+                                    <input type="text" class="form-control" id="outletPengirim"  th:field="*{outletPengirim}" placeholder="Outlet Pengirim ...">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('outletPengirim')}" th:errors="*{outletPengirim}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="modIncharge">Mod Incharge</label>
+                                    <input type="text" class="form-control" id="modIncharge" th:field="*{modIncharge}" placeholder="Mod Incharge ...">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('modIncharge')}" th:errors="*{modIncharge}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="pic">PIC</label>
+                                    <input type="text" class="form-control" id="pic" th:field="*{pic}" placeholder="Pic ...">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('pic')}" th:errors="*{pic}"></div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <a th:href="@{/transferplant/index}" class="btn btn-primary float-left">Kembali</a>
+                                    <button type="submit" class="btn btn-secondary float-right">Submit Data</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-            <!-- End of Main Content -->
+        </div>
+        <!-- End of Main Content -->
 
         <div th:replace="'pages/template/footer' :: footer"></div>
 
-        </div>
-        <!-- End of Content Wrapper -->
     </div>
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-    <div th:replace="'pages/template/logout' :: logout"></div>
-    <div th:replace="'pages/template/script' :: script"></div>
+    <!-- End of Content Wrapper -->
+</div>
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+<div th:replace="'pages/template/logout' :: logout"></div>
+<div th:replace="'pages/template/script' :: script"></div>
 
-    </div>
+</div>
 </body>
 
 </html>

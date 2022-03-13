@@ -16,16 +16,19 @@
 
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Barang Frozen</h6>
+           <a th:href="@{/frozen/form}" class="btn btn-primary">Tambah</a>
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">  <thead>
-              <tr>
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">  <thead>
+                <thead>
+               <tr>
                 <th>No</th>
                 <th>Vendor</th>
+                <th>Suhu</th>
                 <th>Nama Product</th>
-                <th>Tanggal Produksi</th>
+                <th>Produksi</th>
                 <th>Exp Date </th>
                 <th>Negara</th>
                 <th>UOM</th>
@@ -33,25 +36,30 @@
                 <th>Tanggal Penerimaan</th>
                 <th>Deskripsi</th>
                 <th>PIC</th>
+                   <th>Action</th>
               </tr>
               </thead>
                 <tbody>
-                <tr th:each="frozen, itrStat: ${listFrozen}">
-                  <td th:text="${itrStat.count}}"></td>
-                  <td th:text="frozen.vendor"></td>
-                  <td th:text="frozen.nama_product"></td>
-                  <td th:text="frozen.production_date"></td>
-                  <td th:text="frozen.exp_date"></td>
-                  <td th:text="frozen.negara"></td>
-                  <td th:text="frozen.uom"></td>
-                  <td th:text="frozen.code_barang"></td>
-                  <td th:text="frozen.tanggal_penerimaan"></td>
-                  <td th:text="frozen.deskripsi"></td>
-                  <td th:text="frozen.karyawan.nama"></td>
+                <tr th:each="frozen, itrStat: ${list}">
+                  <td th:text="${itrStat.count}"></td>
+                  <td th:text="${frozen.vendor}"></td>
+                  <td th:text="${frozen.suhuProduct}"></td>
+                  <td th:text="${frozen.namaProduct}"></td>
+                  <td th:text="${frozen.productionDate}"></td>
+                  <td th:text="${frozen.expDate}"></td>
+                  <td th:text="${frozen.negara}"></td>
+                  <td th:text="${frozen.uom}"></td>
+                  <td th:text="${frozen.codeBarang}"></td>
+                  <td th:text="${frozen.tanggalPenerimaan}"></td>
+                  <td th:text="${frozen.deskripsi}"></td>
+                  <td th:text="${frozen.pic}"></td>
+                  <td>
+                    <a th:href="@{/frozen/form/{id}(id=${frozen.id})}" class="btn btn-primary">Edit</a>
+                    <a th:href="@{/frozen/delete/{id}(id=${frozen.id})}" class="btn btn-danger">Delete</a>
+                  </td>
                 </tr>
                 </tbody>
               </table>
-            </div>
           </div>
         </div>
       </div>

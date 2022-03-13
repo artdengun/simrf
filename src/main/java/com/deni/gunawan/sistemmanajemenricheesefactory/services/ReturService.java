@@ -1,5 +1,6 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.services;
 
+import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Raw;
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Retur;
 import com.deni.gunawan.sistemmanajemenricheesefactory.repository.ReturRepo;
 import lombok.AllArgsConstructor;
@@ -22,42 +23,22 @@ public class ReturService {
 
     private ReturRepo returRepo;
 
-
-    public Optional<Retur> findDataById(String id){
-        try {
-        returRepo.findById(id);
-        }catch (Exception e){
-            log.error("ERROR FIND DATA :  ", e);
-        }
-        return Optional.empty();
-    }
-
     public List<Retur> getList(){
-        try {
-        returRepo.findAll();
-        }catch (Exception e){
-            log.error("ERROR GET LIST :  ", e);
-        }
-        return null;
+        return returRepo.findAll();
     }
 
     @Transactional
-    public Retur saved(Retur retur){
-        try {
-        returRepo.save(retur);
-        }catch (Exception e){
-            log.error("ERROR GET LIST :  ", e);
-        }
-        return null;
+    public Retur save(Retur retur){
+        return returRepo.save(retur);
+    }
+
+    public Optional<Retur> findById(String id){
+        return returRepo.findById(id);
     }
 
     @Transactional
     public void delete(String id){
-        try {
         returRepo.deleteById(id);
-        }catch (Exception e){
-            log.error("ERROR DELETE :  ", e);
-        }
     }
 
 }

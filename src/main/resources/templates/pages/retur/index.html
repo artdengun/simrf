@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<html lang="id" xmlns:th="http://www.thymeleaf.org" >
 <div th:replace="'pages/template/head' :: head"></div>
 <body id="page-top">
 
@@ -16,7 +16,8 @@
 
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Retur</h6>
+            <a th:href="@{/retur/form}" class="btn btn-primary">Tambah</a>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -35,21 +36,27 @@
                   <th>Tanggal Retur</th>
                   <th>Deskripsi</th>
                   <th>PIC</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="retur, itrStat: ${listRetur}">
-                  <td th:text="${itrStat.count}}"></td>
-                  <td th:text="retur.vendor"></td>
-                  <td th:text="retur.nama_barang"></td>
-                  <td th:text="retur.production_date"></td>
-                  <td th:text="retur.exp_date"></td>
-                  <td th:text="retur.negara"></td>
-                  <td th:text="retur.jumlah_retur"></td>
-                  <td th:text="retur.uom"></td>
-                  <td th:text="retur.code_barang"></td>
-                  <td th:text="retur.tanggal_retur"></td>
-                  <td th:text="retur.deskripsi"></td>
+                  <td th:text="${itrStat.count}"></td>
+                  <td th:text="${retur.vendor}"></td>
+                  <td th:text="${retur.namaBarang}"></td>
+                  <td th:text="${retur.productionDate}"></td>
+                  <td th:text="${retur.expDate}"></td>
+                  <td th:text="${retur.negara}"></td>
+                  <td th:text="${retur.jumlahRetur}"></td>
+                  <td th:text="${retur.uom}"></td>
+                  <td th:text="${retur.codeBarang}"></td>
+                  <td th:text="${retur.tanggalRetur}"></td>
+                  <td th:text="${retur.deskripsi}"></td>
+                  <td th:text="${retur.pic}"></td>
+                  <td>
+                    <a th:href="@{/retur/form/{id}(id=${retur.id})}" class="btn btn-primary">Edit</a>
+                    <a th:href="@{/retur/delete/{id}(id=${retur.id})}" class="btn btn-danger">Delete</a>
+                  </td>
                 </tr>
                 </tbody>
               </table>

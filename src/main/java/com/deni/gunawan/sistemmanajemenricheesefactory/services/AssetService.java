@@ -25,15 +25,12 @@ public class AssetService {
     public List<Asset> getList(){
         return assetRepo.findAll();
     }
-
     public Asset saved(Asset asset){
      return assetRepo.save(asset);
     }
-
     public Optional<Asset> findDataById(String id){
         return assetRepo.findById(id);
     }
-
     public void delete(String id){
        assetRepo.deleteById(id);
     }
