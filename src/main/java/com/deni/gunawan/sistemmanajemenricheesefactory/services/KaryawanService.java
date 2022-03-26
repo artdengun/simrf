@@ -22,44 +22,11 @@ public class KaryawanService {
     
     private KaryawanRepo karyawanRepo;
     
-    public List<Karyawan> getList(){
-        try {
-            karyawanRepo.findAll();
-            log.info("SUCCESS GET ALL DATA");
-        }catch (Exception e){
-            log.info("ERROR List : ", e);
-        }
-        return null;
-    }
+    public List<Karyawan> findAll(){return karyawanRepo.findAll();}
+    public Karyawan save(Karyawan karyawan){return karyawanRepo.save(karyawan);}
+    private Optional<Karyawan> findById(String id){return karyawanRepo.findById(id);}
+    public void delete(String id) {karyawanRepo.deleteById(id);}
 
-    public Optional<Karyawan> findDataById(String id){
-        try {
-            karyawanRepo.findById(id);
-            log.info("SUCCESS FIND DATA ");
-        }catch (Exception e){
-            log.info("ERROR FIND DATA: ", e);
-        }
-        return Optional.empty();
-    }
 
-    @Transactional
-    public Karyawan saved(Karyawan karyawan){
-        try {
-            karyawanRepo.save(karyawan);
-            log.info("SUCCESS SAVE DATA");
-        }catch (Exception e){
-            log.info("ERROR SAVED :  ", e);
-        }
-        return null;
-    }
 
-    @Transactional
-    public void delete(String id){
-        try {
-            karyawanRepo.deleteById(id);
-            log.info("SUCCESS DELETE DATA");
-        }catch (Exception e){
-            log.info("ERROR DELETE : ", e);
-        }
-    }
 }

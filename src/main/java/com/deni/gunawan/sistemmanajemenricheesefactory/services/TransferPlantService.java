@@ -17,6 +17,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
+@Transactional
 public class TransferPlantService {
 
     private TransferPlantRepo transferPlantRepo;
@@ -24,17 +25,12 @@ public class TransferPlantService {
     public List<TransferPlant> getList(){
         return transferPlantRepo.findAll();
     }
-
-    @Transactional
     public TransferPlant save(TransferPlant transferPlant){
         return transferPlantRepo.save(transferPlant);
     }
-
     public Optional<TransferPlant> findById(String id){
         return transferPlantRepo.findById(id);
     }
-
-    @Transactional
     public void delete(String id){
         transferPlantRepo.deleteById(id);
     }

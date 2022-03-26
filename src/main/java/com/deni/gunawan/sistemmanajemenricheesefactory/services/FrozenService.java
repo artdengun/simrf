@@ -12,8 +12,10 @@ import java.util.Optional;
 /**
  * @author denigunawan
  */
+
 @Service
 @AllArgsConstructor
+@Transactional
 public class FrozenService {
 
     private FrozenRepo frozenRepo;
@@ -21,14 +23,12 @@ public class FrozenService {
     public List<Frozen> getList(){
         return frozenRepo.findAll();
     }
-    @Transactional
     public Frozen save(Frozen frozen){
         return frozenRepo.save(frozen);
     }
     public Optional<Frozen> findById(String id){
         return frozenRepo.findById(id);
     }
-    @Transactional
     public void delete(String id){
         frozenRepo.deleteById(id);
     }

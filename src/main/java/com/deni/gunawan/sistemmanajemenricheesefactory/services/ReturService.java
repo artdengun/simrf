@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-@Slf4j
+@Transactional
 public class ReturService {
 
     private ReturRepo returRepo;
@@ -26,17 +26,12 @@ public class ReturService {
     public List<Retur> getList(){
         return returRepo.findAll();
     }
-
-    @Transactional
     public Retur save(Retur retur){
         return returRepo.save(retur);
     }
-
     public Optional<Retur> findById(String id){
         return returRepo.findById(id);
     }
-
-    @Transactional
     public void delete(String id){
         returRepo.deleteById(id);
     }

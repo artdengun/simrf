@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-@Slf4j
+@Transactional
 public class RawService {
 
     private RawRepo rawRepo;
@@ -25,17 +25,12 @@ public class RawService {
     public List<Raw> getList(){
         return rawRepo.findAll();
     }
-
-    @Transactional
     public Raw save(Raw raw){
         return rawRepo.save(raw);
     }
-
     public Optional<Raw> findById(String id){
         return rawRepo.findById(id);
     }
-
-    @Transactional
     public void delete(String id){
         rawRepo.deleteById(id);
     }
