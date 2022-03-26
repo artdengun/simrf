@@ -13,11 +13,15 @@
       <div th:replace="'pages/template/topbar' :: topbar"></div>
       <!-- Begin Page Content -->
       <div class="container-fluid">
-
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data</h6>
-            <a th:href="@{/transferplant/form}" class="btn btn-primary">Tambah</a>
+            <h6 class="m-0 font-weight-bold text-primary">Data Barang Transferplant</h6> </br>
+            <div class="col-md-12">
+              <a th:href="@{/transferplant/form}" class="btn btn-primary float-right">Tambah Data</a>
+              <div class="col-md-6">
+                <a href="#" class="btn btn-success float-left">Excel</a>
+              </div>
+            </div>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -28,7 +32,6 @@
                   <th class="text-center">Tanggal Pengiriman</th>
                   <th class="text-center">No Dokumen</th>
                   <th class="text-center">Nama Barang</th>
-                  <th class="text-center">Quantity Barang</th>
                   <th class="text-center">Quantity Barang</th>
                   <th class="text-center">UOM</th>
                   <th class="text-center">Outlet Penerima</th>
@@ -44,17 +47,16 @@
                   <td th:text="${transfer.tanggalDikirim}"></td>
                   <td th:text="${transfer.noDokumen}"></td>
                   <td th:text="${transfer.namaBarang}"></td>
-                  <td th:text="${transfer.quantityBarang}"></td>
+                  <td th:text="${transfer.quantiyBarang}"></td>
                   <td th:text="${transfer.uom}"></td>
                   <td th:text="${transfer.outletPenerima}"></td>
                   <td th:text="${transfer.outletPengirim}"></td>
                   <td th:text="${transfer.modIncharge}"></td>
                   <td th:text="${transfer.pic}"></td>
                   <td>
-                    <a th:href="@{/transferplant/form/{id}(id=${transferplant.id})}" class="btn btn-primary">Edit</a>
-                    <a th:href="@{/transferplant/delete/{id}(id=${transferplant.id})}" class="btn btn-danger">Delete</a>
+                    <a th:href="@{/transferplant/form/{id}(id=${transfer.id})}" class="btn btn-primary">Edit</a>
+                    <a th:href="@{/transferplant/delete/{id}(id=${transfer.id})}" class="btn btn-danger">Delete</a>
                   </td>
-
                 </tr>
                 </tbody>
               </table>

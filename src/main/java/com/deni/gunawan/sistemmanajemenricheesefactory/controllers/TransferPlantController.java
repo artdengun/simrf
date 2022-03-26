@@ -25,14 +25,14 @@ public class TransferPlantController {
     @GetMapping(value = "/index")
     public String getList(ModelMap map){
         map.addAttribute("listTransferplant", transferPlantService.getList());
-        return "pages/transfer/index";
+        return "pages/transferplant/index";
     }
     
     @GetMapping(value = "/form")
     public String getForm(ModelMap map){
         TransferPlant transferPlant = new TransferPlant();
-        map.addAttribute("transfer", transferPlant);
-        return "pages/transfer/form";
+        map.addAttribute("transferPlant", transferPlant);
+        return "pages/transferplant/form";
     }
 
     @GetMapping(value = "/form/{id}")
@@ -50,7 +50,7 @@ public class TransferPlantController {
     }
 
     @PostMapping(value = "/submit")
-    public String addTransferPlant(@Valid @ModelAttribute TransferPlant transferPlant, BindingResult result){
+    public String saved(@Valid @ModelAttribute TransferPlant transferPlant, BindingResult result){
         if(result.hasErrors()){
             return "pages/transferplant/form";
         }
@@ -60,7 +60,7 @@ public class TransferPlantController {
 
     @GetMapping(value = "/delete/{id}")
     public String removeTransferPlant(@PathVariable(value = "id") String id){
-        this.transferPlantService.delete(id);
+        transferPlantService.delete(id);
         return "redirect:/transferplant/index";
     }
 

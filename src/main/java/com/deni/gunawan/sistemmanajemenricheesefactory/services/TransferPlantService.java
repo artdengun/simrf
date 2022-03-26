@@ -36,6 +36,6 @@ public class TransferPlantService {
 
     @Transactional
     public void delete(String id){
-        transferPlantRepo.findById(id);
+        transferPlantRepo.deleteById(id);
     }
 }

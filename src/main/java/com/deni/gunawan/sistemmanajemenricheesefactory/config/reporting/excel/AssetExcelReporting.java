@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -51,7 +50,6 @@ public class AssetExcelReporting {
                 cell.setCellStyle(headerCellStyle);
             }
 
-
             int rowIdx = 1;
             for(Asset asset : assets) {
                 Row row = sheet.createRow(rowIdx);
@@ -66,7 +64,6 @@ public class AssetExcelReporting {
                 row.createCell(8).setCellValue(String.valueOf(asset.getVendor()));
                 rowIdx++;
             }
-
             workbook.write(out);
             workbook.close();
             return new ByteArrayInputStream(out.toByteArray());

@@ -29,7 +29,7 @@
                         <h6 class="m-0 font-weight-bold text-primary">Data Barang Transferplant</h6>
                     </div>
                     <div class="card-body">
-                        <form action="#" th:action="@{/transferplant/submit}" th:object="${transfer}" method="post">
+                        <form action="#" th:action="@{/transferplant/submit}" th:object="${transferPlant}" method="post">
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="tanggalDikirim">Tanggal Pengiriman</label>
@@ -71,7 +71,7 @@
                                     <input type="text" class="form-control" id="modIncharge" th:field="*{modIncharge}" placeholder="Mod Incharge ...">
                                     <div class="alert alert-warning" th:if="${#fields.hasErrors('modIncharge')}" th:errors="*{modIncharge}"></div>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                     <label for="pic">PIC</label>
                                     <input type="text" class="form-control" id="pic" th:field="*{pic}" placeholder="Pic ...">
                                     <div class="alert alert-warning" th:if="${#fields.hasErrors('pic')}" th:errors="*{pic}"></div>

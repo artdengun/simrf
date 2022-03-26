@@ -10,10 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- *
  * @author denigunawan
  */
-
 @Service
 @AllArgsConstructor
 public class FrozenService {
