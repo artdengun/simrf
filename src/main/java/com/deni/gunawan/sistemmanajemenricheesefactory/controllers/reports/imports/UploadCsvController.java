@@ -1,4 +1,4 @@
-package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
+package com.deni.gunawan.sistemmanajemenricheesefactory.controllers.reports.imports;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.config.reporting.csv.*;
 import lombok.AllArgsConstructor;
