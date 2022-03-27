@@ -3,8 +3,10 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.config.reporting.excel;
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Asset;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.experimental.Accessors;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -16,10 +18,10 @@ import java.util.List;
  */
 
 @Data
-@AllArgsConstructor
+@Accessors(chain = true)
+@Service
 public class AssetExcelReporting {
 
-    /* export */
     public ByteArrayInputStream exportExcel(List<Asset> assets) throws Exception{
         String[] columns = {"No Asset","Vendor", "Nama Barang", "Penerima", "Jenis Barang", "Quantity" ,"Harga Assets", "PIC", "Tanggal Input"};
         try(
