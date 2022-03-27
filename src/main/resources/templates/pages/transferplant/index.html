@@ -54,7 +54,7 @@
                   <td th:text="${transfer.modIncharge}"></td>
                   <td th:text="${transfer.pic}"></td>
                   <td>
-                    <a th:href="@{/transferplant/form/{id}(id=${transfer.id})}" class="btn btn-primary">Edit</a>
+                    <a th:href="@{/transferplant/update/{id}(id=${transfer.id})}" class="btn btn-primary">Edit</a>
                     <a th:href="@{/transferplant/delete/{id}(id=${transfer.id})}" class="btn btn-danger">Delete</a>
                   </td>
                 </tr>
