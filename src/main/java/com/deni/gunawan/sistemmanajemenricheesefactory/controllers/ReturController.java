@@ -40,7 +40,7 @@ public class ReturController {
             Retur retur = returService.findById(id)
                     .orElseThrow(()
                             -> new IllegalArgumentException("Gagal Get Data Id : " + id));
-            model.addAttribute("raw", retur);
+            model.addAttribute("retur", retur);
             return "pages/retur/edit";
         }catch (Exception e){
             return "pages/retur/index";
