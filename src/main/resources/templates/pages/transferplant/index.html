@@ -17,9 +17,10 @@
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Data Barang Transferplant</h6> </br>
             <div class="col-md-12">
-              <a th:href="@{/transferplant/form}" class="btn btn-primary float-right">Tambah Data</a>
+              <a th:href="@{/transferplant/form}" class="btn btn-primary float-right"><i class="fas fa-plus-square"></i> New Data</a>
               <div class="col-md-6">
-                <a href="#" class="btn btn-success float-left">Excel</a>
+                <a href="#" class="btn btn-success float-left"><i class="fas fa-file-excel"></i> EXCEL</a>
+                <a href="#" class="btn btn-danger float-left"><i class="fas fa-file-pdf"></i> PDF</a>
               </div>
             </div>
           </div>
@@ -54,8 +55,8 @@
                   <td th:text="${transfer.modIncharge}"></td>
                   <td th:text="${transfer.pic}"></td>
                   <td>
-                    <a th:href="@{/transferplant/update/{id}(id=${transfer.id})}" class="btn btn-primary">Edit</a>
-                    <a th:href="@{/transferplant/delete/{id}(id=${transfer.id})}" class="btn btn-danger">Delete</a>
+                    <a th:href="@{/transferplant/update/{id}(id=${transfer.id})}" class="btn btn-primary"><i class="fas fa-edit"></i>Change</a>
+                    <a th:href="@{/transferplant/delete/{id}(id=${transfer.id})}" class="btn btn-danger"><i class="fas fa-delete"></i>Delete</a>
                   </td>
                 </tr>
                 </tbody>
