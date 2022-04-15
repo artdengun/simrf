@@ -26,15 +26,23 @@
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Form Add New Data Retur</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Form Edit New Data Raw</h6>
                     </div>
                     <div class="card-body">
-                        <form action="#" th:action="@{/retur/submit}" th:object="${retur}" method="post">
+                        <form action="#"
+                              th:action="@{/raw/update/{id}(id=${raw.id})}"
+                              th:object="${raw}"
+                              method="post">
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label for="namaBarang">Nama Barang</label>
-                                    <input type="text" class="form-control" th:field="*{namaBarang}" id="namaBarang" placeholder="Nama Barang ...">
-                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('namaBarang')}" th:errors="*{namaBarang}"></div>
+                                    <label for="namaProduct">Nama Product</label>
+                                    <input type="text" class="form-control" th:field="*{namaProduct}" id="namaProduct" placeholder="Nama Product ...">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('namaProduct')}" th:errors="*{namaProduct}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="codeBarang">Kode Barang</label>
+                                    <input type="text" class="form-control" id="codeBarang"  th:field="*{codeBarang}" placeholder="Kode Barang..">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('codeBarang')}" th:errors="*{codeBarang}"></div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="vendor">Vendor </label>
@@ -52,16 +60,6 @@
                                     <div class="alert alert-warning" th:if="${#fields.hasErrors('expDate')}" th:errors="*{expDate}"></div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="codeBarang">Kode Barang</label>
-                                    <input type="text" class="form-control" id="codeBarang"  th:field="*{codeBarang}" placeholder="Kode Barang..">
-                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('codeBarang')}" th:errors="*{codeBarang}"></div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="jumlahRetur">Jumlah Retur</label>
-                                    <input type="text" class="form-control" th:field="*{jumlahRetur}" id="jumlahRetur" placeholder="Jumlah Retur ...">
-                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('jumlahRetur')}" th:errors="*{jumlahRetur}"></div>
-                                </div>
-                                <div class="form-group col-md-6">
                                     <label for="negara">Negara</label>
                                     <input type="text" class="form-control" id="negara" th:field="*{negara}" placeholder="Negara ...">
                                     <div class="alert alert-warning" th:if="${#fields.hasErrors('negara')}" th:errors="*{negara}"></div>
@@ -77,17 +75,17 @@
                                     <div class="alert alert-warning" th:if="${#fields.hasErrors('pic')}" th:errors="*{pic}"></div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="tanggalRetur">Tanggal Retur</label>
-                                        <input type="text" class="form-control" id="tanggalRetur"  th:field="*{tanggalRetur}" placeholder="Tanggal Retur..">
-                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('tanggalRetur')}" th:errors="*{tanggalRetur}"></div>
+                                    <label for="tanggalPenerimaan">Tanggal Penerimaan</label>
+                                    <input type="text" class="form-control" id="tanggalPenerimaan"  th:field="*{tanggalPenerimaan}" placeholder="Tanggal Penerimaan..">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('tanggalPenerimaan')}" th:errors="*{tanggalPenerimaan}"></div>
                                 </div>
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-6">
                                     <label for="deskripsi">Deskripsi</label>
                                     <input type="text" class="form-control" id="deskripsi"  th:field="*{deskripsi}" placeholder="Deskripsi ..">
                                     <div class="alert alert-warning" th:if="${#fields.hasErrors('deskripsi')}" th:errors="*{deskripsi}"></div>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <a th:href="@{/retur/index}" class="btn btn-primary float-left"><i class="fas  fa-angle-left"></i> Kembali</a>
+                                    <a th:href="@{/raw/index}" class="btn btn-primary float-left"><i class="fas  fa-angle-left"></i> Kembali</a>
                                     <button type="submit" class="btn btn-success float-right"><i class="fas fa-plus-square"></i> Submit</button>
                                 </div>
                             </div>

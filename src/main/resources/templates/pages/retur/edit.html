@@ -26,10 +26,13 @@
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Form Add New Data Retur</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Form Edit New Data Retur</h6>
                     </div>
                     <div class="card-body">
-                        <form action="#" th:action="@{/retur/submit}" th:object="${retur}" method="post">
+                        <form action="#"
+                              th:action="@{/retur/update/{id}(id=${retur.id})}"
+                              th:object="${retur}"
+                              method="post">
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="namaBarang">Nama Barang</label>

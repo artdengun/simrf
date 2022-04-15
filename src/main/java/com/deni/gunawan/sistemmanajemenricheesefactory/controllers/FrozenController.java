@@ -5,6 +5,7 @@ import com.deni.gunawan.sistemmanajemenricheesefactory.services.FrozenService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +35,27 @@ public class FrozenController {
             return "pages/frozen/form";
         }
 
+    @GetMapping(value = "/form/{id}")
+    public String showEditForm(Model model, @PathVariable(value = "id") String id){
+        try {
+            Frozen frozen = frozenService.findById(id)
+                    .orElseThrow(()
+                            -> new IllegalArgumentException("Gagal Get Data Id : " + id));
+            model.addAttribute("frozen", frozen);
+            return "pages/frozen/edit";
+        }catch (Exception e){
+            return "pages/frozen/index";
+        }
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateData(Model model, @ModelAttribute(value = "frozen") Frozen frozen) {
+        {
+            model.addAttribute("frozen", frozen);
+            frozenService.save(frozen);
+            return "redirect:/frozen/index";
+        }
+    }
         @GetMapping(value = "/delete/{id}")
         public String remove(@PathVariable(value = "id") String id){
             this.frozenService.delete(id);
@@ -49,16 +71,4 @@ public class FrozenController {
             frozenService.save(frozen);
             return "redirect:/frozen/index";
         }
-
-    @GetMapping(value = "/form/{id}")
-    public String findById(@PathVariable(value = "id") String id,
-                           RedirectAttributes redirectAttributes){
-        Optional<Frozen> findData = frozenService.findById(id);
-        if(findData.isPresent()){
-            redirectAttributes.addFlashAttribute("successAlert", "Data Berhasil Ditampilkan");
-            return "pages/frozen/form";
-        }
-        redirectAttributes.addFlashAttribute("notAvailable", "Data Tidak ditemukan");
-        return "redirect:/frozen/index";
-    }
 }
