@@ -26,10 +26,13 @@
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Form Add New Data Frozen</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Form Edit New Data Frozen</h6>
                     </div>
                     <div class="card-body">
-                        <form action="#" th:action="@{/frozen/submit}" th:object="${frozen}" method="post">
+                        <form action="#"
+                              th:action="@{/frozen/update/{id}(id=${frozen.id})}"
+                              th:object="${frozen}"
+                              method="post">
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="namaProduct">Nama Product</label>

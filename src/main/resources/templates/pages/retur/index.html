@@ -15,11 +15,12 @@
       <div class="container-fluid">
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Barang Retur</h6> </br>
+            <h6 class="m-0 font-weight-bold text-primary">Form Add New Data Retur</h6>
             <div class="col-md-12">
-              <a th:href="@{/retur/form}" class="btn btn-primary float-right">Tambah Data</a>
+              <a th:href="@{/retur/form}" class="btn btn-primary float-right"><i class="fas fa-plus-square"></i> New Data</a>
               <div class="col-md-6">
-                <a href="#" class="btn btn-success float-left">Excel</a>
+                <a href="#" class="btn btn-success float-left"><i class="fas fa-file-excel"></i> EXCEL</a>
+                <a href="#" class="btn btn-danger float-left"><i class="fas fa-file-pdf"></i> PDF</a>
               </div>
             </div>
           </div>
@@ -58,8 +59,8 @@
                   <td th:text="${retur.deskripsi}"></td>
                   <td th:text="${retur.pic}"></td>
                   <td>
-                    <a th:href="@{/retur/form/{id}(id=${retur.id})}" class="btn btn-primary">Edit</a>
-                    <a th:href="@{/retur/delete/{id}(id=${retur.id})}" class="btn btn-danger">Delete</a>
+                    <a th:href="@{/retur/form/{id}(id=${retur.id})}" class="btn btn-primary"><i class="fas fa-edit"></i>Change</a>
+                    <a th:href="@{/retur/delete/{id}(id=${retur.id})}" class="btn btn-danger"><i class="fas fa-trash"></i>Delete</a>
                   </td>
                 </tr>
                 </tbody>

@@ -5,13 +5,13 @@ import com.deni.gunawan.sistemmanajemenricheesefactory.services.AssetService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.util.*;
 
 /**
  *
@@ -40,21 +40,25 @@ public class AssetController {
     }
 
     @GetMapping(value = "/form/{id}")
-    public String getAssetId(@PathVariable(value = "id") String id){
-        Optional<Asset> asset = Optional.ofNullable(assetService.findDataById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid Asset Id : " + id)));
+    public String showAssetForm(Model model,  @PathVariable(value = "id") String id){
+        try {
+            Asset asset = assetService.findDataById(id)
+                    .orElseThrow(()
+                    -> new IllegalArgumentException("Gagal Get Data Id : " + id));
+            model.addAttribute("asset", asset);
             return "pages/asset/edit";
+        }catch (Exception e){
+            return "pages/asset/index";
+        }
     }
 
-    @PostMapping("/asset/update/{id}")
-    public String updateData(@PathVariable(value = "id") String id, @Valid Asset asset,
-                             BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
-            asset.setId(id);
-            return "pages/asset/edit";
+    @PostMapping("/update/{id}")
+    public String updateData(Model model, @ModelAttribute(value = "asset") Asset asset) {
+        {
+            model.addAttribute("asset", asset);
+            assetService.saved(asset);
+            return "redirect:/asset/index";
         }
-       assetService.update(asset);
-        return "redirect:/asset/index";
     }
 
     @PostMapping(value = "/submit")

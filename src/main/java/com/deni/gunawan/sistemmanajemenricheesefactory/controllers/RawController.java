@@ -1,11 +1,11 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Raw;
-import com.deni.gunawan.sistemmanajemenricheesefactory.services.KaryawanService;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.RawService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +35,28 @@ public class RawController {
         return "pages/raw/form";
     }
 
+    @GetMapping(value = "/form/{id}")
+    public String showEditForm(Model model, @PathVariable(value = "id") String id){
+        try {
+            Raw raw = rawService.findById(id)
+                    .orElseThrow(()
+                            -> new IllegalArgumentException("Gagal Get Data Id : " + id));
+            model.addAttribute("raw", raw);
+            return "pages/raw/edit";
+        }catch (Exception e){
+            return "pages/raw/index";
+        }
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateData(Model model, @ModelAttribute(value = "raw") Raw raw) {
+        {
+            model.addAttribute("raw", raw);
+            rawService.save(raw);
+            return "redirect:/raw/index";
+        }
+    }
+
     @PostMapping(value = "/submit")
     public String saved(@Valid @ModelAttribute Raw raw, BindingResult result){
         if(result.hasErrors()){
@@ -52,17 +74,5 @@ public class RawController {
         return "redirect:/raw/index";
     }
 
-
-    @GetMapping(value = "/form/{id}")
-    private String findDataById(@PathVariable(value = "id") String id,
-                                RedirectAttributes redirectAttributes){
-        Optional<Raw> findDataId = rawService.findById(id);
-        if(findDataId.isPresent()){
-            redirectAttributes.addFlashAttribute("successAlert", "Data Ditemukan");
-            return "redirect:/raw/form";
-        }
-        redirectAttributes.addFlashAttribute("noAvailable", "Data Tidak Ditemukan");
-        return "redirect:/raw/index";
-    }
 
 }

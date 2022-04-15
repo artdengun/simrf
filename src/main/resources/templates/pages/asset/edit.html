@@ -29,7 +29,9 @@
                             <h6 class="m-0 font-weight-bold text-primary">Form Edit Data Assets</h6>
                         </div>
                         <div class="card-body">
-                            <form action="#" th:action="@{/asset/update/{id}(id=${asset.id})}" th:object="${asset}">
+                            <form action="#" th:action="@{/asset/update/{id}(id=${asset.id})}"
+                                  th:object="${asset}"
+                                 method="post">
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="noAsset">No Asset</label>

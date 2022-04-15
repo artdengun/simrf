@@ -26,10 +26,13 @@
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Form Add New Data Transferplant</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Form Edit New Data Transferplant</h6>
                     </div>
                     <div class="card-body">
-                        <form action="#" th:action="@{/transferplant/submit}" th:object="${transferPlant}" method="post">
+                        <form action="#"
+                              th:action="@{/transferplant/update/{id}(id=${transfer.id})}"
+                              th:object="${transferPlant}"
+                              method="post">
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="tanggalDikirim">Tanggal Pengiriman</label>

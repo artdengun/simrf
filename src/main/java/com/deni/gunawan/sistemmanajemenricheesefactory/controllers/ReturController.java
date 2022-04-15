@@ -2,19 +2,16 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Retur;
-import com.deni.gunawan.sistemmanajemenricheesefactory.entity.TransferPlant;
-import com.deni.gunawan.sistemmanajemenricheesefactory.services.KaryawanService;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.ReturService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.util.Optional;
 
 @Controller
 @AllArgsConstructor
@@ -38,15 +35,27 @@ public class ReturController {
     }
 
     @GetMapping(value = "/form/{id}")
-    public String getDataById(@PathVariable(value = "id") String id, ModelMap map){
-        Optional<Retur> retur = returService.findById(id);
-        if(retur.isPresent()){
-            map.addAttribute("retur", returService);
-            return "pages/retur/form";
-        }else{
+    public String showEditForm(Model model, @PathVariable(value = "id") String id){
+        try {
+            Retur retur = returService.findById(id)
+                    .orElseThrow(()
+                            -> new IllegalArgumentException("Gagal Get Data Id : " + id));
+            model.addAttribute("raw", retur);
+            return "pages/retur/edit";
+        }catch (Exception e){
+            return "pages/retur/index";
+        }
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateData(Model model, @ModelAttribute(value = "retur") Retur retur) {
+        {
+            model.addAttribute("retur", retur);
+            returService.save(retur);
             return "redirect:/retur/index";
         }
     }
+
 
     @PostMapping(value = "/submit")
     public String addData(@Valid @ModelAttribute Retur retur, BindingResult result){
@@ -63,7 +72,5 @@ public class ReturController {
         this.returService.delete(id);
         return "redirect:/retur/index";
     }
-
-
 
 }
