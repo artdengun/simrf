@@ -28,7 +28,6 @@ public class AssetService {
     public Asset saved(Asset asset){
      return assetRepo.save(asset);
     }
-    public Asset update(Asset asset){return assetRepo.save(asset);}
     public Optional<Asset> findDataById(String id){
         return assetRepo.findById(id);
     }
