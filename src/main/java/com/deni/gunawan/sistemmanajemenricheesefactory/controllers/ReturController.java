@@ -58,7 +58,7 @@ public class ReturController {
 
 
     @PostMapping(value = "/submit")
-    public String addData(@Valid @ModelAttribute Retur retur, BindingResult result){
+    public String saved(@Valid @ModelAttribute Retur retur, BindingResult result){
         if(result.hasErrors()){
             log.info("DATA RETUR TIDAK BERHASIL DI PROSES");
             return "pages/retur/form";
@@ -72,5 +72,10 @@ public class ReturController {
         this.returService.delete(id);
         return "redirect:/retur/index";
     }
+
+
+
+    // public generateExcel
+    // public GeneratePDF
 
 }

@@ -65,9 +65,14 @@ public class TransferPlantController {
     }
 
     @GetMapping(value = "/delete/{id}")
-    public String removeTransferPlant(@PathVariable(value = "id") String id){
+    public String remove(@PathVariable(value = "id") String id){
         transferPlantService.delete(id);
         return "redirect:/transferplant/index";
     }
+
+
+
+    // public generateExcel
+    // public GeneratePDF
 
 }

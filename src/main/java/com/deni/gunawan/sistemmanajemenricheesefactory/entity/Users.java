@@ -4,13 +4,14 @@ import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Jabatan;
 import com.deni.gunawan.sistemmanajemenricheesefactory.enums.JenisKelamin;
 import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Pendidikan;
 import com.deni.gunawan.sistemmanajemenricheesefactory.enums.StatusPerkawinan;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.w3c.dom.stylesheets.LinkStyle;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -22,7 +23,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
-public class Karyawan {
+public class Users {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -30,9 +31,13 @@ public class Karyawan {
     @Column(name = "id", length = 36, unique = true)
     private String id;
     @NotNull
+    private String username;
+    @NotNull
+    private String password;
+    @NotNull
     private String nama;
     @NotNull
-    private String ktp;
+    private String email;
     @NotNull
     private String alamat;
     @NotNull
@@ -50,5 +55,6 @@ public class Karyawan {
     @NotNull
     private Pendidikan pendidikan;
     private Date tanggalJoin;
+
 
 }

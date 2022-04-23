@@ -51,4 +51,8 @@ public class Asset {
     @NotEmpty(message = "Data Tanggal Input Required")
     @Column(name = "tanggal_input", length = 30)
     private String tanggalInput;
+
+    @ManyToOne
+    @JoinColumn(name = "userid", referencedColumnName = "id")
+    private Users userid;
 }

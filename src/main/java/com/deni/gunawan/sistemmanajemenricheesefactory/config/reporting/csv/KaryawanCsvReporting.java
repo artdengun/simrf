@@ -1,6 +1,6 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.config.reporting.csv;
 
-import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Karyawan;
+import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Users;
 import com.deni.gunawan.sistemmanajemenricheesefactory.repository.KaryawanRepo;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,20 +26,19 @@ public class KaryawanCsvReporting {
     private KaryawanRepo karyawanRepo;
 
     public void exportKaryawanAsCSV(Writer writer)throws IOException {
-        List<Karyawan> listKaryawan = karyawanRepo.findAll();
+        List<Users> listUsers = karyawanRepo.findAll();
         try(CSVPrinter printer = new CSVPrinter(writer, CSVFormat.DEFAULT)){
-            for(Karyawan karyawan : listKaryawan){
+            for(Users users : listUsers){
                 printer.printRecord(
-                        karyawan.getId(),
-                        karyawan.getAlamat(),
-                        karyawan.getJabatan(),
-                        karyawan.getKtp(),
-                        karyawan.getNama(),
-                        karyawan.getJenisKelamin(),
-                        karyawan.getPendidikan(),
-                        karyawan.getStatusPerkawinan(),
-                        karyawan.getTanggalJoin(),
-                        karyawan.getTelephone()
+                        users.getId(),
+                        users.getAlamat(),
+                        users.getJabatan(),
+                        users.getNama(),
+                        users.getJenisKelamin(),
+                        users.getPendidikan(),
+                        users.getStatusPerkawinan(),
+                        users.getTanggalJoin(),
+                        users.getTelephone()
                 );
             }
         }catch (IOException e){

@@ -2,10 +2,8 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.entity;
 
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 /**
@@ -49,4 +47,8 @@ public class TransferPlant {
     @NotEmpty(message = "Data Mod Incharge Required")
     @Column(name = "mod_incharge", length = 30)
     private String modIncharge;
+
+    @ManyToOne
+    @JoinColumn(name = "users", referencedColumnName = "id")
+    private Users userid;
 }

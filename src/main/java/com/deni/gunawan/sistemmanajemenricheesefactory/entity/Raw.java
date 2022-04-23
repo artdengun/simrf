@@ -5,10 +5,7 @@ import lombok.Data;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 /**
@@ -43,6 +40,9 @@ public class Raw {
     @NotEmpty(message = "Data Uom Required")
     @Column(name = "uom", nullable = false, length = 30)
     private String uom;
+    @NotEmpty(message = "Data Quantity Barang Required")
+    @Column(name = "quantity", length = 30)
+    private String quantity;
     @NotEmpty(message = "Data Pic Required")
     @Column(name = "pic", length = 30)
     private String pic;
@@ -55,4 +55,8 @@ public class Raw {
     @NotEmpty(message = "Data Deskripsi Required")
     @Column(name = "deskripsi", length = 100)
     private String deskripsi;
+
+    @ManyToOne
+    @JoinColumn(name = "users", referencedColumnName = "id")
+    private Users userid;
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="karyawan" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2ec6c357-06bf-463b-be43-53d442aabe14">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="users" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2ec6c357-06bf-463b-be43-53d442aabe14">
 	<property name="template.engine" value="tabular_template"/>
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="47"/>
@@ -70,52 +70,52 @@
 	status_perkawinan,
 	tanggal_join,
 	telephone
-FROM karyawan]]>
+FROM users]]>
 		</queryString>
 		<field name="alamat" class="java.lang.String">
 			<property name="com.jaspersoft.studio.field.name" value="alamat"/>
 			<property name="com.jaspersoft.studio.field.label" value="alamat"/>
-			<property name="com.jaspersoft.studio.field.tree.path" value="karyawan"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="users"/>
 		</field>
 		<field name="jabatan" class="java.lang.String">
 			<property name="com.jaspersoft.studio.field.name" value="jabatan"/>
 			<property name="com.jaspersoft.studio.field.label" value="jabatan"/>
-			<property name="com.jaspersoft.studio.field.tree.path" value="karyawan"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="users"/>
 		</field>
 		<field name="jenis_kelamin" class="java.lang.String">
 			<property name="com.jaspersoft.studio.field.name" value="jenis_kelamin"/>
 			<property name="com.jaspersoft.studio.field.label" value="jenis_kelamin"/>
-			<property name="com.jaspersoft.studio.field.tree.path" value="karyawan"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="users"/>
 		</field>
 		<field name="ktp" class="java.lang.String">
 			<property name="com.jaspersoft.studio.field.name" value="ktp"/>
 			<property name="com.jaspersoft.studio.field.label" value="ktp"/>
-			<property name="com.jaspersoft.studio.field.tree.path" value="karyawan"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="users"/>
 		</field>
 		<field name="nama" class="java.lang.String">
 			<property name="com.jaspersoft.studio.field.name" value="nama"/>
 			<property name="com.jaspersoft.studio.field.label" value="nama"/>
-			<property name="com.jaspersoft.studio.field.tree.path" value="karyawan"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="users"/>
 		</field>
 		<field name="pendidikan" class="java.lang.String">
 			<property name="com.jaspersoft.studio.field.name" value="pendidikan"/>
 			<property name="com.jaspersoft.studio.field.label" value="pendidikan"/>
-			<property name="com.jaspersoft.studio.field.tree.path" value="karyawan"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="users"/>
 		</field>
 		<field name="status_perkawinan" class="java.lang.String">
 			<property name="com.jaspersoft.studio.field.name" value="status_perkawinan"/>
 			<property name="com.jaspersoft.studio.field.label" value="status_perkawinan"/>
-			<property name="com.jaspersoft.studio.field.tree.path" value="karyawan"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="users"/>
 		</field>
 		<field name="tanggal_join" class="java.sql.Timestamp">
 			<property name="com.jaspersoft.studio.field.name" value="tanggal_join"/>
 			<property name="com.jaspersoft.studio.field.label" value="tanggal_join"/>
-			<property name="com.jaspersoft.studio.field.tree.path" value="karyawan"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="users"/>
 		</field>
 		<field name="telephone" class="java.lang.String">
 			<property name="com.jaspersoft.studio.field.name" value="telephone"/>
 			<property name="com.jaspersoft.studio.field.label" value="telephone"/>
-			<property name="com.jaspersoft.studio.field.tree.path" value="karyawan"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="users"/>
 		</field>
 	</subDataset>
 	<queryString>

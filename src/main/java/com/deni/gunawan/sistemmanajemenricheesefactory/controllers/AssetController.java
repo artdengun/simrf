@@ -40,7 +40,7 @@ public class AssetController {
     }
 
     @GetMapping(value = "/form/{id}")
-    public String showAssetForm(Model model,  @PathVariable(value = "id") String id){
+    public String showEditForm(Model model,  @PathVariable(value = "id") String id){
         try {
             Asset asset = assetService.findDataById(id)
                     .orElseThrow(()
@@ -62,7 +62,7 @@ public class AssetController {
     }
 
     @PostMapping(value = "/submit")
-    public String addAsset( @Valid @ModelAttribute Asset asset, BindingResult result){
+    public String saved( @Valid @ModelAttribute Asset asset, BindingResult result){
         if(result.hasErrors()){
             return "pages/asset/form";
         }
@@ -71,11 +71,13 @@ public class AssetController {
     }
 
     @GetMapping(value = "/delete/{id}")
-    public String removeAsset(@PathVariable(value = "id") String id,
+    public String remove(@PathVariable(value = "id") String id,
                               RedirectAttributes redirectAttributes){
         this.assetService.delete(id);
         redirectAttributes.addFlashAttribute("alertSuccess", "Data Berhasil Remove");
         return "redirect:/asset/index";
     }
 
+    // public generateExcel
+    // public GeneratePDF
 }

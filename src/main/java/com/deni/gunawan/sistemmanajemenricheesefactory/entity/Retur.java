@@ -6,10 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import java.sql.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -61,4 +58,8 @@ public class Retur {
     @NotEmpty(message = "Data Deskripsi Required")
     @Column(name = "deskripsi", length = 100)
     private String deskripsi;
+
+    @ManyToOne
+    @JoinColumn(name = "users", referencedColumnName = "id")
+    private Users userid;
 }
