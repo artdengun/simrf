@@ -10,7 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,14 +31,21 @@ public class ExportExcelController {
     @Autowired
     private AssetExcelReporting assetExcelReporting;
 
-    @GetMapping("/asset/export")
-    public ResponseEntity<InputStreamResource> excelReporting() throws Exception {
-        List<Asset> assetList = assetRepo.findAll();
-        ByteArrayInputStream in = assetExcelReporting.exportExcel(assetList);
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", "attachment; filename=asset.xlsx");
-        return ResponseEntity.ok().headers(headers).body(new InputStreamResource(in));
+    @GetMapping("/asset/export/excel")
+    public void exportToExcel(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
 
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=asset_" + currentDateTime + ".xls";
+        response.setHeader(headerKey, headerValue);
+
+        List<Asset> listAssets = assetRepo.findAll();
+
+        AssetExcelReporting excelExporter = new AssetExcelReporting(listAssets);
+
+        excelExporter.export(response);
     }
 
 

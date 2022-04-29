@@ -1,9 +1,11 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Frozen;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.FrozenRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.FrozenService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -19,10 +21,11 @@ import javax.validation.Valid;
 public class FrozenController {
 
         private FrozenService frozenService;
+        private FrozenRepo frozenRepo;
 
         @GetMapping(value = "/index")
-        public String getList(ModelMap map){
-            map.addAttribute("list", frozenService.getList());
+        public String getList(ModelMap map, Pageable pageable){
+            map.addAttribute("list", frozenRepo.findAll(pageable));
             return "pages/frozen/index";
         }
 

@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author denigunawan
  */
 
-public interface KaryawanRepo extends JpaRepository<Users, String> {
+public interface UsersRepo extends JpaRepository<Users, String> {
 }

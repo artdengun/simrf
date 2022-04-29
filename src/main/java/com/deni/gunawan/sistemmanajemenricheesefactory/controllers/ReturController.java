@@ -2,9 +2,11 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Retur;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.ReturRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.ReturService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -20,10 +22,11 @@ import javax.validation.Valid;
 public class ReturController {
 
     private ReturService returService;
+    private ReturRepo returRepo;
 
     @GetMapping(value = "/index")
-    public String getList(ModelMap map){
-        map.addAttribute("listRetur", returService.getList());
+    public String getList(ModelMap map, Pageable pageable){
+        map.addAttribute("listRetur", returRepo.findAll(pageable));
         return "pages/retur/index";
     }
 

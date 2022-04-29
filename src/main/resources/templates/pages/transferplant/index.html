@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<html lang="id" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sd="http://io.github.jpenren/sd">
 <div th:replace="'pages/template/head' :: head"></div>
 <body id="page-top">
 
@@ -27,18 +28,20 @@
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                Total <span sd:page-size-selector="default"></span> Data
+                <br><br>
                 <thead>
                 <tr>
                   <th class="text-center">No</th>
-                  <th class="text-center">Tanggal Pengiriman</th>
-                  <th class="text-center">No Dokumen</th>
-                  <th class="text-center">Nama Barang</th>
-                  <th class="text-center">Quantity Barang</th>
-                  <th class="text-center">UOM</th>
-                  <th class="text-center">Outlet Penerima</th>
-                  <th class="text-center">Outlet Pengirim</th>
-                  <th class="text-center">Mod Incharge</th>
-                  <th class="text-center">PIC</th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="tanggalDikirim">Tanggal Pengiriman</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="noDokumen">No Dokumen</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="namaBarang">Nama Barang</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="quantityBarang">Quantity Barang</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="uom">UOM</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="outletPenerima">Outlet Penerima</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="outletPengirim">Outlet Pengirim</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="modIncharge">Mod Incharge</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="pic">PIC</a></th>
                   <th class="text-center">Action</th>
                 </tr>
                 </thead>
@@ -61,6 +64,20 @@
                 </tr>
                 </tbody>
               </table>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div sd:pagination-summary="">info</div>
+                </div>
+                <div class="col-sm-6">
+                  <nav class="float-right">
+                    <ul class="pagination" sd:pagination-split="7" sd:pagination="full">
+                      <!-- Pagination created by SpringDataDialect, this content is just for mockup -->
+                      <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                      <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
             </div>
           </div>
         </div>

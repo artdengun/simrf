@@ -1,9 +1,11 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.TransferPlant;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.TransferPlantRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.TransferPlantService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -19,10 +21,11 @@ import javax.validation.Valid;
 public class TransferPlantController {
 
     private TransferPlantService transferPlantService;
+    private TransferPlantRepo transferPlantRepo;
 
     @GetMapping(value = "/index")
-    public String getList(ModelMap map){
-        map.addAttribute("listTransferplant", transferPlantService.getList());
+    public String getList(ModelMap map, Pageable pageable){
+        map.addAttribute("listTransferplant", transferPlantRepo.findAll(pageable));
         return "pages/transferplant/index";
     }
     

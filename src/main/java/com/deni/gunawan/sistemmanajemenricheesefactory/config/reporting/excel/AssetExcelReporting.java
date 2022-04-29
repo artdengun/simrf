@@ -1,73 +1,100 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.config.reporting.excel;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Asset;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.experimental.Accessors;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFFont;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.util.List;
 
-/**
- *
- * @author denigunawan
- */
-
-@Data
-@Accessors(chain = true)
-@Service
+@Component
 public class AssetExcelReporting {
 
-    public ByteArrayInputStream exportExcel(List<Asset> assets) throws Exception{
-        String[] columns = {"No Asset","Vendor", "Nama Barang", "Penerima", "Jenis Barang", "Quantity" ,"Harga Assets", "PIC", "Tanggal Input"};
-        try(
-                Workbook workbook = new XSSFWorkbook();
-                ByteArrayOutputStream out = new ByteArrayOutputStream()
-        )
-        {
-            CreationHelper creationHelper = workbook.getCreationHelper();
-            Sheet sheet = workbook.createSheet("Data Barang Asset");
-            Font headerFont = workbook.createFont();
-            headerFont.setBold(true);
-            headerFont.setColor(IndexedColors.BLUE.getIndex());
-            CellStyle headerCellStyle = workbook.createCellStyle();
-            headerCellStyle.setFont(headerFont);
+    private final XSSFWorkbook workbook;
+    private XSSFSheet sheet;
+    private final List<Asset> listAssets;
 
-            //Row offer Header
-            Row headerRow = sheet.createRow(0);
-
-            //Header
-            for(int i=0;i<columns.length;i++) {
-                Cell cell = headerRow.createCell(i);
-                cell.setCellValue(columns[i]);
-                cell.setCellStyle(headerCellStyle);
-            }
-
-            int rowIdx = 1;
-            for(Asset asset : assets) {
-                Row row = sheet.createRow(rowIdx);
-                row.createCell(0).setCellValue(asset.getNoAssets());
-                row.createCell(1).setCellValue(asset.getVendor());
-                row.createCell(2).setCellValue(asset.getNama());
-                row.createCell(3).setCellValue(asset.getTanggalDiterima());
-                row.createCell(4).setCellValue(asset.getJenis());
-                row.createCell(5).setCellValue(asset.getQuantity());
-                row.createCell(6).setCellValue(String.valueOf(asset.getHargaAssets()));
-                row.createCell(7).setCellValue(String.valueOf(asset.getPic()));
-                row.createCell(8).setCellValue(asset.getTanggalInput());
-                rowIdx++;
-            }
-            workbook.write(out);
-            workbook.close();
-            return new ByteArrayInputStream(out.toByteArray());
-        }catch(Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    public AssetExcelReporting(List<Asset> listAssets) {
+        this.listAssets = listAssets;
+        workbook = new XSSFWorkbook();
     }
 
+
+    private void writeHeaderLine() {
+        sheet = workbook.createSheet("Data Asset");
+
+        Row row = sheet.createRow(0);
+
+        CellStyle style = workbook.createCellStyle();
+        XSSFFont font = workbook.createFont();
+        font.setBold(true);
+        font.setFontHeight(16);
+        style.setFont(font);
+
+        createCell(row, 0, "User ID", style);
+        createCell(row, 1, "E-mail", style);
+        createCell(row, 2, "Full Name", style);
+        createCell(row, 3, "Roles", style);
+        createCell(row, 4, "Enabled", style);
+        createCell(row, 5, "Roles", style);
+        createCell(row, 6, "Roles", style);
+        createCell(row, 7, "Roles", style);
+        createCell(row, 8, "Roles", style);
+        createCell(row, 9, "Roles", style);
+
+
+    }
+
+    private void createCell(Row row, int columnCount, Object value, CellStyle style) {
+        sheet.autoSizeColumn(columnCount);
+        Cell cell = row.createCell(columnCount);
+        if (value instanceof Integer) {
+            cell.setCellValue((Integer) value);
+        } else if (value instanceof Boolean) {
+            cell.setCellValue((Boolean) value);
+        }else {
+            cell.setCellValue((String) value);
+        }
+        cell.setCellStyle(style);
+    }
+
+    private void writeDataLines() {
+        int rowCount = 1;
+
+        CellStyle style = workbook.createCellStyle();
+        XSSFFont font = workbook.createFont();
+        font.setFontHeight(14);
+        style.setFont(font);
+
+        for (Asset asset : listAssets) {
+            Row row = sheet.createRow(rowCount++);
+            int columnCount = 0;
+
+            createCell(row, columnCount++, asset.getNoAssets(), style);
+            createCell(row, columnCount++, asset.getNama(), style);
+            createCell(row, columnCount++, asset.getHargaAssets(), style);
+            createCell(row, columnCount++, asset.getJenis().toString(), style);
+            createCell(row, columnCount++, asset.getVendor().toString(), style);
+            createCell(row, columnCount++, asset.getTanggalDiterima().toString(), style);
+            createCell(row, columnCount++, asset.getTanggalInput().toString(), style);
+            createCell(row, columnCount++, asset.getQuantity(), style);
+            createCell(row, columnCount++, asset.getPic().toString(), style);
+
+        }
+    }
+
+    public void export(HttpServletResponse response) throws IOException {
+        writeHeaderLine();
+        writeDataLines();
+
+        ServletOutputStream outputStream = response.getOutputStream();
+        workbook.write(outputStream);
+        outputStream.close();
+
+    }
 }

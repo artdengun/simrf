@@ -1,7 +1,7 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.config.reporting.csv;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Users;
-import com.deni.gunawan.sistemmanajemenricheesefactory.repository.KaryawanRepo;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UsersRepo;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.csv.CSVFormat;
@@ -23,10 +23,10 @@ import java.util.List;
 public class KaryawanCsvReporting {
 
 
-    private KaryawanRepo karyawanRepo;
+    private UsersRepo usersRepo;
 
     public void exportKaryawanAsCSV(Writer writer)throws IOException {
-        List<Users> listUsers = karyawanRepo.findAll();
+        List<Users> listUsers = usersRepo.findAll();
         try(CSVPrinter printer = new CSVPrinter(writer, CSVFormat.DEFAULT)){
             for(Users users : listUsers){
                 printer.printRecord(

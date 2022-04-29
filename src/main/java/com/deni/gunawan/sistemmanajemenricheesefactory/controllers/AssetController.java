@@ -1,9 +1,11 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Asset;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.AssetRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.AssetService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 /**
  *
@@ -25,10 +29,11 @@ import javax.validation.Valid;
 public class AssetController {
 
     private AssetService assetService;
+    private AssetRepo assetRepo;
 
     @GetMapping(value = "/index")
-    public String getList(ModelMap map){
-        map.addAttribute("listAsset", assetService.getList());
+    public String getList(ModelMap map, Pageable pageable){
+        map.addAttribute("listAsset", assetRepo.findAll(pageable));
         return "pages/asset/index";
     }
 
@@ -80,4 +85,6 @@ public class AssetController {
 
     // public generateExcel
     // public GeneratePDF
+
+
 }
