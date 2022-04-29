@@ -37,6 +37,11 @@ public class AssetController {
         return "pages/asset/index";
     }
 
+    @GetMapping
+    public void getCount(ModelMap map){
+        map.addAttribute("asset", assetRepo.count());
+    }
+
     @GetMapping(value = "/form")
     public String getForm(ModelMap map){
         Asset asset = new Asset();
