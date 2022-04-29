@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="productionDate">Production Date</label>
-                                    <input type="text" class="form-control" id="productionDate" th:field="*{productionDate}" placeholder="Production Date ...">
+                                    <input type="date" class="form-control" id="productionDate" th:field="*{productionDate}" placeholder="Production Date ...">
                                     <div class="alert alert-warning" th:if="${#fields.hasErrors('productionDate')}" th:errors="*{productionDate}"></div>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -75,16 +75,21 @@
                                     <div class="alert alert-warning" th:if="${#fields.hasErrors('uom')}" th:errors="*{uom}"></div>
                                 </div>
                                 <div class="form-group col-md-6">
+                                    <label for="quantity">Quantity</label>
+                                    <input type="text" class="form-control" id="quantity" th:field="*{quantity}" placeholder="quantity ...">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
                                     <label for="pic">PIC</label>
                                     <input type="text" class="form-control" id="pic" th:field="*{pic}" placeholder="Pic ...">
                                     <div class="alert alert-warning" th:if="${#fields.hasErrors('pic')}" th:errors="*{pic}"></div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="tanggalPenerimaan">Tanggal Penerimaan</label>
-                                    <input type="text" class="form-control" id="tanggalPenerimaan"  th:field="*{tanggalPenerimaan}" placeholder="Tanggal Penerimaan..">
+                                    <input type="date" class="form-control" id="tanggalPenerimaan"  th:field="*{tanggalPenerimaan}" placeholder="Tanggal Penerimaan..">
                                     <div class="alert alert-warning" th:if="${#fields.hasErrors('tanggalPenerimaan')}" th:errors="*{tanggalPenerimaan}"></div>
                                 </div>
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-6">
                                     <label for="deskripsi">Deskripsi</label>
                                     <input type="text" class="form-control" id="deskripsi"  th:field="*{deskripsi}" placeholder="Deskripsi ..">
                                     <div class="alert alert-warning" th:if="${#fields.hasErrors('deskripsi')}" th:errors="*{deskripsi}"></div>

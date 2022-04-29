@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="tanggalRetur">Tanggal Retur</label>
-                                        <input type="text" class="form-control" id="tanggalRetur"  th:field="*{tanggalRetur}" placeholder="Tanggal Retur..">
+                                        <input type="date" class="form-control" id="tanggalRetur"  th:field="*{tanggalRetur}" placeholder="Tanggal Retur..">
                                     <div class="alert alert-warning" th:if="${#fields.hasErrors('tanggalRetur')}" th:errors="*{tanggalRetur}"></div>
                                 </div>
                                 <div class="form-group col-md-12">

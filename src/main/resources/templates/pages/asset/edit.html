@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="tanggalPenerimaan">Tanggal Penerimaan</label>
-                                        <input type="text" class="form-control" id="tanggalPenerimaan" th:field="*{tanggalDiterima}" placeholder="tanggal penerimaan ...">
+                                        <input type="date" class="form-control" id="tanggalPenerimaan" th:field="*{tanggalDiterima}" placeholder="tanggal penerimaan ...">
                                         <div class="alert alert-warning" th:if="${#fields.hasErrors('tanggalDiterima')}" th:errors="*{tanggalDiterima}"></div>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="tanggalInput">Tanggal Input</label>
-                                        <input type="text" class="form-control" id="tanggalInput" th:field="*{tanggalInput}" placeholder="Tanggal Input">
+                                        <input type="date" class="form-control" id="tanggalInput" th:field="*{tanggalInput}" placeholder="Tanggal Input">
                                         <div class="alert alert-warning" th:if="${#fields.hasErrors('tanggalInput')}" th:errors="*{tanggalInput}"></div>
                                     </div>
                                     <div class="form-group col-md-12">

@@ -33,7 +33,7 @@
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="tanggalDikirim">Tanggal Pengiriman</label>
-                                    <input type="text" class="form-control" th:field="*{tanggalDikirim}" id="tanggalDikirim" placeholder="Tanggal pengiriman ...">
+                                    <input type="date" class="form-control" th:field="*{tanggalDikirim}" id="tanggalDikirim" placeholder="Tanggal pengiriman ...">
                                     <div class="alert alert-warning" th:if="${#fields.hasErrors('tanggalDikirim')}" th:errors="*{tanggalDikirim}"></div>
                                 </div>
                                 <div class="form-group col-md-6">

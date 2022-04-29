@@ -72,8 +72,4 @@ public class FrozenController {
             frozenService.save(frozen);
             return "redirect:/frozen/index";
         }
-
-
-        // public generateExcel
-        // public GeneratePDF
 }

@@ -34,12 +34,12 @@
                 <tr>
                   <th class="text-center">No</th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="vendor">Vendor</a></th>
-                  <th class="text-center"><a class="sorted" sd:pagination-sort="suhuProduct">Suhu</a></th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="namaProduct">Nama Product</a></th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="productionDate">Produksi</a></th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="expDate">Exp Date</a></th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="negara">Negara</a></th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="uom">UOM</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="quantity">Quantity</a></th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="codeBarang">Kode</a></th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="tanggalPenerimaan">Tanggal Penerimaan</a></th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="deskripsi">Deskripsi</a></th>
@@ -56,6 +56,7 @@
                   <td th:text="${raw.expDate}"></td>
                   <td th:text="${raw.negara}"></td>
                   <td th:text="${raw.uom}"></td>
+                  <td th:text="${raw.quantity}"></td>
                   <td th:text="${raw.codeBarang}"></td>
                   <td th:text="${raw.tanggalPenerimaan}"></td>
                   <td th:text="${raw.deskripsi}"></td>

@@ -27,16 +27,16 @@ public class Frozen {
     @Column(name = "vendor", nullable = false, length = 30)
     private String vendor;
     @NotEmpty(message = "Data Product Required")
-    @Column(name = "nama_product", length = 50)
+    @Column(length = 50)
     private String namaProduct;
     @NotEmpty(message = "Data Suhu Product Required")
-    @Column(name = "suhu_product", length = 10)
+    @Column(length = 10)
     private String suhuProduct;
     @NotEmpty(message = "Data Production Date Required")
-    @Column(name = "production_date", length = 30)
+    @Column(length = 30)
     private String productionDate;
     @NotEmpty(message = "Data Expdate Required")
-    @Column(name = "exp_date", length = 30)
+    @Column(length = 30)
     private String expDate;
     @NotEmpty(message = "Data Negara Required")
     @Column(name = "negara", length = 30)
