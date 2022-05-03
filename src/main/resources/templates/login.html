@@ -12,7 +12,6 @@
                         <div class="text-center">
                         <img th:src="@{../logo_richeese.png}" alt="Gambar Richeese Factory">
                         </div>  </br>
-                        <p class="login-box-msg">Sign in to start your session</p>
                         <p th:if="${loginError}" class="error">Wrong user or password</p>
                         <p class="text-center"><b>Information Management System</b></p>
                         <form th:action="@{/login}" method="post">

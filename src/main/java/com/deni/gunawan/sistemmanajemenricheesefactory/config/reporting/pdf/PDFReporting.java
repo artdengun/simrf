@@ -74,6 +74,16 @@ public class PDFReporting {
     }
 
 
+    public JasperPrint generateUsersReporting() throws Exception{
+        InputStream fileReport = new ClassPathResource("reporting/users.jasper")
+                .getInputStream();
+        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(fileReport);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, getConnection());
+        return jasperPrint;
+
+    }
+
+
 
 
 

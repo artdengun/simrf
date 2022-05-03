@@ -23,10 +23,8 @@ public class UsersService {
     
     public List<Users> findAll(){return usersRepo.findAll();}
     public Users save(Users users){return usersRepo.save(users);}
-    private Optional<Users> findById(String id){return usersRepo.findById(id);}
-    public void delete(String id) {
-        usersRepo.deleteById(id);}
-
+    public Optional<Users> findUsersById(String id){return usersRepo.findById(id);}
+    public void delete(String id) {usersRepo.deleteById(id);}
 
 
 }

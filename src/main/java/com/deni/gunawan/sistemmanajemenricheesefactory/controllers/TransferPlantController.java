@@ -73,9 +73,4 @@ public class TransferPlantController {
         return "redirect:/transferplant/index";
     }
 
-
-
-    // public generateExcel
-    // public GeneratePDF
-
 }

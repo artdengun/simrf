@@ -22,7 +22,7 @@ public class ApplicationController {
     }
 
     @GetMapping(value = "/forgetpassword")
-    public String routerBasiTable() {
+    public String routerBasicTable() {
         return "forgetpassword";
     }
 

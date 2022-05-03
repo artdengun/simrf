@@ -29,6 +29,7 @@ public class ExportExcelController {
     private RawExcelReporting rawExcelReporting;
     private ReturExcelReporting returExcelReporting;
     private TransferplantExcelReporting transferplantExcelReporting;
+    private UsersExcelReporting usersExcelReporting;
 
     // REPO
     private AssetRepo assetRepo;
@@ -36,6 +37,7 @@ public class ExportExcelController {
     private RawRepo rawRepo;
     private ReturRepo returRepo;
     private TransferPlantRepo transferPlantRepo;
+    private UsersRepo usersRepo;
 
     @GetMapping("/asset/export/excel")
     public void exportExcelAsset(HttpServletResponse response) throws IOException {
@@ -117,6 +119,25 @@ public class ExportExcelController {
 
         String headerKey = "Content-Disposition";
         String headerValue = "attachment; filename=data-transferplant_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        List<TransferPlant> listTransferplant = transferPlantRepo.findAll();
+
+        TransferplantExcelReporting excelExporter = new TransferplantExcelReporting(listTransferplant);
+
+        excelExporter.export(response);
+    }
+
+
+    @GetMapping("/users/export/excel")
+    public void exportExcelUsers(HttpServletResponse response) throws IOException {
+
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=data-users_" + currentDateTime + ".xlsx";
         response.setHeader(headerKey, headerValue);
 
         List<TransferPlant> listTransferplant = transferPlantRepo.findAll();
