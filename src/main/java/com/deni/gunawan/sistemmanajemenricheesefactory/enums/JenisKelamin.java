@@ -1,5 +1,8 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.enums;
 
+import lombok.Getter;
+import lombok.ToString;
+
 /**
  *
  * @author denigunawan
@@ -9,13 +12,10 @@ public enum JenisKelamin {
     LAKI_LAKI("Laki Laki"),
     PEREMPUAN("Perempuan");
 
-    private final String displayJK;
+    @Getter
+    public final String jenisKelaminDisplay;
 
-    private JenisKelamin(String displayJK){
-        this.displayJK = displayJK;
-    }
-
-    public String getDisplayJK(){
-        return  displayJK;
+    JenisKelamin(String jenisKelaminDisplay){
+        this.jenisKelaminDisplay = jenisKelaminDisplay;
     }
 }

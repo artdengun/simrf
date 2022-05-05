@@ -1,5 +1,8 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.enums;
 
+import lombok.Getter;
+import lombok.ToString;
+
 /**
  *
  * @author denigunawan
@@ -11,13 +14,10 @@ public enum StatusPerkawinan {
     MENIKAH("Menikah"),
     BERPISAH("Berpisah");
 
-    private final String displayStatusPerkawinan;
+    @Getter
+    public final String statusPerkawinanDisplay;
 
-    private StatusPerkawinan(String displayStatusPerkawinan){
-        this.displayStatusPerkawinan = displayStatusPerkawinan;
-    }
-
-    public String getDisplayStatusPerkawinan() {
-        return displayStatusPerkawinan;
+     StatusPerkawinan(String statusPerkawinanDisplay){
+        this.statusPerkawinanDisplay = statusPerkawinanDisplay;
     }
 }

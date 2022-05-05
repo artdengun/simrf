@@ -49,6 +49,6 @@ public class TransferPlant {
     private String modIncharge;
 
     @ManyToOne
-    @JoinColumn(name = "users", referencedColumnName = "id")
+    @JoinColumn(name = "userid", referencedColumnName = "id")
     private Users userid;
 }

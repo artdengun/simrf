@@ -83,11 +83,11 @@ public class UsersExcelReporting {
             createCell(row, columnCount++, users.getUsername(), style);
             createCell(row, columnCount++, users.getPassword(), style);
             createCell(row, columnCount++, users.getAlamat(), style);
-            createCell(row, columnCount++, users.getJenisKelamin(), style);
-            createCell(row, columnCount++, users.getPendidikan(), style);
-            createCell(row, columnCount++, users.getJabatan(), style);
+            createCell(row, columnCount++, users.getJenisKelamin().toString(), style);
+            createCell(row, columnCount++, users.getPendidikan().toString(), style);
+            createCell(row, columnCount++, users.getJabatan().toString(), style);
             createCell(row, columnCount++, users.getTelephone(), style);
-            createCell(row, columnCount++, users.getStatusPerkawinan(), style);
+            createCell(row, columnCount++, users.getStatusPerkawinan().toString(), style);
             createCell(row, columnCount++, users.getTanggalJoin(), style);
             createCell(row, columnCount++, users.getEmail(), style);
 

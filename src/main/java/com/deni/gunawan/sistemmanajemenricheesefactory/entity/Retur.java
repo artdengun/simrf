@@ -60,6 +60,6 @@ public class Retur {
     private String deskripsi;
 
     @ManyToOne
-    @JoinColumn(name = "users", referencedColumnName = "id")
+    @JoinColumn(name = "userid", referencedColumnName = "id")
     private Users userid;
 }

@@ -7,11 +7,8 @@ import com.deni.gunawan.sistemmanajemenricheesefactory.enums.StatusPerkawinan;
 import lombok.Data;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.w3c.dom.stylesheets.LinkStyle;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -30,31 +27,30 @@ public class Users {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name = "id", length = 36, unique = true)
     private String id;
-    @NotNull
+    @Column(name = "username", length = 50)
     private String username;
-    @NotNull
+    @Column(name = "password", length = 50)
     private String password;
-    @NotNull
+    @Column(name = "nama", length = 50)
     private String nama;
-    @NotNull
+    @Column(name = "email", length = 50)
     private String email;
-    @NotNull
+    @Column(name = "alamat", length = 50)
     private String alamat;
-    @NotNull
+    @Column(name = "telephone", length = 50)
     private String telephone;
-    @Enumerated(value = EnumType.STRING)
-    @NotNull
-    private JenisKelamin jenisKelamin;
-    @Enumerated(value = EnumType.STRING)
-    @NotNull
-    private StatusPerkawinan statusPerkawinan;
-    @Enumerated(value = EnumType.STRING)
-    @NotNull
-    private Jabatan jabatan;
-    @Enumerated(value = EnumType.STRING)
-    @NotNull
-    private Pendidikan pendidikan;
-    private Date tanggalJoin;
 
+    @Enumerated(EnumType.STRING)
+    private JenisKelamin jenisKelamin;
+
+    @Enumerated(value = EnumType.STRING)
+    private StatusPerkawinan statusPerkawinan;
+
+    @Enumerated(value = EnumType.STRING)
+    private Jabatan jabatan;
+
+    @Enumerated(value = EnumType.STRING)
+    private Pendidikan pendidikan;
+    private String tanggalJoin;
 
 }

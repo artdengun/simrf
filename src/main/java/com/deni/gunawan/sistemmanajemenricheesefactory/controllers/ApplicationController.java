@@ -1,4 +1,4 @@
-package com.deni.gunawan.sistemmanajemenricheesefactory.config.appcontroller;
+package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,6 @@ public class ApplicationController {
     public String routeLogin() {
         return "login";
     }
-
     @GetMapping(value = "/forgetpassword")
     public String routerBasicTable() {
         return "forgetpassword";

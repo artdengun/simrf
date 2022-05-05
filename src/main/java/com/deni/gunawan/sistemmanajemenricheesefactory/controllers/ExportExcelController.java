@@ -1,4 +1,4 @@
-package com.deni.gunawan.sistemmanajemenricheesefactory.controllers.reports.export;
+package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.config.reporting.excel.*;
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.*;
@@ -140,9 +140,9 @@ public class ExportExcelController {
         String headerValue = "attachment; filename=data-users_" + currentDateTime + ".xlsx";
         response.setHeader(headerKey, headerValue);
 
-        List<TransferPlant> listTransferplant = transferPlantRepo.findAll();
+        List<Users> listUsers = usersRepo.findAll();
 
-        TransferplantExcelReporting excelExporter = new TransferplantExcelReporting(listTransferplant);
+        UsersExcelReporting excelExporter = new UsersExcelReporting(listUsers);
 
         excelExporter.export(response);
     }

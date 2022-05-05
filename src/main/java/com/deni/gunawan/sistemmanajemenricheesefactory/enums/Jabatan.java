@@ -1,23 +1,22 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.enums;
 
+import lombok.Getter;
+import lombok.ToString;
+
 /**
  *
  * @author denigunawan
  */
 
 public enum Jabatan {
-    STORE_MANAGER("Store Manager"),
-    ASSITEN_MANAGER("Assisten Manager"),
+    MANAGER("Manager"),
     LEADER("Leader"),
     CREW("Crew");
 
-    private final String displayJabatan;
+    @Getter
+    public final String jabatanDisplay;
 
-    private Jabatan(String displayJabatan){
-        this.displayJabatan = displayJabatan;
-    }
-
-    public String getDisplayJabatan(){
-        return displayJabatan;
+    Jabatan(String jabatanDisplay){
+        this.jabatanDisplay = jabatanDisplay;
     }
 }
