@@ -63,7 +63,9 @@
                                         <label>Jenis Asset</label>
                                         <select name="jenis" th:field="*{jenis}" class="form-control">
                                             <option value=""></option>
-                                            <option th:each="jenis : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.Jenis).values()}" value="${jenis}" th:text="${jenis.jenisDisplay}"></option>
+                                            <option th:each="jenis : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.Jenis).values()}"
+                                                    th:value="${jenis}"
+                                                    th:text="${jenis.jenisDisplay}"></option>
                                         </select>
                                         <div class="alert alert-warning" th:if="${#fields.hasErrors('jenis')}" th:errors="*{jenis}"></div>
                                     </div>

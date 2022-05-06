@@ -50,13 +50,13 @@
                 <tbody>
                 <tr th:each="retur, itrStat: ${listRetur}">
                   <td th:text="${itrStat.count}"></td>
-                  <td th:text="${retur.vendor}"></td>
+                  <td th:text="${retur.vendor.vendorDisplay}"></td>
                   <td th:text="${retur.namaBarang}"></td>
                   <td th:text="${retur.productionDate}"></td>
                   <td th:text="${retur.expDate}"></td>
-                  <td th:text="${retur.negara}"></td>
+                  <td th:text="${retur.negara.negaraDisplay}"></td>
                   <td th:text="${retur.jumlahRetur}"></td>
-                  <td th:text="${retur.uom}"></td>
+                  <td th:text="${retur.uom.uomDisplay}"></td>
                   <td th:text="${retur.codeBarang}"></td>
                   <td th:text="${retur.tanggalRetur}"></td>
                   <td th:text="${retur.deskripsi}"></td>

@@ -35,7 +35,7 @@ public class Users {
     private String nama;
     @Column(name = "email", length = 50)
     private String email;
-    @Column(name = "alamat", length = 50)
+    @Column(name = "alamat", length = 150)
     private String alamat;
     @Column(name = "telephone", length = 50)
     private String telephone;

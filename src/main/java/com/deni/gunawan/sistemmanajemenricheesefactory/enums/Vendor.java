@@ -2,9 +2,7 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.ToString;
 
-@ToString
 @Getter
 @AllArgsConstructor
 public enum Vendor {

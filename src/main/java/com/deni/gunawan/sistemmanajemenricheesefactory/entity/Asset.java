@@ -47,11 +47,9 @@ public class Asset {
     @Column(name = "tanggal_input", length = 30)
     private String tanggalInput;
 
-    @NotNull(message = "Vendor Required")
     @Enumerated(EnumType.STRING)
     private Vendor vendor;
 
-    @NotNull(message = "Jenis Asset Required")
     @Enumerated(EnumType.STRING)
     private Jenis jenis;
 

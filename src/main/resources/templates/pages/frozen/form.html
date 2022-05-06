@@ -42,7 +42,7 @@
                                     <div class="alert alert-warning" th:if="${#fields.hasErrors('codeBarang')}" th:errors="*{codeBarang}"></div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label>Vendor </label>
+                                    <label>Vendor</label>
                                     <select name="vendor" th:field="*{vendor}" class="form-control">
                                         <option value=""></option>
                                         <option th:each="vendor : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor).values()}"

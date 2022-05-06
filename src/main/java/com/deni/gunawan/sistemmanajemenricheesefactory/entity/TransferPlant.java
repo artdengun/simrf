@@ -32,7 +32,7 @@ public class TransferPlant {
     private String namaBarang;
     @NotEmpty(message = "Data Quantity Barang Required")
     @Column(name = "quantity_barang", length = 30)
-    private String quantityBarang;
+    private String quantiyBarang;
     @NotEmpty(message = "Data Outlet Penerima Required")
     @Column(name = "outlet_penerima", length = 30)
     private String outletPenerima;

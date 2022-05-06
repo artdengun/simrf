@@ -79,7 +79,7 @@ public class TransferplantExcelReporting {
             createCell(row, columnCount++, transferPlant.getTanggalDikirim(), style);
             createCell(row, columnCount++, transferPlant.getNoDokumen(), style);
             createCell(row, columnCount++, transferPlant.getNamaBarang(), style);
-            createCell(row, columnCount++, transferPlant.getQuantityBarang(), style);
+            createCell(row, columnCount++, transferPlant.getQuantiyBarang(), style);
             createCell(row, columnCount++, transferPlant.getUom().getUomDisplay(), style);
             createCell(row, columnCount++, transferPlant.getOutletPenerima(), style);
             createCell(row, columnCount++, transferPlant.getOutletPengirim(), style);
