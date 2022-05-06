@@ -4,18 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
-/**
- *
- * @author denigunawan
- */
-
 @Getter
 @AllArgsConstructor
-public enum JenisKelamin {
+@ToString
+public enum Negara {
 
-    LAKI_LAKI("Laki Laki"),
-    PEREMPUAN("Perempuan");
+    INA("Indonesia"),
+    AUSI("Australia"),
+    THAI("Thailand");
 
-    public final String jenisKelaminDisplay;
-
+    public final String negaraDisplay;
 }

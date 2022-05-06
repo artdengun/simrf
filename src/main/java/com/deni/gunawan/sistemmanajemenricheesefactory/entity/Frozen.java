@@ -1,5 +1,8 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.entity;
 
+import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Negara;
+import com.deni.gunawan.sistemmanajemenricheesefactory.enums.UOM;
+import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor;
 import lombok.Data;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -23,9 +26,7 @@ public class Frozen {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name = "id", length = 36, unique = true)
     private String id;
-    @NotEmpty(message = "Data Vendor Required")
-    @Column(name = "vendor", nullable = false, length = 30)
-    private String vendor;
+
     @NotEmpty(message = "Data Product Required")
     @Column(length = 50)
     private String namaProduct;
@@ -38,12 +39,6 @@ public class Frozen {
     @NotEmpty(message = "Data Expdate Required")
     @Column(length = 30)
     private String expDate;
-    @NotEmpty(message = "Data Negara Required")
-    @Column(name = "negara", length = 30)
-    private String negara;
-    @NotEmpty(message = "Data UOM Required")
-    @Column(name = "uom", nullable = false, length = 40)
-    private String uom;
     @NotEmpty(message = "Data Quantity Barang Required")
     @Column(name = "quantity", length = 30)
     private String quantity;
@@ -57,7 +52,16 @@ public class Frozen {
     @Column(name = "deskripsi", length = 100)
     private String deskripsi;
 
-    @ManyToOne
-    @JoinColumn(name = "pic", referencedColumnName = "id")
-    private Users pic;
+    @Enumerated(EnumType.STRING)
+    private Vendor vendor;
+
+    @Enumerated(EnumType.STRING)
+    private Negara negara;
+
+    @Enumerated(EnumType.STRING)
+    private UOM uom;
+
+    @OneToOne
+    @JoinColumn(name = "userid")
+    private Users users;
 }

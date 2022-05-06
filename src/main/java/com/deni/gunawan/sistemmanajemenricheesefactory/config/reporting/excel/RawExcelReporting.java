@@ -77,16 +77,16 @@ public class RawExcelReporting {
             Row row = sheet.createRow(rowCount++);
             int columnCount = 0;
 
-            createCell(row, columnCount++, raw.getVendor(), style);
+            createCell(row, columnCount++, raw.getVendor().getVendorDisplay(), style);
             createCell(row, columnCount++, raw.getNamaProduct(), style);
             createCell(row, columnCount++, raw.getProductionDate(), style);
             createCell(row, columnCount++, raw.getExpDate(), style);
-            createCell(row, columnCount++, raw.getNegara(), style);
-            createCell(row, columnCount++, raw.getUom(), style);
+            createCell(row, columnCount++, raw.getNegara().getNegaraDisplay(), style);
+            createCell(row, columnCount++, raw.getUom().getUomDisplay(), style);
             createCell(row, columnCount++, raw.getCodeBarang(), style);
             createCell(row, columnCount++, raw.getTanggalPenerimaan(), style);
             createCell(row, columnCount++, raw.getDeskripsi(), style);
-            createCell(row, columnCount++, raw.getPic(), style);
+            createCell(row, columnCount++, raw.getUsers().getNama(), style);
 
         }
     }

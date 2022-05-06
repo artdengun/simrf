@@ -60,7 +60,7 @@
                   <td th:text="${raw.codeBarang}"></td>
                   <td th:text="${raw.tanggalPenerimaan}"></td>
                   <td th:text="${raw.deskripsi}"></td>
-                  <td th:text="${raw.pic}"></td>
+                  <td th:text="${raw.users.nama}"></td>
                   <td>
                     <a th:href="@{/raw/form/{id}(id=${raw.id})}" class="btn btn-primary"><i class="fas fa-edit"></i>Change</a>
                     <a th:href="@{/raw/delete/{id}(id=${raw.id})}" class="btn btn-danger"><i class="fas fa-trash"></i>Delete</a>

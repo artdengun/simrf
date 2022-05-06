@@ -1,5 +1,6 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -8,15 +9,13 @@ import lombok.ToString;
  * @author denigunawan
  */
 
+@Getter
+@AllArgsConstructor
 public enum Jabatan {
     MANAGER("Manager"),
     LEADER("Leader"),
     CREW("Crew");
 
-    @Getter
     public final String jabatanDisplay;
 
-    Jabatan(String jabatanDisplay){
-        this.jabatanDisplay = jabatanDisplay;
-    }
 }

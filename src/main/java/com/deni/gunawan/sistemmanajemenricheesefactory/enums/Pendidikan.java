@@ -1,5 +1,6 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -8,6 +9,8 @@ import lombok.ToString;
  * @author denigunawan
  */
 
+@Getter
+@AllArgsConstructor
 public enum Pendidikan {
     SD("SD"),
     SMP("SMP"),
@@ -17,10 +20,6 @@ public enum Pendidikan {
     MAGISTER("MAGISTER"),
     DR("DR");
 
-    @Getter
     public final String pendidikanDisplay;
 
-     Pendidikan(String pendidikanDisplay){
-        this.pendidikanDisplay = pendidikanDisplay;
-    }
 }

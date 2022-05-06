@@ -79,17 +79,17 @@ public class ReturExcelReporting {
             Row row = sheet.createRow(rowCount++);
             int columnCount = 0;
 
-            createCell(row, columnCount++, Retur.getVendor(), style);
+            createCell(row, columnCount++, Retur.getVendor().getVendorDisplay(), style);
             createCell(row, columnCount++, Retur.getNamaBarang(), style);
             createCell(row, columnCount++, Retur.getProductionDate(), style);
             createCell(row, columnCount++, Retur.getExpDate(), style);
-            createCell(row, columnCount++, Retur.getNegara(), style);
+            createCell(row, columnCount++, Retur.getNegara().getNegaraDisplay(), style);
             createCell(row, columnCount++, Retur.getJumlahRetur(), style);
-            createCell(row, columnCount++, Retur.getUom(), style);
+            createCell(row, columnCount++, Retur.getUom().getUomDisplay(), style);
             createCell(row, columnCount++, Retur.getCodeBarang(), style);
             createCell(row, columnCount++, Retur.getTanggalRetur(), style);
             createCell(row, columnCount++, Retur.getDeskripsi(), style);
-            createCell(row, columnCount++, Retur.getPic(), style);
+            createCell(row, columnCount++, Retur.getUsers().getNama(), style);
 
         }
     }

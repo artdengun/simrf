@@ -60,7 +60,7 @@
                   <td th:text="${retur.codeBarang}"></td>
                   <td th:text="${retur.tanggalRetur}"></td>
                   <td th:text="${retur.deskripsi}"></td>
-                  <td th:text="${retur.pic}"></td>
+                  <td th:text="${retur.users.nama}"></td>
                   <td>
                     <a th:href="@{/retur/form/{id}(id=${retur.id})}" class="btn btn-primary"><i class="fas fa-edit"></i>Change</a>
                     <a th:href="@{/retur/delete/{id}(id=${retur.id})}" class="btn btn-danger"><i class="fas fa-trash"></i>Delete</a>

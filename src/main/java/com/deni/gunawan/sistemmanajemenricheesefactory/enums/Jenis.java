@@ -1,21 +1,18 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.enums;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
-/**
- *
- * @author denigunawan
- */
-
+@ToString
 @Getter
 @AllArgsConstructor
-public enum JenisKelamin {
+public enum Jenis {
 
-    LAKI_LAKI("Laki Laki"),
-    PEREMPUAN("Perempuan");
+    ELEKTRONIK("Elektronik"),
+    EQUIPMENT("Equipment"),
+    UTENSIL("Utensil");
 
-    public final String jenisKelaminDisplay;
-
+    public final String jenisDisplay;
 }

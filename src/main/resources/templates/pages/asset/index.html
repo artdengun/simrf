@@ -47,9 +47,9 @@
                   <td th:text="${itrStat.count}"></td>
                   <td th:text="${asset.noAssets}"></td>
                   <td th:text="${asset.nama}"></td>
-                  <td th:text="${asset.vendor}"></td>
+                  <td th:text="${asset.vendor.vendorDisplay}"></td>
                   <td th:text="${asset.tanggalDiterima}"></td>
-                  <td th:text="${asset.jenis}"></td>
+                  <td th:text="${asset.jenis.jenisDisplay}"></td>
                   <td th:text="${asset.quantity}"></td>
                   <td>Rp. <span th:text="${#numbers.formatDecimal(asset.hargaAssets,1,'POINT',2,'COMMA')}"></span></td>
                   <td th:text="${asset.tanggalInput}"></td>

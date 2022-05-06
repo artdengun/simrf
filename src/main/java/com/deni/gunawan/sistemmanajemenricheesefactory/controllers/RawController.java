@@ -2,6 +2,7 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Raw;
 import com.deni.gunawan.sistemmanajemenricheesefactory.repository.RawRepo;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UsersRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.RawService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,10 +25,12 @@ public class RawController {
 
     private RawService rawService;
     private RawRepo rawRepo;
+    private UsersRepo usersRepo;
 
     @GetMapping(value = "/index")
     private String getList(ModelMap map, Pageable pageable){
         map.addAttribute("listRaw", rawRepo.findAll(pageable));
+        map.addAttribute("listUsers", usersRepo.findAll());
         return "pages/raw/index";
     }
 
@@ -35,6 +38,7 @@ public class RawController {
     private String getForm(ModelMap map){
         Raw raw = new Raw();
         map.addAttribute("raw", raw);
+        map.addAttribute("users", usersRepo.findAll());
         return "pages/raw/form";
     }
 
@@ -45,6 +49,7 @@ public class RawController {
                     .orElseThrow(()
                             -> new IllegalArgumentException("Gagal Get Data Id : " + id));
             model.addAttribute("raw", raw);
+            model.addAttribute("users", usersRepo.findAll());
             return "pages/raw/edit";
         }catch (Exception e){
             return "pages/raw/index";

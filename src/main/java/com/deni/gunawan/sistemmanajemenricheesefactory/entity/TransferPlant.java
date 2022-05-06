@@ -1,5 +1,6 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.entity;
 
+import com.deni.gunawan.sistemmanajemenricheesefactory.enums.UOM;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -31,10 +32,7 @@ public class TransferPlant {
     private String namaBarang;
     @NotEmpty(message = "Data Quantity Barang Required")
     @Column(name = "quantity_barang", length = 30)
-    private String quantiyBarang;
-    @NotEmpty(message = "Data Uom Required")
-    @Column(name = "uom", length = 30)
-    private String uom;
+    private String quantityBarang;
     @NotEmpty(message = "Data Outlet Penerima Required")
     @Column(name = "outlet_penerima", length = 30)
     private String outletPenerima;
@@ -45,7 +43,10 @@ public class TransferPlant {
     @Column(name = "mod_incharge", length = 30)
     private String modIncharge;
 
-    @ManyToOne
-    @JoinColumn(name = "pic", referencedColumnName = "id")
-    private Users pic;
+    @Enumerated(EnumType.STRING)
+    private UOM uom;
+
+    @OneToOne
+    @JoinColumn(name = "userid")
+    private Users users;
 }

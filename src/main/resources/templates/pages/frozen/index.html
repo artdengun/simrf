@@ -50,17 +50,17 @@
                 <tbody>
                 <tr th:each="frozen, itrStat: ${list}">
                   <td th:text="${itrStat.count}"></td>
-                  <td th:text="${frozen.vendor}"></td>
+                  <td th:text="${frozen.vendor.vendorDisplay}"></td>
                   <td th:text="${frozen.suhuProduct}"></td>
                   <td th:text="${frozen.namaProduct}"></td>
                   <td th:text="${frozen.productionDate}"></td>
                   <td th:text="${frozen.expDate}"></td>
-                  <td th:text="${frozen.negara}"></td>
-                  <td th:text="${frozen.uom}"></td>
+                  <td th:text="${frozen.negara.negaraDisplay}"></td>
+                  <td th:text="${frozen.uom.uomDisplay}"></td>
                   <td th:text="${frozen.codeBarang}"></td>
                   <td th:text="${frozen.tanggalPenerimaan}"></td>
                   <td th:text="${frozen.deskripsi}"></td>
-                  <td th:text="${frozen.pic}"></td>
+                  <td th:text="${frozen.users.nama}"></td>
                   <td>
                     <a th:href="@{/frozen/form/{id}(id=${frozen.id})}" class="btn btn-primary"><i class="fas fa-edit"></i>Change</a>
                     <a th:href="@{/frozen/delete/{id}(id=${frozen.id})}" class="btn btn-danger"><i class="fas fa-trash"></i>Delete</a>

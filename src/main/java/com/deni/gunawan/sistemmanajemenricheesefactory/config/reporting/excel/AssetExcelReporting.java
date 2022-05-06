@@ -75,13 +75,13 @@ public class AssetExcelReporting {
 
             createCell(row, columnCount++, asset.getNoAssets(), style);
             createCell(row, columnCount++, asset.getNama(), style);
-            createCell(row, columnCount++, asset.getVendor(), style);
+            createCell(row, columnCount++, asset.getVendor().getVendorDisplay(), style);
             createCell(row, columnCount++, asset.getTanggalDiterima(), style);
-            createCell(row, columnCount++, asset.getJenis(), style);
+            createCell(row, columnCount++, asset.getJenis().getJenisDisplay(), style);
             createCell(row, columnCount++, asset.getQuantity(), style);
             createCell(row, columnCount++, DecimalFormat.getInstance().format(asset.getHargaAssets()), style);
             createCell(row, columnCount++, asset.getTanggalInput(), style);
-            createCell(row, columnCount++, asset.getUsers(), style);
+            createCell(row, columnCount++, asset.getUsers().getNama(), style);
 
         }
     }

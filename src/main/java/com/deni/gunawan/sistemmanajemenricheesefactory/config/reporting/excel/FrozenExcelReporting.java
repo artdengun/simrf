@@ -77,17 +77,17 @@ public class FrozenExcelReporting {
             Row row = sheet.createRow(rowCount++);
             int columnCount = 0;
 
-            createCell(row, columnCount++, frozen.getVendor(), style);
+            createCell(row, columnCount++, frozen.getVendor().getVendorDisplay(), style);
             createCell(row, columnCount++, frozen.getSuhuProduct(), style);
             createCell(row, columnCount++, frozen.getNamaProduct(), style);
             createCell(row, columnCount++, frozen.getProductionDate(), style);
             createCell(row, columnCount++, frozen.getExpDate(), style);
-            createCell(row, columnCount++, frozen.getNegara(), style);
-            createCell(row, columnCount++, frozen.getUom(), style);
+            createCell(row, columnCount++, frozen.getNegara().getNegaraDisplay(), style);
+            createCell(row, columnCount++, frozen.getUom().getUomDisplay(), style);
             createCell(row, columnCount++, frozen.getCodeBarang(), style);
             createCell(row, columnCount++, frozen.getTanggalPenerimaan(), style);
             createCell(row, columnCount++, frozen.getDeskripsi(), style);
-            createCell(row, columnCount++, frozen.getPic(), style);
+            createCell(row, columnCount++, frozen.getUsers().getNama(), style);
 
         }
     }

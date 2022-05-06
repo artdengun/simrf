@@ -1,5 +1,6 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.ToString;
@@ -9,6 +10,8 @@ import lombok.ToString;
  * @author denigunawan
  */
 
+@Getter
+@AllArgsConstructor
 public enum UOM {
 
     PCS("Pcs"),
@@ -19,11 +22,6 @@ public enum UOM {
     ZAK("Zak"),
     ROLL("Roll");
 
-    @Getter
     public final String uomDisplay;
-
-    UOM(String uomDisplay){
-        this.uomDisplay = uomDisplay;
-    }
 
 }
