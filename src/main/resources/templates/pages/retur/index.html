@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="id" xmlns:th="http://www.thymeleaf.org" >
+<html lang="id" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sd="http://io.github.jpenren/sd">
 <div th:replace="'pages/template/head' :: head"></div>
 <body id="page-top">
 
@@ -15,49 +16,51 @@
       <div class="container-fluid">
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Form Add New Data Retur</h6>
+            <h6 class="m-0 font-weight-bold text-primary"> Data Retur</h6> <br>
             <div class="col-md-12">
               <a th:href="@{/retur/form}" class="btn btn-primary float-right"><i class="fas fa-plus-square"></i> New Data</a>
               <div class="col-md-6">
-                <a href="#" class="btn btn-success float-left"><i class="fas fa-file-excel"></i> EXCEL</a>
-                <a href="#" class="btn btn-danger float-left"><i class="fas fa-file-pdf"></i> PDF</a>
+                <a th:href="@{/retur/export/excel}" class="btn btn-success float-left"><i class="fas fa-file-excel"></i> EXCEL</a>
+                <a th:href="@{/retur/export/pdf}" class="btn btn-danger float-left"><i class="fas fa-file-pdf"></i> PDF</a>
               </div>
             </div>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                Total <span sd:page-size-selector="default"></span> Data
+                <br><br>
                 <thead>
                 <tr>
                   <th class="text-center">No</th>
-                  <th class="text-center">Vendor</th>
-                  <th class="text-center">Nama Barang</th>
-                  <th class="text-center">Tanggal Produksi</th>
-                  <th class="text-center">Exp Date</th>
-                  <th class="text-center">Negara</th>
-                  <th class="text-center">Jumlah Retur</th>
-                  <th class="text-center">UOM</th>
-                  <th class="text-center">Kode</th>
-                  <th class="text-center">Tanggal Retur</th>
-                  <th class="text-center">Deskripsi</th>
-                  <th class="text-center">PIC</th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="vendor">Vendor</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="namaBarang">Nama Barang</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="productionDate">Tanggal Produksi</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="expDate">Exp Date</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="negara">Negara</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="jumlahRetur">Jumlah Retur</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="uom">UOM</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="codeBarang">Kode</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="tanggalRetur">Tanggal Retur</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="deskripsi">Deskripsi</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="pic">PIC</a></th>
                   <th class="text-center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="retur, itrStat: ${listRetur}">
                   <td th:text="${itrStat.count}"></td>
-                  <td th:text="${retur.vendor}"></td>
+                  <td th:text="${retur.vendor.vendorDisplay}"></td>
                   <td th:text="${retur.namaBarang}"></td>
                   <td th:text="${retur.productionDate}"></td>
                   <td th:text="${retur.expDate}"></td>
-                  <td th:text="${retur.negara}"></td>
+                  <td th:text="${retur.negara.negaraDisplay}"></td>
                   <td th:text="${retur.jumlahRetur}"></td>
-                  <td th:text="${retur.uom}"></td>
+                  <td th:text="${retur.uom.uomDisplay}"></td>
                   <td th:text="${retur.codeBarang}"></td>
                   <td th:text="${retur.tanggalRetur}"></td>
                   <td th:text="${retur.deskripsi}"></td>
-                  <td th:text="${retur.pic}"></td>
+                  <td th:text="${retur.users.nama}"></td>
                   <td>
                     <a th:href="@{/retur/form/{id}(id=${retur.id})}" class="btn btn-primary"><i class="fas fa-edit"></i>Change</a>
                     <a th:href="@{/retur/delete/{id}(id=${retur.id})}" class="btn btn-danger"><i class="fas fa-trash"></i>Delete</a>
@@ -65,6 +68,20 @@
                 </tr>
                 </tbody>
               </table>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div sd:pagination-summary="">info</div>
+                </div>
+                <div class="col-sm-6">
+                  <nav class="float-right">
+                    <ul class="pagination" sd:pagination-split="7" sd:pagination="full">
+                      <!-- Pagination created by SpringDataDialect, this content is just for mockup -->
+                      <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                      <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
             </div>
           </div>
         </div>

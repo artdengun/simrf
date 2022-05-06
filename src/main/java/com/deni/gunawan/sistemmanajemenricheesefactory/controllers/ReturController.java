@@ -2,9 +2,12 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Retur;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.ReturRepo;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UsersRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.ReturService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -20,10 +23,13 @@ import javax.validation.Valid;
 public class ReturController {
 
     private ReturService returService;
+    private ReturRepo returRepo;
+    private UsersRepo usersRepo;
 
     @GetMapping(value = "/index")
-    public String getList(ModelMap map){
-        map.addAttribute("listRetur", returService.getList());
+    public String getList(ModelMap map, Pageable pageable){
+        map.addAttribute("listRetur", returRepo.findAll(pageable));
+        map.addAttribute("listUsers", usersRepo.findAll());
         return "pages/retur/index";
     }
 
@@ -31,6 +37,7 @@ public class ReturController {
     public String getForm(ModelMap map){
         Retur retur = new Retur();
         map.addAttribute("retur", retur);
+        map.addAttribute("users", usersRepo.findAll());
         return "pages/retur/form";
     }
 
@@ -40,7 +47,8 @@ public class ReturController {
             Retur retur = returService.findById(id)
                     .orElseThrow(()
                             -> new IllegalArgumentException("Gagal Get Data Id : " + id));
-            model.addAttribute("raw", retur);
+            model.addAttribute("retur", retur);
+            model.addAttribute("users", usersRepo.findAll());
             return "pages/retur/edit";
         }catch (Exception e){
             return "pages/retur/index";
@@ -58,7 +66,7 @@ public class ReturController {
 
 
     @PostMapping(value = "/submit")
-    public String addData(@Valid @ModelAttribute Retur retur, BindingResult result){
+    public String saved(@Valid @ModelAttribute Retur retur, BindingResult result){
         if(result.hasErrors()){
             log.info("DATA RETUR TIDAK BERHASIL DI PROSES");
             return "pages/retur/form";
@@ -72,5 +80,10 @@ public class ReturController {
         this.returService.delete(id);
         return "redirect:/retur/index";
     }
+
+
+
+    // public generateExcel
+    // public GeneratePDF
 
 }

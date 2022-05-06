@@ -1,18 +1,19 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Frozen;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.FrozenRepo;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UsersRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.FrozenService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.util.Optional;
 
 @Controller
 @AllArgsConstructor
@@ -21,10 +22,12 @@ import java.util.Optional;
 public class FrozenController {
 
         private FrozenService frozenService;
+        private FrozenRepo frozenRepo;
+        private UsersRepo usersRepo;
 
         @GetMapping(value = "/index")
-        public String getList(ModelMap map){
-            map.addAttribute("list", frozenService.getList());
+        public String getList(ModelMap map, Pageable pageable){
+            map.addAttribute("list", frozenRepo.findAll(pageable));
             return "pages/frozen/index";
         }
 
@@ -32,6 +35,7 @@ public class FrozenController {
         public String getForm(ModelMap map){
             Frozen frozen = new Frozen();
             map.addAttribute("frozen", frozen);
+            map.addAttribute("users", usersRepo.findAll());
             return "pages/frozen/form";
         }
 
@@ -42,6 +46,7 @@ public class FrozenController {
                     .orElseThrow(()
                             -> new IllegalArgumentException("Gagal Get Data Id : " + id));
             model.addAttribute("frozen", frozen);
+            model.addAttribute("users", usersRepo.findAll());
             return "pages/frozen/edit";
         }catch (Exception e){
             return "pages/frozen/index";

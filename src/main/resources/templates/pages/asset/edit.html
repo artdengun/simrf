@@ -44,18 +44,29 @@
                                         <div class="alert alert-warning" th:if="${#fields.hasErrors('nama')}" th:errors="*{nama}"></div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="vendor">Vendor</label>
-                                        <input type="text" class="form-control" th:field="*{vendor}" id="vendor" placeholder="Nama Vendor ...">
+                                        <label>Vendor</label>
+                                        <select name="vendor" th:field="*{vendor}" class="form-control">
+                                            <option value=""></option>
+                                            <option th:each="vendor : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor).values()}"
+                                                    th:value="${vendor}"
+                                                    th:text="${vendor.vendorDisplay}"
+                                            ></option>
+                                        </select>
                                         <div class="alert alert-warning" th:if="${#fields.hasErrors('vendor')}" th:errors="*{vendor}"></div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="tanggalPenerimaan">Tanggal Penerimaan</label>
-                                        <input type="text" class="form-control" id="tanggalPenerimaan" th:field="*{tanggalDiterima}" placeholder="tanggal penerimaan ...">
+                                        <input type="date" class="form-control" id="tanggalPenerimaan" th:field="*{tanggalDiterima}" placeholder="tanggal penerimaan ...">
                                         <div class="alert alert-warning" th:if="${#fields.hasErrors('tanggalDiterima')}" th:errors="*{tanggalDiterima}"></div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="jenis">Jenis Asset</label>
-                                        <input type="text" class="form-control" id="jenis"  th:field="*{jenis}" placeholder="Jenis Asset ...">
+                                        <label>Jenis Asset</label>
+                                        <select name="jenis" th:field="*{jenis}" class="form-control">
+                                            <option value=""></option>
+                                            <option th:each="jenis : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.Jenis).values()}"
+                                                    th:value="${jenis}"
+                                                    th:text="${jenis.jenisDisplay}"></option>
+                                        </select>
                                         <div class="alert alert-warning" th:if="${#fields.hasErrors('jenis')}" th:errors="*{jenis}"></div>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -70,13 +81,15 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="tanggalInput">Tanggal Input</label>
-                                        <input type="text" class="form-control" id="tanggalInput" th:field="*{tanggalInput}" placeholder="Tanggal Input">
+                                        <input type="date" class="form-control" id="tanggalInput" th:field="*{tanggalInput}" placeholder="Tanggal Input">
                                         <div class="alert alert-warning" th:if="${#fields.hasErrors('tanggalInput')}" th:errors="*{tanggalInput}"></div>
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label for="pic">PIC</label>
-                                        <input type="text" class="form-control" id="pic"  th:field="*{pic}" placeholder="Pic..">
-                                        <div class="alert alert-warning" th:if="${#fields.hasErrors('pic')}" th:errors="*{pic}"></div>
+                                        <label>PIC</label> <br>
+                                        <select th:field="*{users}" class="form-control">
+                                            <option value=""></option>
+                                            <option th:each="list: ${users}" th:value="${list.id}" th:text="${list.nama}"></option>
+                                        </select>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <a th:href="@{/asset/index}" class="btn btn-primary float-left">Kembali</a>
