@@ -83,7 +83,7 @@
                                 <div class="form-group col-md-6">
                                     <label>Jabatan</label> <br>
                                     <select class="form-control" th:field="*{jabatan}">
-                                        <option value="">--Pilih Jabatan--</option>
+                                        <option value=""></option>
                                         <option
                                                 th:each="jabatan : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.Jabatan).values()}"
                                                 th:value="${jabatan}"

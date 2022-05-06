@@ -1,6 +1,6 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.entity;
 
-import lombok.Data;
+import lombok.*;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -17,6 +17,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
+@Table(name = "asset")
 public class Asset {
 
     @Id
@@ -29,9 +30,6 @@ public class Asset {
     @NotEmpty(message = "Data Vendor Required")
     @Column(name = "vendor", length = 30)
     private String vendor;
-    @NotEmpty(message = "Data Nama Pic Required")
-    @Column(name = "pic", length = 30)
-    private String pic;
     @NotEmpty(message = "Data Tanggal Diterima Required")
     @Column(name = "tanggal_diterima", length = 30)
     private String tanggalDiterima;
@@ -52,7 +50,7 @@ public class Asset {
     @Column(name = "tanggal_input", length = 30)
     private String tanggalInput;
 
-    @ManyToOne
-    @JoinColumn(name = "userid", referencedColumnName = "id")
-    private Users userid;
+    @OneToOne
+    @JoinColumn(name = "userid")
+    private Users users;
 }

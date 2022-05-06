@@ -20,9 +20,5 @@ public class ApplicationController {
     public String routeLogin() {
         return "login";
     }
-    @GetMapping(value = "/forgetpassword")
-    public String routerBasicTable() {
-        return "forgetpassword";
-    }
 
 }

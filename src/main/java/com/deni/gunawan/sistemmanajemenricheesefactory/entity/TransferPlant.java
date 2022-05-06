@@ -35,9 +35,6 @@ public class TransferPlant {
     @NotEmpty(message = "Data Uom Required")
     @Column(name = "uom", length = 30)
     private String uom;
-    @NotEmpty(message = "Data Pic Required")
-    @Column(name = "pic", length = 30)
-    private String pic;
     @NotEmpty(message = "Data Outlet Penerima Required")
     @Column(name = "outlet_penerima", length = 30)
     private String outletPenerima;
@@ -49,6 +46,6 @@ public class TransferPlant {
     private String modIncharge;
 
     @ManyToOne
-    @JoinColumn(name = "userid", referencedColumnName = "id")
-    private Users userid;
+    @JoinColumn(name = "pic", referencedColumnName = "id")
+    private Users pic;
 }

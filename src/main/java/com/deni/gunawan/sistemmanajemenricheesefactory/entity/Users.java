@@ -8,10 +8,10 @@ import lombok.Data;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 /**
  *

@@ -37,9 +37,6 @@ public class Retur {
     @NotEmpty(message = "Data Expdate Required")
     @Column(name = "exp_date", length = 30)
     private String expDate;
-    @NotEmpty(message = "Data Pic Required")
-    @Column(name = "pic", length = 30)
-    private String pic;
     @NotEmpty(message = "Data Negara Required")
     @Column(name = "negara", length = 30)
     private String negara;
@@ -60,6 +57,6 @@ public class Retur {
     private String deskripsi;
 
     @ManyToOne
-    @JoinColumn(name = "userid", referencedColumnName = "id")
-    private Users userid;
+    @JoinColumn(name = "pic", referencedColumnName = "id")
+    private Users pic;
 }

@@ -47,9 +47,6 @@ public class Frozen {
     @NotEmpty(message = "Data Quantity Barang Required")
     @Column(name = "quantity", length = 30)
     private String quantity;
-    @NotEmpty(message = "Data PIC Required")
-    @Column(name = "pic", length = 50)
-    private String pic;
     @NotEmpty(message = "Data Code Barang Required")
     @Column(name = "codeBarang", length = 30)
     private String codeBarang;
@@ -61,6 +58,6 @@ public class Frozen {
     private String deskripsi;
 
     @ManyToOne
-    @JoinColumn(name = "userid", referencedColumnName = "id")
-    private Users userid;
+    @JoinColumn(name = "pic", referencedColumnName = "id")
+    private Users pic;
 }

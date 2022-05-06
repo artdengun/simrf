@@ -1,10 +1,14 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Asset;
+import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Users;
 import com.deni.gunawan.sistemmanajemenricheesefactory.repository.AssetRepo;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UsersRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.AssetService;
+import com.deni.gunawan.sistemmanajemenricheesefactory.services.UsersService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.Optional;
 
 /**
  *
@@ -25,11 +30,11 @@ import java.text.DecimalFormatSymbols;
 @Controller
 @RequestMapping(value = "/asset")
 @AllArgsConstructor
-@Slf4j
 public class AssetController {
 
     private AssetService assetService;
     private AssetRepo assetRepo;
+    private UsersRepo usersRepo;
 
     @GetMapping(value = "/index")
     public String getList(ModelMap map, Pageable pageable){
@@ -37,15 +42,11 @@ public class AssetController {
         return "pages/asset/index";
     }
 
-    @GetMapping
-    public void getCount(ModelMap map){
-        map.addAttribute("asset", assetRepo.count());
-    }
-
     @GetMapping(value = "/form")
     public String getForm(ModelMap map){
         Asset asset = new Asset();
         map.addAttribute("asset", asset);
+        map.addAttribute("users", usersRepo.findAll());
         return "pages/asset/form";
     }
 
@@ -56,6 +57,7 @@ public class AssetController {
                     .orElseThrow(()
                     -> new IllegalArgumentException("Gagal Get Data Id : " + id));
             model.addAttribute("asset", asset);
+            model.addAttribute("users", usersRepo.findAll());
             return "pages/asset/edit";
         }catch (Exception e){
             return "pages/asset/index";
@@ -87,9 +89,5 @@ public class AssetController {
         redirectAttributes.addFlashAttribute("alertSuccess", "Data Berhasil Remove");
         return "redirect:/asset/index";
     }
-
-    // public generateExcel
-    // public GeneratePDF
-
 
 }

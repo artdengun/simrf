@@ -53,7 +53,7 @@
                   <td th:text="${asset.quantity}"></td>
                   <td>Rp. <span th:text="${#numbers.formatDecimal(asset.hargaAssets,1,'POINT',2,'COMMA')}"></span></td>
                   <td th:text="${asset.tanggalInput}"></td>
-                  <td th:text="${asset.pic}"></td>
+                  <td th:text="${asset.users.nama}"></td>
                   <td>
                     <a th:href="@{/asset/form/{id}(id=${asset.id})}" class="btn btn-primary"><i class="fas fa-edit"></i> Change </a>
                     <a th:href="@{/asset/delete/{id}(id=${asset.id})}" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>

@@ -81,7 +81,7 @@ public class AssetExcelReporting {
             createCell(row, columnCount++, asset.getQuantity(), style);
             createCell(row, columnCount++, DecimalFormat.getInstance().format(asset.getHargaAssets()), style);
             createCell(row, columnCount++, asset.getTanggalInput(), style);
-            createCell(row, columnCount++, asset.getPic(), style);
+            createCell(row, columnCount++, asset.getUsers(), style);
 
         }
     }
