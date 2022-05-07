@@ -39,7 +39,7 @@ public class Users {
     private String alamat;
     @Column(name = "telephone", length = 50)
     private String telephone;
-
+    private boolean active = true;
     @Enumerated(EnumType.STRING)
     private JenisKelamin jenisKelamin;
 
@@ -53,4 +53,6 @@ public class Users {
     private Pendidikan pendidikan;
     private String tanggalJoin;
 
+    @OneToMany(mappedBy = "users")
+    private List<UserRoles> roles = new ArrayList<>();
 }
