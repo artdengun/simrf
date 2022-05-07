@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<html lang="id" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <body>
 
 <!-- Sidebar -->
+<div sec:authorize="isAuthenticated()">
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" th:fragment="sidebar">
 
     <!-- Sidebar - Brand -->
@@ -13,49 +15,48 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <a class="nav-link" th:href="@{/index}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-balance-scale"></i>
             <span>Dashboard</span></a>
     </li>
     <li class="nav-item ">
         <a class="nav-link" th:href="@{/asset/index}">
-            <i class="fas fa-fw fa-indent"></i>
+            <i class="fas fa-fw fa-list-alt"></i>
             <span>Data Asset</span></a>
     </li>
     <li class="nav-item ">
         <a class="nav-link" th:href="@{/frozen/index}">
-            <i class="fas fa-fw fa-indent"></i>
+            <i class="fas fa-fw fa-list-alt"></i>
             <span>Data Frozen</span></a>
     </li>
     <li class="nav-item ">
         <a class="nav-link"  th:href="@{/raw/index}">
-            <i class="fas fa-fw fa-indent"></i>
+            <i class="fas fa-fw fa-list-alt"></i>
             <span>Data Raw</span></a>
     </li>
     <li class="nav-item ">
         <a class="nav-link"  th:href="@{/retur/index}">
-            <i class="fas fa-fw fa-indent"></i>
+            <i class="fas fa-fw fa-list-alt"></i>
             <span>Data Retur</span></a>
     </li>
     <li class="nav-item ">
         <a class="nav-link"  th:href="@{/transferplant/index}">
-            <i class="fas fa-fw fa-indent"></i>
-            <span>Data Transferplant</span></a>
+            <i class="fas fa-fw fa-list-alt"></i>
+            <span>Data Transfer</span></a>
     </li>
-<!--    <li class="nav-item ">-->
-<!--        <a class="nav-link" th:href="@{/users/index}">-->
-<!--            <i class="fas fa-fw fa-table"></i>-->
-<!--            <span>Data Users</span></a>-->
-<!--    </li>-->
+    <li class="nav-item ">
+        <a class="nav-link" th:href="@{/users/index}">
+            <i class="fas fa-fw fa-list-alt"></i>
+            <span>Data Users</span></a>
+    </li>
     <hr class="sidebar-divider d-none d-md-block">
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 
-</ul>
-
+    </ul>
+</div>
 </body>
 </html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="'pages/template/head' :: head"></div>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+    <div th:replace="'pages/template/sidebar' :: sidebar"></div>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+            <div th:replace="'pages/template/topbar' :: topbar"></div>
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                </div>
+
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Form Edit New Data Frozen</h6>
+                    </div>
+                    <div class="card-body">
+                        <form action="#"
+                              th:action="@{/frozen/update/{id}(id=${frozen.id})}"
+                              th:object="${frozen}"
+                              method="post">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="namaProduct">Nama Product</label>
+                                        <input type="text" class="form-control" th:field="*{namaProduct}" id="namaProduct" placeholder="Nama Product ...">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('namaProduct')}" th:errors="*{namaProduct}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="codeBarang">Kode Barang</label>
+                                    <input type="text" class="form-control" id="codeBarang"  th:field="*{codeBarang}" placeholder="Kode Barang..">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('codeBarang')}" th:errors="*{codeBarang}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Vendor</label>
+                                    <select name="vendor" th:field="*{vendor}" class="form-control">
+                                        <option value=""></option>
+                                        <option th:each="vendor : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor).values()}"
+                                                th:value="${vendor}"
+                                                th:text="${vendor.vendorDisplay}"></option>
+                                    </select>
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('vendor')}" th:errors="*{vendor}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="suhuProduct">Suhu Product</label>
+                                    <input type="text" class="form-control" th:field="*{suhuProduct}" id="suhuProduct" placeholder="Suhu Product ...">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('suhuProduct')}" th:errors="*{suhuProduct}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="productionDate">Production Date</label>
+                                    <input type="date" class="form-control" id="productionDate" th:field="*{productionDate}" placeholder="Production Date ...">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('productionDate')}" th:errors="*{productionDate}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="expDate">Exp Date</label>
+                                    <input type="date" class="form-control" id="expDate"  th:field="*{expDate}" placeholder="Exp Date ...">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('expDate')}" th:errors="*{expDate}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="quantity">Quantity</label>
+                                    <input type="text" class="form-control" id="quantity" th:field="*{quantity}" placeholder="quantity ...">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label >Negara</label>
+                                    <select name="negara" th:field="*{negara}" class="form-control">
+                                        <option value=""></option>
+                                        <option th:each="negara : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.Negara).values()}" th:value="${negara}" th:text="${negara.negaraDisplay}"></option>
+                                    </select>
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('negara')}" th:errors="*{negara}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>UOM</label>
+                                    <select name="uom" th:field="*{uom}" class="form-control">
+                                        <option value=""></option>
+                                        <option th:each="uom : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.UOM).values()}" th:value="${uom}" th:text="${uom.uomDisplay}"></option>
+                                    </select>
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('uom')}" th:errors="*{uom}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>PIC</label>
+                                    <select th:field="*{users}" class="form-control">
+                                        <option value=""></option>
+                                        <option th:each="list: ${users}" th:value="${list.id}" th:text="${list.nama}"></option>
+                                    </select>
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('users')}" th:errors="*{users}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="tanggalPenerimaan">Tanggal Penerimaan</label>
+                                    <input type="date" class="form-control" id="tanggalPenerimaan"  th:field="*{tanggalPenerimaan}" placeholder="Tanggal Penerimaan..">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('tanggalPenerimaan')}" th:errors="*{tanggalPenerimaan}"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="deskripsi">Deskripsi</label>
+                                    <input type="text" class="form-control" id="deskripsi"  th:field="*{deskripsi}" placeholder="Deskripsi ..">
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('deskripsi')}" th:errors="*{deskripsi}"></div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <a th:href="@{/frozen/index}" class="btn btn-primary float-left"><i class="fas  fa-angle-left"></i> Kembali</a>
+                                    <button type="submit" class="btn btn-success float-right"><i class="fas fa-plus-square"></i> Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Main Content -->
+
+        <div th:replace="'pages/template/footer' :: footer"></div>
+
+    </div>
+    <!-- End of Content Wrapper -->
+</div>
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+<div th:replace="'pages/template/logout' :: logout"></div>
+<div th:replace="'pages/template/script' :: script"></div>
+
+</div>
+</body>
+
+</html>

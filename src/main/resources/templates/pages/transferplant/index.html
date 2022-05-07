@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<html lang="id" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sd="http://io.github.jpenren/sd">
 <div th:replace="'pages/template/head' :: head"></div>
 <body id="page-top">
 
@@ -17,27 +18,30 @@
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Data Barang Transferplant</h6> </br>
             <div class="col-md-12">
-              <a th:href="@{/transferplant/form}" class="btn btn-primary float-right">Tambah Data</a>
+              <a th:href="@{/transferplant/form}" class="btn btn-primary float-right"><i class="fas fa-plus-square"></i> New Data</a>
               <div class="col-md-6">
-                <a href="#" class="btn btn-success float-left">Excel</a>
+                <a th:href="@{/transferplant/export/excel}" class="btn btn-success float-left"><i class="fas fa-file-excel"></i> EXCEL</a>
+                <a th:href="@{/transferplant/export/pdf}" class="btn btn-danger float-left"><i class="fas fa-file-pdf"></i> PDF</a>
               </div>
             </div>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                Total <span sd:page-size-selector="default"></span> Data
+                <br><br>
                 <thead>
                 <tr>
                   <th class="text-center">No</th>
-                  <th class="text-center">Tanggal Pengiriman</th>
-                  <th class="text-center">No Dokumen</th>
-                  <th class="text-center">Nama Barang</th>
-                  <th class="text-center">Quantity Barang</th>
-                  <th class="text-center">UOM</th>
-                  <th class="text-center">Outlet Penerima</th>
-                  <th class="text-center">Outlet Pengirim</th>
-                  <th class="text-center">Mod Incharge</th>
-                  <th class="text-center">PIC</th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="tanggalDikirim">Tanggal Pengiriman</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="noDokumen">No Dokumen</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="namaBarang">Nama Barang</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="quantityBarang">Quantity Barang</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="uom">UOM</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="outletPenerima">Outlet Penerima</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="outletPengirim">Outlet Pengirim</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="modIncharge">Mod Incharge</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="pic">PIC</a></th>
                   <th class="text-center">Action</th>
                 </tr>
                 </thead>
@@ -48,18 +52,32 @@
                   <td th:text="${transfer.noDokumen}"></td>
                   <td th:text="${transfer.namaBarang}"></td>
                   <td th:text="${transfer.quantiyBarang}"></td>
-                  <td th:text="${transfer.uom}"></td>
+                  <td th:text="${transfer.uom.uomDisplay}"></td>
                   <td th:text="${transfer.outletPenerima}"></td>
                   <td th:text="${transfer.outletPengirim}"></td>
                   <td th:text="${transfer.modIncharge}"></td>
-                  <td th:text="${transfer.pic}"></td>
+                  <td th:text="${transfer.users.nama}"></td>
                   <td>
-                    <a th:href="@{/transferplant/update/{id}(id=${transfer.id})}" class="btn btn-primary">Edit</a>
-                    <a th:href="@{/transferplant/delete/{id}(id=${transfer.id})}" class="btn btn-danger">Delete</a>
+                    <a th:href="@{/transferplant/form/{id}(id=${transfer.id})}" class="btn btn-primary"><i class="fas fa-edit"></i>Change</a>
+                    <a th:href="@{/transferplant/delete/{id}(id=${transfer.id})}" class="btn btn-danger"><i class="fas fa-delete"></i>Delete</a>
                   </td>
                 </tr>
                 </tbody>
               </table>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div sd:pagination-summary="">info</div>
+                </div>
+                <div class="col-sm-6">
+                  <nav class="float-right">
+                    <ul class="pagination" sd:pagination-split="7" sd:pagination="full">
+                      <!-- Pagination created by SpringDataDialect, this content is just for mockup -->
+                      <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                      <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
             </div>
           </div>
         </div>

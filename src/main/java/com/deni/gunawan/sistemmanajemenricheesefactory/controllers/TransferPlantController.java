@@ -1,18 +1,19 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.TransferPlant;
-import com.deni.gunawan.sistemmanajemenricheesefactory.services.KaryawanService;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.TransferPlantRepo;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UsersRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.TransferPlantService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "/transferplant")
@@ -21,30 +22,43 @@ import java.util.Optional;
 public class TransferPlantController {
 
     private TransferPlantService transferPlantService;
+    private TransferPlantRepo transferPlantRepo;
+    private UsersRepo usersRepo;
 
     @GetMapping(value = "/index")
-    public String getList(ModelMap map){
-        map.addAttribute("listTransferplant", transferPlantService.getList());
+    public String getList(ModelMap map, Pageable pageable){
+        map.addAttribute("listTransferplant", transferPlantRepo.findAll(pageable));
+        map.addAttribute("listUsers", usersRepo.findAll());
         return "pages/transferplant/index";
     }
     
     @GetMapping(value = "/form")
     public String getForm(ModelMap map){
-        TransferPlant transferPlant = new TransferPlant();
-        map.addAttribute("transferPlant", transferPlant);
+        TransferPlant transferplant = new TransferPlant();
+        map.addAttribute("transferplant", transferplant);
+        map.addAttribute("users", usersRepo.findAll());
         return "pages/transferplant/form";
     }
 
     @GetMapping(value = "/form/{id}")
-    public String getDataById(@PathVariable(value = "id") String id,
-                             ModelMap map,
-                             RedirectAttributes redirectAttributes){
-        Optional<TransferPlant> transferPlant = transferPlantService.findById(id);
-        if(transferPlant.isPresent()){
-            map.addAttribute("transferplant", transferPlantService);
-            return "pages/transferplant/form";
-        }else{
-            redirectAttributes.addFlashAttribute("notAvailable", "Data Tidak Ada");
+    public String showEditForm(Model model, @PathVariable(value = "id") String id){
+        try {
+            TransferPlant transferplant = transferPlantService.findById(id)
+                    .orElseThrow(()
+                            -> new IllegalArgumentException("Gagal Get Data Id : " + id));
+            model.addAttribute("transferplant", transferplant);
+            model.addAttribute("users", usersRepo.findAll());
+            return "pages/transferplant/edit";
+        }catch (Exception e){
+            return "pages/transferplant/index";
+        }
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateData(Model model, @ModelAttribute(value = "transferPlant") TransferPlant transferplant) {
+        {
+            model.addAttribute("transferPlant", transferplant);
+            transferPlantService.save(transferplant);
             return "redirect:/transferplant/index";
         }
     }
@@ -59,7 +73,7 @@ public class TransferPlantController {
     }
 
     @GetMapping(value = "/delete/{id}")
-    public String removeTransferPlant(@PathVariable(value = "id") String id){
+    public String remove(@PathVariable(value = "id") String id){
         transferPlantService.delete(id);
         return "redirect:/transferplant/index";
     }
