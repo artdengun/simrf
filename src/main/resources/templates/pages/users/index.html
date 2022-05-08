@@ -38,7 +38,7 @@
                   <th class="text-center"><a class="sorted" sd:pagination-sort="username">Username</a></th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="password">Password</a></th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="telephone">Telephone</a></th>
-                  <th class="text-center"><a class="sorted" sd:pagination-sort="jenisKelamin">Jk</a></th>
+                  <th class="text-center"><a class="sorted" sd:pagination-sort="jenisKelamin">Jenis Kelamin</a></th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="statusPerkawinan">Status Hubungan</a></th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="pendidikan">Pendidikan</a></th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="alamat">Alamat</a></th>
@@ -55,11 +55,11 @@
                   <td th:text="${users.username}"></td>
                   <td th:text="${users.password}"></td>
                   <td th:text="${users.telephone}"></td>
-                  <td th:text="${users.jenisKelamin}"></td>
-                  <td th:text="${users.statusPerkawinan}"></td>
-                  <td th:text="${users.pendidikan}"></td>
+                  <td th:text="${users.jenisKelamin.jenisKelaminDisplay}"></td>
+                  <td th:text="${users.statusPerkawinan.statusPerkawinanDisplay}"></td>
+                  <td th:text="${users.pendidikan.pendidikanDisplay}"></td>
                   <td th:text="${users.alamat}"></td>
-                  <td th:text="${users.jabatan}"></td>
+                  <td th:text="${users.role.role}"></td>
                   <td th:text="${users.tanggalJoin}"></td>
                   <td>
                     <a th:href="@{/users/form/{id}(id=${users.id})}" class="btn btn-primary"><i class="fas fa-edit"></i>Change</a>

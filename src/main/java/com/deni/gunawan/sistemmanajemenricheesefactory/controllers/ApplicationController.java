@@ -25,4 +25,7 @@ public class ApplicationController {
     public String routeLogout(){
         return "login";
     }
+
+    @GetMapping(value = "/notfound")
+    public String routeNotFound(){return "pages/error/404";}
 }

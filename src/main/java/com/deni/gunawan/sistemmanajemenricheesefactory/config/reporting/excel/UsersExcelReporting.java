@@ -85,7 +85,7 @@ public class UsersExcelReporting {
             createCell(row, columnCount++, users.getAlamat(), style);
             createCell(row, columnCount++, users.getJenisKelamin().getJenisKelaminDisplay(), style);
             createCell(row, columnCount++, users.getPendidikan().getPendidikanDisplay(), style);
-            createCell(row, columnCount++, users.getJabatan().getJabatanDisplay(), style);
+            createCell(row, columnCount++, users.getRole().getRole(), style);
             createCell(row, columnCount++, users.getTelephone(), style);
             createCell(row, columnCount++, users.getStatusPerkawinan().getStatusPerkawinanDisplay(), style);
             createCell(row, columnCount++, users.getTanggalJoin(), style);

@@ -4,10 +4,9 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -17,10 +16,10 @@ import java.util.List;
 public class Role {
 
     @Id
-    @GeneratedValue
-    private Integer id;
-    private String nama;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @Column(name = "id", length = 36, unique = true)
+    private String id;
+    private String role;
 
-    @OneToMany(mappedBy = "role")
-    private List<UserRoles> list = new ArrayList<>();
 }

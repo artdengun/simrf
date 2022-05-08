@@ -29,7 +29,7 @@ public class Users {
     private String id;
     @Column(name = "username", length = 50)
     private String username;
-    @Column(name = "password", length = 50)
+    @Column(name = "password", length = 254)
     private String password;
     @Column(name = "nama", length = 50)
     private String nama;
@@ -40,14 +40,16 @@ public class Users {
     @Column(name = "telephone", length = 50)
     private String telephone;
     private boolean active = true;
+
     @Enumerated(EnumType.STRING)
     private JenisKelamin jenisKelamin;
 
     @Enumerated(value = EnumType.STRING)
     private StatusPerkawinan statusPerkawinan;
 
-    @Enumerated(value = EnumType.STRING)
-    private Jabatan jabatan;
+    @OneToOne
+    @JoinColumn(name = "roleid")
+    private Role role;
 
     @Enumerated(value = EnumType.STRING)
     private Pendidikan pendidikan;

@@ -41,7 +41,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/login", "/logout", "/").permitAll()
+                .antMatchers("/login", "/logout", "/", "/users/index", "/users/tambah", "/users/edit", "/index", "/role/index", "/role/tambah", "/role/edit").permitAll()
                 .antMatchers("/asset/index").hasAnyAuthority("MANAJER", "LEADER", "SUPERUSER")
                 .antMatchers("/asset/tambah").hasAnyAuthority("MANAJER", "LEADER", "SUPERUSER")
                 .antMatchers("/asset/edit").hasAnyAuthority("MANAJER", "LEADER", "SUPERUSER")
@@ -66,15 +66,19 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
                 .antMatchers("/transferplant/tambah").hasAnyAuthority("MANAJER", "LEADER", "SUPERUSER")
                 .antMatchers("/transferplant/edit").hasAnyAuthority("MANAJER", "LEADER", "SUPERUSER")
                 .antMatchers("/transferplant/export/excel").hasAnyAuthority("MANAJER", "LEADER", "SUPERUSER")
-                .antMatchers("/transferplant/export/pdf").hasAnyAuthority("MANAJER", "LEADER", "SUPERUSER")
-                .antMatchers("/users/index").hasAnyAuthority("MANAJER", "SUPERUSER")
-                .antMatchers("/users/tambah").hasAnyAuthority("MANAJER", "SUPERUSER")
-                .antMatchers("/users/edit").hasAnyAuthority("MANAJER", "SUPERUSER")
-                .antMatchers("/users/export/excel").hasAnyAuthority("MANAJER", "SUPERUSER")
-                .antMatchers("/users/export/pdf").hasAnyAuthority("MANAJER", "SUPERUSER")
-                .anyRequest().authenticated()
-                .and().logout().logoutSuccessUrl("/login").permitAll()
-                .and().formLogin().loginPage("/login").defaultSuccessUrl("/index", true).permitAll();
+                .antMatchers("/transferplant/export/pdf").hasAnyAuthority("MANAJER", "LEADER", "SUPERUSER");
+//                .antMatchers("/users/index").hasAnyAuthority("MANAJER", "SUPERUSER"
+//                .antMatchers("/users/tambah").hasAnyAuthority("MANAJER", "SUPERUSER")
+//                .antMatchers("/users/edit").hasAnyAuthority("MANAJER", "SUPERUSER")
+//                .antMatchers("/users/export/excel").hasAnyAuthority("MANAJER", "SUPERUSER")
+//                .antMatchers("/users/export/pdf").hasAnyAuthority("MANAJER", "SUPERUSER")
+//                .antMatchers("/users/index").hasAnyAuthority("MANAJER", "SUPERUSER")
+//                .antMatchers("/users/tambah").hasAnyAuthority("MANAJER", "SUPERUSER")
+//                .antMatchers("/users/edit").hasAnyAuthority("MANAJER", "SUPERUSER")
+//                .antMatchers("/users/export/excel").hasAnyAuthority("MANAJER", "SUPERUSER")
+//                .antMatchers("/users/export/pdf").hasAnyAuthority("MANAJER", "SUPERUSER")
+//                .and().logout().logoutSuccessUrl("/login").permitAll()
+//                .and().formLogin().loginPage("/login").defaultSuccessUrl("/index", true).permitAll();
     }
 
 

@@ -27,15 +27,15 @@ public class CustomErrorException  implements ErrorController {
 
             if (statusCode == HttpStatus.NOT_FOUND.value()) {
                 // handle HTTP 404 Not Found error
-                errorPage = "error/404";
+                errorPage = "pages/error/404";
 
             } else if (statusCode == HttpStatus.FORBIDDEN.value()) {
                 // handle HTTP 403 Forbidden error
-                errorPage = "error/403";
+                errorPage = "pages/error/403";
 
             } else if (statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
                 // handle HTTP 500 Internal Server error
-                errorPage = "error/500";
+                errorPage = "pages/error/500";
 
             } else if (statusCode == HttpStatus.METHOD_NOT_ALLOWED.value()) {
                 // handle HTTP 403 Forbidden error

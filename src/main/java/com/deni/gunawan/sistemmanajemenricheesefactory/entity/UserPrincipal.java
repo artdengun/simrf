@@ -20,7 +20,7 @@ public class UserPrincipal implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> listRole = new ArrayList<>();
         this.user.getRoles().forEach((ur) -> {
-            listRole.add(new SimpleGrantedAuthority(ur.getRole().getNama()));
+            listRole.add(new SimpleGrantedAuthority(ur.getRole().getRole()));
         });
         return listRole;
     }

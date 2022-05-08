@@ -81,15 +81,12 @@
                                     <div class="alert alert-warning" th:if="${#fields.hasErrors('alamat')}" th:errors="*{alamat}"></div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label>Jabatan</label> <br>
-                                    <select class="form-control" th:field="*{jabatan}">
+                                    <label>JABATAN</label>
+                                    <select th:field="*{role}" class="form-control">
                                         <option value=""></option>
-                                        <option
-                                                th:each="jabatan : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.Jabatan).values()}"
-                                                th:value="${jabatan}"
-                                                th:text="${jabatan.jabatanDisplay}"></option>
+                                        <option th:each="list: ${role}" th:value="${list.id}" th:text="${list.role}"></option>
                                     </select>
-                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('jabatan')}" th:errors="*{jabatan}"></div>
+                                    <div class="alert alert-warning" th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="username">Username</label>
