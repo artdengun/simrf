@@ -4,6 +4,7 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -15,8 +16,10 @@ import javax.persistence.*;
 public class UserRoles {
 
     @Id
-    @GeneratedValue
-    private Integer id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @Column(name = "id", length = 36, unique = true)
+    private String id;
 
     @ManyToOne
     @JoinColumn(name = "id_user")
