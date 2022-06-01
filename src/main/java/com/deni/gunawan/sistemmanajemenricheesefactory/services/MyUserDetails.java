@@ -1,5 +1,7 @@
-package com.deni.gunawan.sistemmanajemenricheesefactory.entity;
+package com.deni.gunawan.sistemmanajemenricheesefactory.services;
 
+import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Role;
+import com.deni.gunawan.sistemmanajemenricheesefactory.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,22 +9,26 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
-public class UserPrincipal implements UserDetails {
+public class MyUserDetails implements UserDetails {
 
-    private Users user;
+    private User user;
 
-    public UserPrincipal(Users user) {
+    public MyUserDetails(User user) {
         this.user = user;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> listRole = new ArrayList<>();
-        this.user.getRoles().forEach((ur) -> {
-            listRole.add(new SimpleGrantedAuthority(ur.getRole().getRole()));
-        });
-        return listRole;
+        Set<Role> roles = user.getRoles();
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+
+        for (Role role : roles) {
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
+        }
+
+        return authorities;
     }
 
     @Override
@@ -52,6 +58,7 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return user.isActive();
+        return user.isEnabled();
     }
+
 }

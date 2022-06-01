@@ -84,7 +84,7 @@ public class TransferplantExcelReporting {
             createCell(row, columnCount++, transferPlant.getOutletPenerima(), style);
             createCell(row, columnCount++, transferPlant.getOutletPengirim(), style);
             createCell(row, columnCount++, transferPlant.getModIncharge(), style);
-            createCell(row, columnCount++, transferPlant.getUsers().getNama(), style);
+//            createCell(row, columnCount++, transferPlant.getUsers().getNama(), style);
 
         }
     }

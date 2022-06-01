@@ -3,7 +3,6 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Retur;
 import com.deni.gunawan.sistemmanajemenricheesefactory.repository.ReturRepo;
-import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UsersRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.ReturService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,12 +23,12 @@ public class ReturController {
 
     private ReturService returService;
     private ReturRepo returRepo;
-    private UsersRepo usersRepo;
+//    private UsersRepo usersRepo;
 
     @GetMapping(value = "/index")
     public String getList(ModelMap map, Pageable pageable){
         map.addAttribute("listRetur", returRepo.findAll(pageable));
-        map.addAttribute("listUsers", usersRepo.findAll());
+//        map.addAttribute("listUsers", usersRepo.findAll());
         return "pages/retur/index";
     }
 
@@ -37,7 +36,7 @@ public class ReturController {
     public String getForm(ModelMap map){
         Retur retur = new Retur();
         map.addAttribute("retur", retur);
-        map.addAttribute("users", usersRepo.findAll());
+//        map.addAttribute("users", usersRepo.findAll());
         return "pages/retur/form";
     }
 
@@ -48,7 +47,7 @@ public class ReturController {
                     .orElseThrow(()
                             -> new IllegalArgumentException("Gagal Get Data Id : " + id));
             model.addAttribute("retur", retur);
-            model.addAttribute("users", usersRepo.findAll());
+//            model.addAttribute("users", usersRepo.findAll());
             return "pages/retur/edit";
         }catch (Exception e){
             return "pages/retur/index";

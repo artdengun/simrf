@@ -2,7 +2,6 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.TransferPlant;
 import com.deni.gunawan.sistemmanajemenricheesefactory.repository.TransferPlantRepo;
-import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UsersRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.TransferPlantService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,12 +22,12 @@ public class TransferPlantController {
 
     private TransferPlantService transferPlantService;
     private TransferPlantRepo transferPlantRepo;
-    private UsersRepo usersRepo;
+//    private UsersRepo usersRepo;
 
     @GetMapping(value = "/index")
     public String getList(ModelMap map, Pageable pageable){
         map.addAttribute("listTransferplant", transferPlantRepo.findAll(pageable));
-        map.addAttribute("listUsers", usersRepo.findAll());
+//        map.addAttribute("listUsers", usersRepo.findAll());
         return "pages/transferplant/index";
     }
     
@@ -36,7 +35,7 @@ public class TransferPlantController {
     public String getForm(ModelMap map){
         TransferPlant transferplant = new TransferPlant();
         map.addAttribute("transferplant", transferplant);
-        map.addAttribute("users", usersRepo.findAll());
+//        map.addAttribute("users", usersRepo.findAll());
         return "pages/transferplant/form";
     }
 
@@ -47,7 +46,7 @@ public class TransferPlantController {
                     .orElseThrow(()
                             -> new IllegalArgumentException("Gagal Get Data Id : " + id));
             model.addAttribute("transferplant", transferplant);
-            model.addAttribute("users", usersRepo.findAll());
+//            model.addAttribute("users", usersRepo.findAll());
             return "pages/transferplant/edit";
         }catch (Exception e){
             return "pages/transferplant/index";

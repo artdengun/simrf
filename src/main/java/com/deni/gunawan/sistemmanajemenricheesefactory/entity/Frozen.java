@@ -61,7 +61,7 @@ public class Frozen {
     @Enumerated(EnumType.STRING)
     private UOM uom;
 
-    @OneToOne
-    @JoinColumn(name = "userid")
-    private Users users;
+//    @OneToOne
+//    @JoinColumn(name = "userid")
+//    private Users users;
 }

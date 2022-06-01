@@ -13,6 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>sistem-manajemen-richeese-factory</name>
 	<description>sistem informasi manajemen richeese factory</description>
+
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
