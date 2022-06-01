@@ -19,9 +19,11 @@
                 <h6 class="m-0 font-weight-bold text-primary">Data Barang Frozen</h6> </br>
                 <div class="col-md-12">
                     <a th:href="@{/frozen/form}" class="btn btn-primary float-right"><i class="fas fa-plus-square"></i> New Data</a>
-                    <div class="col-md-6">
+                    <div sec:authorize="hasAnyAuthority('MANAJER', 'LEADER')">
+                        <div class="col-md-6">
                         <a th:href="@{/frozen/export/excel}" class="btn btn-success float-left"><i class="fas fa-file-excel"></i> EXCEL</a>
                         <a th:href="@{/frozen/export/pdf}" class="btn btn-danger float-left"><i class="fas fa-file-pdf"></i> PDF</a>
+                         </div>
                     </div>
                 </div>
             </div>

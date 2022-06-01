@@ -2,6 +2,7 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.services;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Role;
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,7 +14,8 @@ import java.util.Set;
 
 public class MyUserDetails implements UserDetails {
 
-    private User user;
+    @Autowired
+    private final User user;
 
     public MyUserDetails(User user) {
         this.user = user;
