@@ -53,7 +53,7 @@ public class Asset {
     @Enumerated(EnumType.STRING)
     private Jenis jenis;
 
-//    @OneToOne
-//    @JoinColumn(name = "userid")
-//    private Users users;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User users;
 }

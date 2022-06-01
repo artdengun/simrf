@@ -87,7 +87,7 @@ public class FrozenExcelReporting {
             createCell(row, columnCount++, frozen.getCodeBarang(), style);
             createCell(row, columnCount++, frozen.getTanggalPenerimaan(), style);
             createCell(row, columnCount++, frozen.getDeskripsi(), style);
-//            createCell(row, columnCount++, frozen.getUsers().getNama(), style);
+            createCell(row, columnCount++, frozen.getUsers().getNama(), style);
 
         }
     }

@@ -29,7 +29,7 @@ public class ExportExcelController {
     private RawExcelReporting rawExcelReporting;
     private ReturExcelReporting returExcelReporting;
     private TransferplantExcelReporting transferplantExcelReporting;
-  //  private UsersExcelReporting usersExcelReporting;
+    private UsersExcelReporting usersExcelReporting;
 
     // REPO
     private AssetRepo assetRepo;
@@ -37,7 +37,7 @@ public class ExportExcelController {
     private RawRepo rawRepo;
     private ReturRepo returRepo;
     private TransferPlantRepo transferPlantRepo;
-//    private UsersRepo usersRepo;
+    private UserRepository usersRepo;
 
     @GetMapping("/asset/export/excel")
     public void exportExcelAsset(HttpServletResponse response) throws IOException {
@@ -128,23 +128,23 @@ public class ExportExcelController {
         excelExporter.export(response);
     }
 
-//
-//    @GetMapping("/users/export/excel")
-//    public void exportExcelUsers(HttpServletResponse response) throws IOException {
-//
-//        response.setContentType("application/octet-stream");
-//        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-//        String currentDateTime = dateFormatter.format(new Date());
-//
-//        String headerKey = "Content-Disposition";
-//        String headerValue = "attachment; filename=data-users_" + currentDateTime + ".xlsx";
-//        response.setHeader(headerKey, headerValue);
-//
-//        List<Users> listUsers = usersRepo.findAll();
-//
-//        UsersExcelReporting excelExporter = new UsersExcelReporting(listUsers);
-//
-//        excelExporter.export(response);
-//    }
+
+    @GetMapping("/users/export/excel")
+    public void exportExcelUsers(HttpServletResponse response) throws IOException {
+
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=data-users_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        List<User> users = usersRepo.findAll();
+
+        UsersExcelReporting excelExporter = new UsersExcelReporting(users);
+
+        excelExporter.export(response);
+    }
 
 }

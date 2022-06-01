@@ -1,6 +1,8 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.entity;
 
-import lombok.Data;
+import com.deni.gunawan.sistemmanajemenricheesefactory.enums.JenisKelamin;
+import com.deni.gunawan.sistemmanajemenricheesefactory.enums.Pendidikan;
+import com.deni.gunawan.sistemmanajemenricheesefactory.enums.StatusPerkawinan;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +21,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String nama;
+    private String alamat;
+    @Enumerated(EnumType.STRING)
+    private JenisKelamin jenisKelamin;
+    @Enumerated(EnumType.STRING)
+    private Pendidikan pendidikan;
+    private String telephone;
+    private StatusPerkawinan statusPerkawinan;
+    private String tanggalJoin;
+    private String email;
     private String username;
     private String password;
     private boolean enabled;
