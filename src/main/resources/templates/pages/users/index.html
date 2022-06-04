@@ -6,100 +6,113 @@
 
 <!-- Page Wrapper -->
 <div id="wrapper">
-  <div th:replace="'pages/template/sidebar' :: sidebar"></div>
-  <!-- Content Wrapper -->
-  <div id="content-wrapper" class="d-flex flex-column">
-    <!-- Main Content -->
-    <div id="content">
-      <div th:replace="'pages/template/topbar' :: topbar"></div>
-      <!-- Begin Page Content -->
-      <div class="container-fluid">
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary"> Data Users</h6> <br>
-            <div class="col-md-12">
-              <a th:href="@{/users/form}" class="btn btn-primary float-right"><i class="fas fa-plus-square"></i> New Data</a>
-              <div class="col-md-6">
-                <a th:href="@{/users/export/excel}" class="btn btn-success float-left"><i class="fas fa-file-excel"></i> EXCEL</a>
-                <a th:href="@{/users/export/pdf}" class="btn btn-danger float-left"><i class="fas fa-file-pdf"></i> PDF</a>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                Total <span sd:page-size-selector="default"></span> Data
-                <br><br>
-                <thead>
-                <tr>
-                  <th class="text-center">No</th>
-                  <th class="text-center"><a class="sorted" sd:pagination-sort="nama">Nama</a></th>
-                  <th class="text-center"><a class="sorted" sd:pagination-sort="email">Email</a></th>
-                  <th class="text-center"><a class="sorted" sd:pagination-sort="username">Username</a></th>
-                  <th class="text-center"><a class="sorted" sd:pagination-sort="password">Password</a></th>
-                  <th class="text-center"><a class="sorted" sd:pagination-sort="telephone">Telephone</a></th>
-                  <th class="text-center"><a class="sorted" sd:pagination-sort="jenisKelamin">Jenis Kelamin</a></th>
-                  <th class="text-center"><a class="sorted" sd:pagination-sort="statusPerkawinan">Status Hubungan</a></th>
-                  <th class="text-center"><a class="sorted" sd:pagination-sort="pendidikan">Pendidikan</a></th>
-                  <th class="text-center"><a class="sorted" sd:pagination-sort="alamat">Alamat</a></th>
-                  <th class="text-center"><a class="sorted" sd:pagination-sort="jabatan">Jabatan</a></th>
-                  <th class="text-center"><a class="sorted" sd:pagination-sort="tanggalJoin">Tanggal Join</a></th>
-                  <th class="text-center">Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="users, itrStat: ${listUsers}">
-                  <td th:text="${itrStat.count}"></td>
-                  <td th:text="${users.nama}"></td>
-                  <td th:text="${users.email}"></td>
-                  <td th:text="${users.username}"></td>
-                  <td th:text="${users.password}"></td>
-                  <td th:text="${users.telephone}"></td>
-                  <td th:text="${users.jenisKelamin.jenisKelaminDisplay}"></td>
-                  <td th:text="${users.statusPerkawinan.statusPerkawinanDisplay}"></td>
-                  <td th:text="${users.pendidikan.pendidikanDisplay}"></td>
-                  <td th:text="${users.alamat}"></td>
-                  <td th:text="${users.role.role}"></td>
-                  <td th:text="${users.tanggalJoin}"></td>
-                  <td>
-                    <a th:href="@{/users/form/{id}(id=${users.id})}" class="btn btn-primary"><i class="fas fa-edit"></i>Change</a>
-                    <a th:href="@{/users/delete/{id}(id=${users.id})}" class="btn btn-danger"><i class="fas fa-trash"></i>Delete</a>
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-              <div class="row">
-                <div class="col-sm-6">
-                  <div sd:pagination-summary="">info</div>
+    <div th:replace="'pages/template/sidebar' :: sidebar"></div>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+            <div th:replace="'pages/template/topbar' :: topbar"></div>
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary"> Data Users</h6> <br>
+                        <div class="col-md-12">
+                            <a th:href="@{/users/form}" class="btn btn-primary float-right"><i
+                                    class="fas fa-plus-square"></i> New Data</a>
+                            <div class="col-md-6">
+                                <a th:href="@{/users/export/excel}" class="btn btn-success float-left"><i
+                                        class="fas fa-file-excel"></i> EXCEL</a>
+                                <a th:href="@{/users/export/pdf}" class="btn btn-danger float-left"><i
+                                        class="fas fa-file-pdf"></i> PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                Total <span sd:page-size-selector="default"></span> Data
+                                <br><br>
+                                <thead>
+                                <tr>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center"><a class="sorted" sd:pagination-sort="nama">Nama</a></th>
+                                    <th class="text-center"><a class="sorted" sd:pagination-sort="email">Email</a></th>
+                                    <th class="text-center"><a class="sorted" sd:pagination-sort="username">Username</a>
+                                    </th>
+                                    <th class="text-center"><a class="sorted" sd:pagination-sort="password">Password</a>
+                                    </th>
+                                    <th class="text-center"><a class="sorted"
+                                                               sd:pagination-sort="telephone">Telephone</a></th>
+                                    <th class="text-center"><a class="sorted" sd:pagination-sort="jenisKelamin">Jenis
+                                        Kelamin</a></th>
+                                    <th class="text-center"><a class="sorted" sd:pagination-sort="statusPerkawinan">Status
+                                        Hubungan</a></th>
+                                    <th class="text-center"><a class="sorted"
+                                                               sd:pagination-sort="pendidikan">Pendidikan</a></th>
+                                    <th class="text-center"><a class="sorted" sd:pagination-sort="alamat">Alamat</a>
+                                    </th>
+                                    <th class="text-center"><a class="sorted" sd:pagination-sort="tanggalJoin">Tanggal
+                                        Join</a></th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="users, itrStat: ${listUser}">
+                                    <td th:text="${itrStat.count}"></td>
+                                    <td th:text="${users.nama}"></td>
+                                    <td th:text="${users.email}"></td>
+                                    <td th:text="${users.username}"></td>
+                                    <td th:text="${users.password}"></td>
+                                    <td th:text="${users.telephone}"></td>
+                                    <td th:text="${users.jenisKelamin.jenisKelaminDisplay}"></td>
+                                    <td th:text="${users.statusPerkawinan.statusPerkawinanDisplay}"></td>
+                                    <td th:text="${users.pendidikan.pendidikanDisplay}"></td>
+                                    <td th:text="${users.alamat}"></td>
+                                    <td th:text="${users.tanggalJoin}"></td>
+                                    <td>
+                                        <a th:href="@{/users/form/{id}(id=${users.id})}" class="btn btn-primary"><i
+                                                class="fas fa-edit"></i>Change</a>
+                                        <a th:href="@{/users/delete/{id}(id=${users.id})}" class="btn btn-danger"><i
+                                                class="fas fa-trash"></i>Delete</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div sd:pagination-summary="">info</div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <nav class="float-right">
+                                        <ul class="pagination" sd:pagination-split="7" sd:pagination="full">
+                                            <!-- Pagination created by SpringDataDialect, this content is just for mockup -->
+                                            <li class="disabled"><a href="#" aria-label="Previous"><span
+                                                    aria-hidden="true">&laquo;</span></a></li>
+                                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                  <nav class="float-right">
-                    <ul class="pagination" sd:pagination-split="7" sd:pagination="full">
-                      <!-- Pagination created by SpringDataDialect, this content is just for mockup -->
-                      <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                      <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
             </div>
-          </div>
+            <!-- /.container-fluid -->
+
         </div>
-      </div>
-      <!-- /.container-fluid -->
+        <!-- End of Main Content -->
+        <div th:replace="'pages/template/footer' :: footer"></div>
 
     </div>
-    <!-- End of Main Content -->
-    <div th:replace="'pages/template/footer' :: footer"></div>
-
-  </div>
-  <!-- End of Content Wrapper -->
+    <!-- End of Content Wrapper -->
 
 </div>
 <!-- End of Page Wrapper -->
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
-  <i class="fas fa-angle-up"></i>
+    <i class="fas fa-angle-up"></i>
 </a>
 <div th:replace="'pages/template/logout' :: logout"></div>
 <div th:replace="'pages/template/script' :: script"></div>

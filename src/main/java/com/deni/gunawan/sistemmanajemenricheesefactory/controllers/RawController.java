@@ -2,7 +2,7 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Raw;
 import com.deni.gunawan.sistemmanajemenricheesefactory.repository.RawRepo;
-import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UserRepository;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UserRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.RawService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,7 @@ public class RawController {
 
     private RawService rawService;
     private RawRepo rawRepo;
-    private UserRepository usersRepo;
+    private UserRepo usersRepo;
 
     @GetMapping(value = "/index")
     private String getList(ModelMap map, Pageable pageable){

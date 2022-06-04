@@ -3,7 +3,7 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Retur;
 import com.deni.gunawan.sistemmanajemenricheesefactory.repository.ReturRepo;
-import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UserRepository;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UserRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.ReturService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,7 @@ public class ReturController {
 
     private ReturService returService;
     private ReturRepo returRepo;
-    private UserRepository usersRepo;
+    private UserRepo usersRepo;
 
     @GetMapping(value = "/index")
     public String getList(ModelMap map, Pageable pageable){

@@ -13,7 +13,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
- *
  * @author denigunawan
  */
 
@@ -102,12 +101,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/users/index").hasAnyAuthority("MANAJER", "SUPERUSER")
                 .antMatchers("/users/tambah").hasAnyAuthority("MANAJER", "SUPERUSER")
                 .antMatchers("/users/edit").hasAnyAuthority("MANAJER", "SUPERUSER")
-                .antMatchers("/userrole/index").hasAnyAuthority("SUPERUSER")
-                .antMatchers("/userrole/tambah").hasAnyAuthority("SUPERUSER")
-                .antMatchers("/userrole/edit").hasAnyAuthority("SUPERUSER")
-                .antMatchers("/role/index").hasAnyAuthority("SUPERUSER")
-                .antMatchers("/role/tambah").hasAnyAuthority("SUPERUSER")
-                .antMatchers("/role/edit").hasAnyAuthority("SUPERUSER")
                 // REPORTING
                 .antMatchers("/users/export/excel").hasAnyAuthority("MANAJER", "SUPERUSER")
                 .antMatchers("/users/export/pdf").hasAnyAuthority("MANAJER", "SUPERUSER")
@@ -121,10 +114,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/raw/export/pdf").hasAnyAuthority("MANAJER", "LEADER")
                 .antMatchers("/asset/export/excel").hasAnyAuthority("MANAJER", "LEADER")
                 .antMatchers("/asset/export/pdf").hasAnyAuthority("MANAJER", "LEADER")
-                .antMatchers("/userrole/export/excel").hasAnyAuthority("SUPERUSER")
-                .antMatchers("/userrole/export/pdf").hasAnyAuthority("SUPERUSER")
-                .antMatchers("/role/export/pdf").hasAnyAuthority("SUPERUSER")
-                .antMatchers("/role/export/pdf").hasAnyAuthority("SUPERUSER")
 
                 .anyRequest().authenticated()
                 .and().logout().logoutSuccessUrl("/login").permitAll()
@@ -134,7 +123,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/index", true).permitAll();
     }
 
-        @Override
+    @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring()
                 .antMatchers("/static/**")

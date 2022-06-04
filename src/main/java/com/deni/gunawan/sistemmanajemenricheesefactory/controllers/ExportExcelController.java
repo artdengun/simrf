@@ -37,7 +37,7 @@ public class ExportExcelController {
     private RawRepo rawRepo;
     private ReturRepo returRepo;
     private TransferPlantRepo transferPlantRepo;
-    private UserRepository usersRepo;
+    private UserRepo usersRepo;
 
     @GetMapping("/asset/export/excel")
     public void exportExcelAsset(HttpServletResponse response) throws IOException {

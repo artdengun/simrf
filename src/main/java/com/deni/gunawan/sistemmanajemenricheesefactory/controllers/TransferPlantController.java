@@ -2,7 +2,7 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.TransferPlant;
 import com.deni.gunawan.sistemmanajemenricheesefactory.repository.TransferPlantRepo;
-import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UserRepository;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UserRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.TransferPlantService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +23,7 @@ public class TransferPlantController {
 
     private TransferPlantService transferPlantService;
     private TransferPlantRepo transferPlantRepo;
-    private UserRepository usersRepo;
+    private UserRepo usersRepo;
 
     @GetMapping(value = "/index")
     public String getList(ModelMap map, Pageable pageable){

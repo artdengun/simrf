@@ -2,7 +2,7 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Asset;
 import com.deni.gunawan.sistemmanajemenricheesefactory.repository.AssetRepo;
-import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UserRepository;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UserRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.AssetService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -27,7 +27,7 @@ public class AssetController {
 
     private AssetService assetService;
     private AssetRepo assetRepo;
-    private UserRepository usersRepo;
+    private UserRepo usersRepo;
 
     @GetMapping(value = "/index")
     public String getList(ModelMap map, Pageable pageable){
