@@ -15,40 +15,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 /**
  * @author denigunawan
  */
-
-//@Configuration
-//@EnableWebSecurity
-//public class SecurityConfig  extends WebSecurityConfigurerAdapter {
-//
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http
-//                .csrf().disable()
-//                .authorizeRequests()
-//                .antMatchers("/login", "/logout", "/register").permitAll()
-//                .antMatchers("/").permitAll()
-//                .and().formLogin().loginPage("/login").defaultSuccessUrl("/index", true).permitAll()
-//                .and().logout().logoutSuccessUrl("/login").permitAll();
-//    }
-//
-//
-//    @Override
-//    public void configure(WebSecurity web) throws Exception {
-//        web.ignoring()
-//                .antMatchers("/static/**")
-//                .antMatchers("/image/**")
-//                .antMatchers("/css/**")
-//                .antMatchers("/fonts/**")
-//                .antMatchers("/frontend/**")
-//                .antMatchers("/js/**")
-//                .antMatchers("/vendor/**");
-//    }
-//}
-
-
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
