@@ -13,7 +13,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
- *
  * @author denigunawan
  */
 
@@ -87,42 +86,44 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/asset/index").hasAnyAuthority("MANAJER", "LEADER")
                 .antMatchers("/asset/tambah").hasAnyAuthority("MANAJER", "LEADER")
                 .antMatchers("/asset/edit").hasAnyAuthority("MANAJER", "LEADER")
-                .antMatchers("/asset/export/excel").hasAnyAuthority("MANAJER", "LEADER")
-                .antMatchers("/asset/export/pdf").hasAnyAuthority("MANAJER", "LEADER")
                 .antMatchers("/raw/index").hasAnyAuthority("MANAJER", "LEADER", "CREW")
                 .antMatchers("/raw/tambah").hasAnyAuthority("MANAJER", "LEADER", "CREW")
                 .antMatchers("/raw/edit").hasAnyAuthority("MANAJER", "LEADER", "CREW")
-                .antMatchers("/raw/export/excel").hasAnyAuthority("MANAJER", "LEADER")
-                .antMatchers("/raw/export/pdf").hasAnyAuthority("MANAJER", "LEADER")
                 .antMatchers("/frozen/index").hasAnyAuthority("MANAJER", "LEADER", "CREW")
                 .antMatchers("/frozen/tambah").hasAnyAuthority("MANAJER", "LEADER", "CREW")
                 .antMatchers("/frozen/edit").hasAnyAuthority("MANAJER", "LEADER", "CREW")
-                .antMatchers("/frozen/export/excel").hasAnyAuthority("MANAJER", "LEADER")
-                .antMatchers("/frozen/export/pdf").hasAnyAuthority("MANAJER", "LEADER")
                 .antMatchers("/retur/index").hasAnyAuthority("MANAJER", "LEADER", "CREW")
                 .antMatchers("/retur/tambah").hasAnyAuthority("MANAJER", "LEADER", "CREW")
                 .antMatchers("/retur/edit").hasAnyAuthority("MANAJER", "LEADER", "CREW")
-                .antMatchers("/retur/export/excel").hasAnyAuthority("MANAJER", "LEADER")
-                .antMatchers("/retur/export/pdf").hasAnyAuthority("MANAJER", "LEADER")
                 .antMatchers("/transferplant/index").hasAnyAuthority("MANAJER", "LEADER")
                 .antMatchers("/transferplant/tambah").hasAnyAuthority("MANAJER", "LEADER")
                 .antMatchers("/transferplant/edit").hasAnyAuthority("MANAJER", "LEADER")
+                .antMatchers("/users/index").hasAnyAuthority("MANAJER", "SUPERUSER")
+                .antMatchers("/users/tambah").hasAnyAuthority("MANAJER", "SUPERUSER")
+                .antMatchers("/users/edit").hasAnyAuthority("MANAJER", "SUPERUSER")
+                // REPORTING
+                .antMatchers("/users/export/excel").hasAnyAuthority("MANAJER", "SUPERUSER")
+                .antMatchers("/users/export/pdf").hasAnyAuthority("MANAJER", "SUPERUSER")
                 .antMatchers("/transferplant/export/excel").hasAnyAuthority("MANAJER", "LEADER")
                 .antMatchers("/transferplant/export/pdf").hasAnyAuthority("MANAJER", "LEADER")
-                .antMatchers("/users/index").hasAnyAuthority("MANAJER")
-                .antMatchers("/users/tambah").hasAnyAuthority("MANAJER")
-                .antMatchers("/users/edit").hasAnyAuthority("MANAJER")
-                .antMatchers("/users/export/excel").hasAnyAuthority("MANAJER")
-                .antMatchers("/users/export/pdf").hasAnyAuthority("MANAJER")
+                .antMatchers("/retur/export/excel").hasAnyAuthority("MANAJER", "LEADER")
+                .antMatchers("/retur/export/pdf").hasAnyAuthority("MANAJER", "LEADER")
+                .antMatchers("/frozen/export/excel").hasAnyAuthority("MANAJER", "LEADER")
+                .antMatchers("/frozen/export/pdf").hasAnyAuthority("MANAJER", "LEADER")
+                .antMatchers("/raw/export/excel").hasAnyAuthority("MANAJER", "LEADER")
+                .antMatchers("/raw/export/pdf").hasAnyAuthority("MANAJER", "LEADER")
+                .antMatchers("/asset/export/excel").hasAnyAuthority("MANAJER", "LEADER")
+                .antMatchers("/asset/export/pdf").hasAnyAuthority("MANAJER", "LEADER")
+
                 .anyRequest().authenticated()
                 .and().logout().logoutSuccessUrl("/login").permitAll()
                 .and().formLogin().loginPage("/login")
                 .usernameParameter("username")
+                .passwordParameter("password")
                 .defaultSuccessUrl("/index", true).permitAll();
     }
 
-
-        @Override
+    @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring()
                 .antMatchers("/static/**")

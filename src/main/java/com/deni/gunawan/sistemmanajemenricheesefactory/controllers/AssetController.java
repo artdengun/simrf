@@ -2,6 +2,7 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Asset;
 import com.deni.gunawan.sistemmanajemenricheesefactory.repository.AssetRepo;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UserRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.AssetService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -26,7 +27,7 @@ public class AssetController {
 
     private AssetService assetService;
     private AssetRepo assetRepo;
-//    private UsersRepo usersRepo;
+    private UserRepo usersRepo;
 
     @GetMapping(value = "/index")
     public String getList(ModelMap map, Pageable pageable){
@@ -38,7 +39,7 @@ public class AssetController {
     public String getForm(ModelMap map){
         Asset asset = new Asset();
         map.addAttribute("asset", asset);
-//        map.addAttribute("users", usersRepo.findAll());
+        map.addAttribute("users", usersRepo.findAll());
         return "pages/asset/form";
     }
 
@@ -49,7 +50,7 @@ public class AssetController {
                     .orElseThrow(()
                     -> new IllegalArgumentException("Gagal Get Data Id : " + id));
             model.addAttribute("asset", asset);
-//            model.addAttribute("users", usersRepo.findAll());
+            model.addAttribute("users", usersRepo.findAll());
             return "pages/asset/edit";
         }catch (Exception e){
             return "pages/asset/index";

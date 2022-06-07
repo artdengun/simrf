@@ -19,9 +19,11 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Barang Raw</h6> </br>
             <div class="col-md-12">
               <a th:href="@{/raw/form}" class="btn btn-primary float-right"><i class="fas fa-plus-square"></i> New Data</a>
+              <div sec:authorize="hasAnyAuthority('MANAJER', 'LEADER')">
               <div class="col-md-6">
                 <a th:href="@{/raw/export/excel}" class="btn btn-success float-left"><i class="fas fa-file-excel"></i> EXCEL</a>
                 <a th:href="@{/raw/export/pdf}" class="btn btn-danger float-left"><i class="fas fa-file-pdf"></i> PDF</a>
+              </div>
               </div>
             </div>
           </div>

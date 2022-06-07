@@ -86,7 +86,7 @@ public class RawExcelReporting {
             createCell(row, columnCount++, raw.getCodeBarang(), style);
             createCell(row, columnCount++, raw.getTanggalPenerimaan(), style);
             createCell(row, columnCount++, raw.getDeskripsi(), style);
-//            createCell(row, columnCount++, raw.getUsers().getNama(), style);
+            createCell(row, columnCount++, raw.getUsers().getNama(), style);
 
         }
     }

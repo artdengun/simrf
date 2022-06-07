@@ -57,7 +57,7 @@ public class Raw {
     @Enumerated(EnumType.STRING)
     private UOM uom;
 
-//    @OneToOne
-//    @JoinColumn(name = "userid")
-//    private Users users;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User users;
 }

@@ -5,7 +5,7 @@
 
 <!-- Sidebar -->
 <div sec:authorize="isAuthenticated()">
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" th:fragment="sidebar">
+<div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" th:fragment="sidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/index}">
@@ -21,11 +21,14 @@
             <i class="fas fa-fw fa-balance-scale"></i>
             <span>Dashboard</span></a>
     </li>
-    <li class="nav-item ">
+    <div sec:authorize="hasAnyAuthority('MANAJER', 'LEADER')">
+        <li class="nav-item ">
         <a class="nav-link" th:href="@{/asset/index}">
             <i class="fas fa-fw fa-list-alt"></i>
             <span>Data Asset</span></a>
-    </li>
+        </li>
+    </div>
+    <div sec:authorize="hasAnyAuthority('MANAJER', 'LEADER', 'CREW')">
     <li class="nav-item ">
         <a class="nav-link" th:href="@{/frozen/index}">
             <i class="fas fa-fw fa-list-alt"></i>
@@ -41,32 +44,28 @@
             <i class="fas fa-fw fa-list-alt"></i>
             <span>Data Retur</span></a>
     </li>
+    </div>
+    <div sec:authorize="hasAnyAuthority('MANAJER', 'LEADER')">
     <li class="nav-item ">
         <a class="nav-link"  th:href="@{/transferplant/index}">
             <i class="fas fa-fw fa-list-alt"></i>
             <span>Data Transfer</span></a>
     </li>
-<!--    <li class="nav-item ">-->
-<!--        <a class="nav-link" th:href="@{/users/index}">-->
-<!--            <i class="fas fa-fw fa-list-alt"></i>-->
-<!--            <span>Data Users</span></a>-->
-<!--    </li>-->
-<!--    <li class="nav-item ">-->
-<!--        <a class="nav-link" th:href="@{/role/index}">-->
-<!--            <i class="fas fa-fw fa-list-alt"></i>-->
-<!--            <span>Data Role</span></a>-->
-<!--    </li>-->
-<!--    <li class="nav-item ">-->
-<!--        <a class="nav-link" th:href="@{/userrole/index}">-->
-<!--            <i class="fas fa-fw fa-list-alt"></i>-->
-<!--            <span>Data User Role</span></a>-->
-<!--    </li>-->
+    </div>
+    <div sec:authorize="hasAnyAuthority('MANAJER', 'SUPERUSER')">
+    <li class="nav-item ">
+        <a class="nav-link" th:href="@{/users/index}">
+            <i class="fas fa-fw fa-list-alt"></i>
+            <span>Data Users</span></a>
+    </li>
+    </div>
     <hr class="sidebar-divider d-none d-md-block">
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 
     </ul>
+</div>
 </div>
 </body>
 </html>

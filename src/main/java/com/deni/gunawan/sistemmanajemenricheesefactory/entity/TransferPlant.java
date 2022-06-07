@@ -46,4 +46,8 @@ public class TransferPlant {
     @Enumerated(EnumType.STRING)
     private UOM uom;
 
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User users;
+
 }

@@ -1,19 +1,19 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.services;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.User;
-import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UserRepository;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.*;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserRepo userRepo;
 
     @Override
     public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {
-        User user = userRepository.getUserByUsername(username);
+        User user = userRepo.getUserByUsername(username);
 
         if (user == null) {
             throw new UsernameNotFoundException("Could not find user");

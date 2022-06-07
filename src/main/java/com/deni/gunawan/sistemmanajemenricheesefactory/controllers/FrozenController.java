@@ -2,6 +2,7 @@ package com.deni.gunawan.sistemmanajemenricheesefactory.controllers;
 
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Frozen;
 import com.deni.gunawan.sistemmanajemenricheesefactory.repository.FrozenRepo;
+import com.deni.gunawan.sistemmanajemenricheesefactory.repository.UserRepo;
 import com.deni.gunawan.sistemmanajemenricheesefactory.services.FrozenService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +23,7 @@ public class FrozenController {
 
         private FrozenService frozenService;
         private FrozenRepo frozenRepo;
-//        private UsersRepo usersRepo;
+        private UserRepo usersRepo;
 
         @GetMapping(value = "/index")
         public String getList(ModelMap map, Pageable pageable){
@@ -34,7 +35,7 @@ public class FrozenController {
         public String getForm(ModelMap map){
             Frozen frozen = new Frozen();
             map.addAttribute("frozen", frozen);
-//            map.addAttribute("users", usersRepo.findAll());
+            map.addAttribute("users", usersRepo.findAll());
             return "pages/frozen/form";
         }
 
@@ -45,7 +46,7 @@ public class FrozenController {
                     .orElseThrow(()
                             -> new IllegalArgumentException("Gagal Get Data Id : " + id));
             model.addAttribute("frozen", frozen);
-//            model.addAttribute("users", usersRepo.findAll());
+            model.addAttribute("users", usersRepo.findAll());
             return "pages/frozen/edit";
         }catch (Exception e){
             return "pages/frozen/index";

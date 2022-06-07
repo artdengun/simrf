@@ -82,9 +82,4 @@ public class PDFReporting {
         return jasperPrint;
 
     }
-
-
-
-
-
 }
