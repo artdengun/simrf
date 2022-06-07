@@ -28,10 +28,10 @@ public class RawService {
     public Raw save(Raw raw){
         return rawRepo.save(raw);
     }
-    public Optional<Raw> findById(String id){
+    public Optional<Raw> findById(Long id){
         return rawRepo.findById(id);
     }
-    public void delete(String id){
+    public void delete(Long id){
         rawRepo.deleteById(id);
     }
 

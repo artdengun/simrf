@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 
 
-public interface ReturRepo extends JpaRepository<Retur, String> {
+public interface ReturRepo extends JpaRepository<Retur, Long> {
 
 }

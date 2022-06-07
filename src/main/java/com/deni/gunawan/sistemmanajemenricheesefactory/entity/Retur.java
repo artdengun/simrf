@@ -22,10 +22,9 @@ import javax.validation.constraints.NotEmpty;
 public class Retur {
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    @Column(name = "id", length = 36, unique = true)
-    private String id;
+    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @NotEmpty(message = "Data Nama Barang Required")
     @Column(name = "nama_barang", length = 50)
     private String namaBarang;

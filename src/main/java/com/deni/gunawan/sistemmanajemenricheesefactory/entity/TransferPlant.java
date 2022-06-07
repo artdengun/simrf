@@ -17,10 +17,9 @@ import javax.validation.constraints.NotEmpty;
 public class TransferPlant {
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    @Column(name = "id", length = 36, unique = true)
-    private String id;
+    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @NotEmpty(message = "Data Tanggal Dikirim Required")
     @Column(name = "tanggal_dikirim", length = 30)
     private String tanggalDikirim;

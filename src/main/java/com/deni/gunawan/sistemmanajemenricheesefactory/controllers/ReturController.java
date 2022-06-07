@@ -42,7 +42,7 @@ public class ReturController {
     }
 
     @GetMapping(value = "/form/{id}")
-    public String showEditForm(Model model, @PathVariable(value = "id") String id){
+    public String showEditForm(Model model, @PathVariable(value = "id") Long id){
         try {
             Retur retur = returService.findById(id)
                     .orElseThrow(()
@@ -76,7 +76,7 @@ public class ReturController {
     }
 
     @GetMapping(value = "/delete/{id}")
-    public String remove(@PathVariable(value = "id") String id){
+    public String remove(@PathVariable(value = "id") Long id){
         this.returService.delete(id);
         return "redirect:/retur/index";
     }

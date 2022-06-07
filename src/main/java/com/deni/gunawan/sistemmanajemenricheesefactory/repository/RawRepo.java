@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author denigunawan
  */
 
-public interface RawRepo extends JpaRepository<Raw, String> {
+public interface RawRepo extends JpaRepository<Raw, Long> {
 }

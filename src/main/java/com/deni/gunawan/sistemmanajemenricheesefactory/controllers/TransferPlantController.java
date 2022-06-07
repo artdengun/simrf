@@ -41,7 +41,7 @@ public class TransferPlantController {
     }
 
     @GetMapping(value = "/form/{id}")
-    public String showEditForm(Model model, @PathVariable(value = "id") String id){
+    public String showEditForm(Model model, @PathVariable(value = "id") Long id){
         try {
             TransferPlant transferplant = transferPlantService.findById(id)
                     .orElseThrow(()
@@ -73,7 +73,7 @@ public class TransferPlantController {
     }
 
     @GetMapping(value = "/delete/{id}")
-    public String remove(@PathVariable(value = "id") String id){
+    public String remove(@PathVariable(value = "id") Long id){
         transferPlantService.delete(id);
         return "redirect:/transferplant/index";
     }

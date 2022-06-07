@@ -40,7 +40,7 @@ public class FrozenController {
         }
 
     @GetMapping(value = "/form/{id}")
-    public String showEditForm(Model model, @PathVariable(value = "id") String id){
+    public String showEditForm(Model model, @PathVariable(value = "id") Long id){
         try {
             Frozen frozen = frozenService.findById(id)
                     .orElseThrow(()
@@ -62,7 +62,7 @@ public class FrozenController {
         }
     }
         @GetMapping(value = "/delete/{id}")
-        public String remove(@PathVariable(value = "id") String id){
+        public String remove(@PathVariable(value = "id") Long id){
             this.frozenService.delete(id);
             return "redirect:/frozen/index";
         }

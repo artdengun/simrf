@@ -24,9 +24,9 @@ import javax.validation.constraints.NotNull;
 public class Asset {
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private String id;
+    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @NotEmpty(message = "Data No Assets Required")
     @Column(name = "no_assets", length = 30)
     private String noAssets;

@@ -42,7 +42,7 @@ public class RawController {
     }
 
     @GetMapping(value = "/form/{id}")
-    public String showEditForm(Model model, @PathVariable(value = "id") String id){
+    public String showEditForm(Model model, @PathVariable(value = "id") Long id){
         try {
             Raw raw = rawService.findById(id)
                     .orElseThrow(()
@@ -74,7 +74,7 @@ public class RawController {
     }
 
     @GetMapping(value = "/delete/{id}")
-    public String remove(@PathVariable(value = "id") String id,
+    public String remove(@PathVariable(value = "id") Long id,
                          RedirectAttributes redirectAttributes){
         rawService.delete(id);
         redirectAttributes.addFlashAttribute("successAlert", "Data Ditemukan");

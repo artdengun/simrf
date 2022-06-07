@@ -29,10 +29,10 @@ public class ReturService {
     public Retur save(Retur retur){
         return returRepo.save(retur);
     }
-    public Optional<Retur> findById(String id){
+    public Optional<Retur> findById(Long id){
         return returRepo.findById(id);
     }
-    public void delete(String id){
+    public void delete(Long id){
         returRepo.deleteById(id);
     }
 

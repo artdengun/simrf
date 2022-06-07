@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 
 
-public interface TransferPlantRepo extends JpaRepository<TransferPlant, String> {
+public interface TransferPlantRepo extends JpaRepository<TransferPlant, Long> {
 }

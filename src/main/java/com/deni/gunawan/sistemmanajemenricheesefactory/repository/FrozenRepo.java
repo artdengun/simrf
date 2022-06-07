@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author denigunawan
  */
 
-public interface FrozenRepo extends JpaRepository<Frozen, String> {
+public interface FrozenRepo extends JpaRepository<Frozen, Long> {
 }

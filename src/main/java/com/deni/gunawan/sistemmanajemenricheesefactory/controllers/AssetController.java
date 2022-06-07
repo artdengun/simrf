@@ -44,7 +44,7 @@ public class AssetController {
     }
 
     @GetMapping(value = "/form/{id}")
-    public String showEditForm(Model model,  @PathVariable(value = "id") String id){
+    public String showEditForm(Model model,  @PathVariable(value = "id") Long id){
         try {
             Asset asset = assetService.findDataById(id)
                     .orElseThrow(()
@@ -76,7 +76,7 @@ public class AssetController {
     }
 
     @GetMapping(value = "/delete/{id}")
-    public String remove(@PathVariable(value = "id") String id,
+    public String remove(@PathVariable(value = "id") Long id,
                               RedirectAttributes redirectAttributes){
         this.assetService.delete(id);
         redirectAttributes.addFlashAttribute("alertSuccess", "Data Berhasil Remove");

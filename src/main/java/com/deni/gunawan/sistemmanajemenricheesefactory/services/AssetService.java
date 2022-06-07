@@ -28,10 +28,10 @@ public class AssetService {
     public Asset saved(Asset asset){
      return assetRepo.save(asset);
     }
-    public Optional<Asset> findDataById(String id){
+    public Optional<Asset> findDataById(Long id){
         return assetRepo.findById(id);
     }
-    public void delete(String id){
+    public void delete(Long id){
        assetRepo.deleteById(id);
     }
 }

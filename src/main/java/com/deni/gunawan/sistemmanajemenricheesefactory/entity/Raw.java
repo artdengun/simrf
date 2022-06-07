@@ -21,10 +21,9 @@ import javax.validation.constraints.NotEmpty;
 public class Raw {
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    @Column(name = "id", length = 36, unique = true)
-    private String id;
+    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @NotEmpty(message = "Data Nama Product Required")
     @Column(name = "nama_product", length = 50)
     private String namaProduct;

@@ -28,10 +28,10 @@ public class TransferPlantService {
     public TransferPlant save(TransferPlant transferPlant){
         return transferPlantRepo.save(transferPlant);
     }
-    public Optional<TransferPlant> findById(String id){
+    public Optional<TransferPlant> findById(Long id){
         return transferPlantRepo.findById(id);
     }
-    public void delete(String id){
+    public void delete(Long id){
         transferPlantRepo.deleteById(id);
     }
 }

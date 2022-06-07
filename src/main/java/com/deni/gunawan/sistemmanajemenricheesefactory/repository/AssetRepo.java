@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author denigunawan
  */
 
-public interface AssetRepo extends JpaRepository<Asset, String> {
+public interface AssetRepo extends JpaRepository<Asset, Long> {
 }
