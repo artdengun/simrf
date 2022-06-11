@@ -1,6 +1,6 @@
 package com.deni.gunawan.sistemmanajemenricheesefactory.services;
 
-import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Role;
+import com.deni.gunawan.sistemmanajemenricheesefactory.entity.Roles;
 import com.deni.gunawan.sistemmanajemenricheesefactory.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 public class MyUserDetails implements UserDetails {
 
@@ -23,10 +22,10 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<Role> roles = user.getRoles();
+        List<Roles> roles = user.getRoles();
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
-        for (Role role : roles) {
+        for (Roles role : roles) {
             authorities.add(new SimpleGrantedAuthority(role.getName()));
         }
 

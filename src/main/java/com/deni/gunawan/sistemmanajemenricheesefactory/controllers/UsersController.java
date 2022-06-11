@@ -27,7 +27,7 @@ public class UsersController {
 
     @GetMapping(value = "/index")
     public String getList(ModelMap map, Pageable pageable) {
-        map.addAttribute("roles", roleRepo.findAll());
+        map.addAttribute("role", roleRepo.findAll());
         map.addAttribute("listUser", userRepo.findAll(pageable));
         return "pages/users/index";
     }
