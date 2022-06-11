@@ -21,7 +21,6 @@ import javax.validation.constraints.NotEmpty;
 public class Raw {
 
     @Id
-    @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty(message = "Data Nama Product Required")
@@ -45,7 +44,6 @@ public class Raw {
     @NotEmpty(message = "Data Deskripsi Required")
     @Column(name = "deskripsi", length = 100)
     private String deskripsi;
-
 
     @Enumerated(EnumType.STRING)
     private Vendor vendor;

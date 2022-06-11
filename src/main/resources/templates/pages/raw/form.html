@@ -44,7 +44,7 @@
                                 <div class="form-group col-md-6">
                                     <label>Vendor</label>
                                     <select name="vendor" th:field="*{vendor}" class="form-control">
-                                        <option value=""></option>
+                                        <option value="--pilih vendor---"></option>
                                         <option th:each="vendor : ${T(com.deni.gunawan.sistemmanajemenricheesefactory.enums.Vendor).values()}"
                                                 th:value="${vendor}"
                                                 th:text="${vendor.vendorDisplay}"></option>

@@ -52,13 +52,13 @@
                 <tbody>
                 <tr th:each="raw, itrStat: ${listRaw}">
                   <td th:text="${itrStat.count}"></td>
-                  <td th:text="${raw.vendor.vendorDisplay}"></td>
                   <td th:text="${raw.namaProduct}"></td>
                   <td th:text="${raw.productionDate}"></td>
                   <td th:text="${raw.expDate}"></td>
                   <td th:text="${raw.negara.negaraDisplay}"></td>
                   <td th:text="${raw.uom.uomDisplay}"></td>
                   <td th:text="${raw.quantity}"></td>
+                  <td th:text="${raw.vendor.vendorDisplay}"></td>
                   <td th:text="${raw.codeBarang}"></td>
                   <td th:text="${raw.tanggalPenerimaan}"></td>
                   <td th:text="${raw.deskripsi}"></td>

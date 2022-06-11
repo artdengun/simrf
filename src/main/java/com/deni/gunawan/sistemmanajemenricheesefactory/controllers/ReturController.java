@@ -60,7 +60,7 @@ public class ReturController {
         {
             model.addAttribute("retur", retur);
             returService.save(retur);
-            return "redirect:/retur/index";
+            return "redirect:pages/retur/index";
         }
     }
 
@@ -72,18 +72,13 @@ public class ReturController {
             return "pages/retur/form";
         }
         returService.save(retur);
-        return "redirect:/retur/index";
+        return "redirect:pages/retur/index";
     }
 
     @GetMapping(value = "/delete/{id}")
     public String remove(@PathVariable(value = "id") Long id){
         this.returService.delete(id);
-        return "redirect:/retur/index";
+        return "redirect:pages/retur/index";
     }
-
-
-
-    // public generateExcel
-    // public GeneratePDF
 
 }

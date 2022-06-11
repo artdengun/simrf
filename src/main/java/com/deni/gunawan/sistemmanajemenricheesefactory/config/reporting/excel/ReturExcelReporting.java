@@ -89,6 +89,7 @@ public class ReturExcelReporting {
             createCell(row, columnCount++, Retur.getCodeBarang(), style);
             createCell(row, columnCount++, Retur.getTanggalRetur(), style);
             createCell(row, columnCount++, Retur.getDeskripsi(), style);
+            createCell(row, columnCount++, Retur.getUsers().getNama(), style);
 
         }
     }

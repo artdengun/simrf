@@ -22,7 +22,6 @@ import javax.validation.constraints.NotEmpty;
 public class Retur {
 
     @Id
-    @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty(message = "Data Nama Barang Required")
