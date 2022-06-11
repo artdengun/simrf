@@ -59,4 +59,5 @@ public class Raw {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User users;
+
 }

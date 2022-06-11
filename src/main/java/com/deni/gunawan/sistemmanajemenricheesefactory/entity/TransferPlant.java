@@ -17,7 +17,6 @@ import javax.validation.constraints.NotEmpty;
 public class TransferPlant {
 
     @Id
-    @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty(message = "Data Tanggal Dikirim Required")
@@ -48,5 +47,4 @@ public class TransferPlant {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User users;
-
 }

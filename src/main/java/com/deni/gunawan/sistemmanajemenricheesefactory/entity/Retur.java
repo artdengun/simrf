@@ -60,4 +60,5 @@ public class Retur {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User users;
+
 }

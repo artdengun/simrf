@@ -22,7 +22,6 @@ import javax.validation.constraints.NotEmpty;
 public class Frozen {
 
     @Id
-    @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty(message = "Data Product Required")

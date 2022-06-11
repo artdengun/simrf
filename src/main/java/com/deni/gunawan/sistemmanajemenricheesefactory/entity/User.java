@@ -45,8 +45,4 @@ public class User {
     )
     public List<Role> roles = new ArrayList<>();
 
-    public Long getId() {
-        return id;
-    }
-
 }
