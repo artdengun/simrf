@@ -67,34 +67,29 @@ public class ExportPdfController {
         httpServletResponse.setContentType("application/pdf");
         httpServletResponse.setHeader("Content-Disposition", "attachment; filename=\"data-retur_"+currentDateTime+".pdf\"");
         JasperPrint jasperPrint = pdfReporting.generateReturReporting();
-        JasperExportManager.exportReportToPdfStream(jasperPrint,httpServletResponse.getOutputStream());
+        JasperExportManager.exportReportToPdf(jasperPrint);
 
     }
-
-
-    @GetMapping(value = "/transferplant/export/pdf")
-    public void getPDFTransferPlantReport() throws Exception {
-        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-        String currentDateTime = dateFormatter.format(new Date());
-        httpServletResponse.setContentType("application/pdf");
-        httpServletResponse.setHeader("Content-Disposition", "attachment; filename=\"data-transferplant_" +  currentDateTime +".pdf\"");
-        JasperPrint jasperPrint = pdfReporting.generateTransferPlantReporting();
-        JasperExportManager.exportReportToPdfStream(jasperPrint,httpServletResponse.getOutputStream());
-
-    }
-
 
     @GetMapping(value = "/users/export/pdf")
     public void getPDFUsersReport() throws Exception {
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
         String currentDateTime = dateFormatter.format(new Date());
         httpServletResponse.setContentType("application/pdf");
-        httpServletResponse.setHeader("Content-Disposition", "attachment; filename=\"data-users_"+currentDateTime+".pdf\"");
-        JasperPrint jasperPrint = pdfReporting.generateUsersReporting();
+        httpServletResponse.setHeader("Content-Disposition", "attachment; filename=\"data-users_" +  currentDateTime +".pdf\"");
+        JasperPrint jasperPrint = pdfReporting.generateUserReporting();
         JasperExportManager.exportReportToPdfStream(jasperPrint,httpServletResponse.getOutputStream());
 
     }
 
+    @GetMapping(value = "/roles/export/pdf")
+    public void getPDFRoleReport() throws Exception {
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+        httpServletResponse.setContentType("application/pdf");
+        httpServletResponse.setHeader("Content-Disposition", "attachment; filename=\"data-roles_" +  currentDateTime +".pdf\"");
+        JasperPrint jasperPrint = pdfReporting.generateRoleReporting();
+        JasperExportManager.exportReportToPdfStream(jasperPrint,httpServletResponse.getOutputStream());
 
-
+    }
 }

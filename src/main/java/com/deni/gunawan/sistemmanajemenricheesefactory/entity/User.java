@@ -35,12 +35,12 @@ public class User {
     private String password;
     private boolean enabled = true;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    public List<Roles> roles = new ArrayList<>();
+    public List<Roles> role = new ArrayList<>();
 
 }

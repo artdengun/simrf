@@ -73,13 +73,24 @@ public class PDFReporting {
 
     }
 
-
-    public JasperPrint generateUsersReporting() throws Exception{
-        InputStream fileReport = new ClassPathResource("reporting/users.jasper")
+    public JasperPrint generateRoleReporting() throws Exception{
+        InputStream fileReport = new ClassPathResource("reporting/roles.jasper")
                 .getInputStream();
         JasperReport jasperReport = (JasperReport) JRLoader.loadObject(fileReport);
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, getConnection());
         return jasperPrint;
 
     }
+
+    public JasperPrint generateUserReporting() throws Exception{
+        InputStream fileReport = new ClassPathResource("reporting/user.jasper")
+                .getInputStream();
+        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(fileReport);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, getConnection());
+        return jasperPrint;
+
+    }
+
+
+
 }

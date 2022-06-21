@@ -11,6 +11,11 @@ CREATE TABLE IF NOT EXISTS users
     email             VARCHAR(255),
     username          VARCHAR(255),
     password          VARCHAR(255),
+    role_id          BIGINT,
     enabled           BOOLEAN,
     CONSTRAINT pk_users PRIMARY KEY (user_id)
 );
+
+
+ALTER TABLE users
+    ADD CONSTRAINT FK_USERS_ON_ROLE FOREIGN KEY (role_id) REFERENCES users (role_id);

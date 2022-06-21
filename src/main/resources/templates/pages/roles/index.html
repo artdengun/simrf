@@ -17,10 +17,10 @@
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary"> Data Roles</h6> <br>
-                        <div class="col-md-12">
-                            <a th:href="@{/roles/form}" class="btn btn-primary float-right"><i
-                                    class="fas fa-plus-square"></i> New Data</a>
-                        </div>
+<!--                        <div class="col-md-12">-->
+<!--                            <a th:href="@{/roles/form}" class="btn btn-primary float-right"><i-->
+<!--                                    class="fas fa-plus-square"></i> New Data</a>-->
+<!--                        </div>-->
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -31,19 +31,19 @@
                                 <tr>
                                     <th class="text-center">No</th>
                                     <th class="text-center"><a class="sorted" sd:pagination-sort="name">Name</a></th>
-                                    <th class="text-center">Action</th>
+<!--                                    <th class="text-center">Action</th>-->
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="roles, itrStat: ${listRole}">
                                     <td class="text-center" th:text="${itrStat.count}"></td>
                                     <td class="text-center" th:text="${roles.name}"></td>
-                                    <td class="text-center">
-                                        <a th:href="@{/roles/form/{id}(id=${roles.id})}" class="btn btn-primary"><i
-                                                class="fas fa-edit"></i>Change</a>
-                                        <a th:href="@{/roles/delete/{id}(id=${roles.id})}" class="btn btn-danger"><i
-                                                class="fas fa-trash"></i>Delete</a>
-                                    </td>
+<!--                                    <td class="text-center">-->
+<!--                                        <a th:href="@{/roles/form/{id}(id=${roles.id})}" class="btn btn-primary"><i-->
+<!--                                                class="fas fa-edit"></i>Change</a>-->
+<!--                                        <a th:href="@{/roles/delete/{id}(id=${roles.id})}" class="btn btn-danger"><i-->
+<!--                                                class="fas fa-trash"></i>Delete</a>-->
+<!--                                    </td>-->
                                 </tr>
                                 </tbody>
                             </table>
