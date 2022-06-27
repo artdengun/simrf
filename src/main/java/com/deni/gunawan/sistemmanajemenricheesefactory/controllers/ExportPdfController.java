@@ -25,7 +25,6 @@ public class ExportPdfController {
         private PDFReporting pdfReporting;
         private HttpServletResponse httpServletResponse;
 
-
         @GetMapping(value = "/asset/export/pdf")
         public void getPDFAssetReport() throws Exception {
             DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
@@ -89,6 +88,17 @@ public class ExportPdfController {
         httpServletResponse.setContentType("application/pdf");
         httpServletResponse.setHeader("Content-Disposition", "attachment; filename=\"data-roles_" +  currentDateTime +".pdf\"");
         JasperPrint jasperPrint = pdfReporting.generateRoleReporting();
+        JasperExportManager.exportReportToPdfStream(jasperPrint,httpServletResponse.getOutputStream());
+
+    }
+
+    @GetMapping(value = "/transferplant/export/pdf")
+    public void getPDFTransferplantReport() throws Exception {
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+        httpServletResponse.setContentType("application/pdf");
+        httpServletResponse.setHeader("Content-Disposition", "attachment; filename=\"data-transferplant_" +  currentDateTime +".pdf\"");
+        JasperPrint jasperPrint = pdfReporting.generateTransferPlantReporting();
         JasperExportManager.exportReportToPdfStream(jasperPrint,httpServletResponse.getOutputStream());
 
     }
