@@ -1,2 +1,2 @@
-# simrf
+# sistem informasi manajemen barang
 

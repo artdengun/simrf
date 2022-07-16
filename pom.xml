@@ -16,8 +16,24 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<thymeleaf-version>3.5.0</thymeleaf-version>
+		<apache-common-version>1.9.0</apache-common-version>
+		<apache-poi-version>3.17</apache-poi-version>
+		<jasper-report-version>6.17.0</jasper-report-version>
+		<jasper-report-fonts-version>6.17.0</jasper-report-fonts-version>
+		<flyway-version>8.5.12</flyway-version>
 	</properties>
-
+	<developers>
+		<developer>
+		<name>Deni Gunawan</name>
+		<email>denigunawan775@gmail.com</email>
+		<roles>
+			<role>APIMicroservices</role>
+			<role>Java Software Engineer</role>
+		</roles>
+		<timezone>+62</timezone>
+		</developer>
+	</developers>
 	<dependencies>
 	<dependency>
       <groupId>org.springframework.boot</groupId>
@@ -26,7 +42,7 @@
 		<dependency>
 			<groupId>io.github.jpenren</groupId>
 			<artifactId>thymeleaf-spring-data-dialect</artifactId>
-			<version>3.5.0</version>
+			<version>${thymeleaf-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -47,12 +63,12 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-csv</artifactId>
-			<version>1.9.0</version>
+			<version>${apache-common-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>3.17</version>
+			<version>${apache-poi-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -63,9 +79,19 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>${jasper-report-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-fonts</artifactId>
+			<version>${jasper-report-fonts-version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
-			<version>8.5.12</version>
+			<version>${flyway-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

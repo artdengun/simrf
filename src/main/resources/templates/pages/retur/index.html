@@ -22,7 +22,7 @@
               <div sec:authorize="hasAnyAuthority('MANAJER', 'LEADER')">
               <div class="col-md-6">
                 <a th:href="@{/retur/export/excel}" class="btn btn-success float-left"><i class="fas fa-file-excel"></i> EXCEL</a>
-<!--                <a th:href="@{/retur/export/pdf}" class="btn btn-danger float-left"><i class="fas fa-file-pdf"></i> PDF</a>-->
+                <a th:href="@{/retur/export/pdf}" class="btn btn-danger float-left"><i class="fas fa-file-pdf"></i> PDF</a>
               </div>
               </div>
             </div>
@@ -46,7 +46,9 @@
                   <th class="text-center"><a class="sorted" sd:pagination-sort="tanggalRetur">Tanggal Retur</a></th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="deskripsi">Deskripsi</a></th>
                   <th class="text-center"><a class="sorted" sd:pagination-sort="pic">PIC</a></th>
+                  <div sec:authorize="hasAnyAuthority('LEADER')">
                   <th class="text-center">Action</th>
+                  </div>
                 </tr>
                 </thead>
                 <tbody>
@@ -63,10 +65,12 @@
                   <td th:text="${retur.tanggalRetur}"></td>
                   <td th:text="${retur.deskripsi}"></td>
                   <td th:text="${retur.users.nama}"></td>
+                  <div sec:authorize="hasAnyAuthority('LEADER')">
                   <td>
                     <a th:href="@{/retur/form/{id}(id=${retur.id})}" class="btn btn-primary"><i class="fas fa-edit"></i>Change</a>
                     <a th:href="@{/retur/delete/{id}(id=${retur.id})}" class="btn btn-danger"><i class="fas fa-trash"></i>Delete</a>
                   </td>
+                  </div>
                 </tr>
                 </tbody>
               </table>
@@ -77,7 +81,6 @@
                 <div class="col-sm-6">
                   <nav class="float-right">
                     <ul class="pagination" sd:pagination-split="7" sd:pagination="full">
-                      <!-- Pagination created by SpringDataDialect, this content is just for mockup -->
                       <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
                       <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
                     </ul>
