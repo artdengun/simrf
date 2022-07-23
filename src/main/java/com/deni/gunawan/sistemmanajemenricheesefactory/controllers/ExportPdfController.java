@@ -65,7 +65,7 @@ public class ExportPdfController {
         httpServletResponse.setContentType("application/pdf");
         httpServletResponse.setHeader("Content-Disposition", "attachment; filename=\"data-retur_" + currentDateTime + ".pdf\"");
         JasperPrint jasperPrint = pdfReporting.generateReturReporting();
-        JasperExportManager.exportReportToPdf(jasperPrint);
+        JasperExportManager.exportReportToPdfStream(jasperPrint, httpServletResponse.getOutputStream());
 
     }
 
