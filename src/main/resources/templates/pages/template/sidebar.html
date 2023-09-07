@@ -29,21 +29,21 @@
         </li>
     </div>
     <div sec:authorize="hasAnyAuthority('MANAJER', 'LEADER', 'CREW')">
-    <li class="nav-item ">
-        <a class="nav-link" th:href="@{/frozen/index}">
-            <i class="fas fa-fw fa-list-alt"></i>
-            <span>Data Frozen</span></a>
-    </li>
-    <li class="nav-item ">
-        <a class="nav-link"  th:href="@{/raw/index}">
-            <i class="fas fa-fw fa-list-alt"></i>
-            <span>Data Raw</span></a>
-    </li>
-    <li class="nav-item ">
-        <a class="nav-link"  th:href="@{/retur/index}">
-            <i class="fas fa-fw fa-list-alt"></i>
-            <span>Data Retur</span></a>
-    </li>
+        <li class="nav-item ">
+            <a class="nav-link" th:href="@{/frozen/index}">
+                <i class="fas fa-fw fa-list-alt"></i>
+                <span>Data Frozen</span></a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link"  th:href="@{/raw/index}">
+                <i class="fas fa-fw fa-list-alt"></i>
+                <span>Data Raw</span></a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link"  th:href="@{/retur/index}">
+                <i class="fas fa-fw fa-list-alt"></i>
+                <span>Data Retur</span></a>
+        </li>
     </div>
     <div sec:authorize="hasAnyAuthority('MANAJER', 'LEADER')">
     <li class="nav-item ">
